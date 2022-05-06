@@ -1,0 +1,34 @@
+<div class="sidenav-hold">
+  <ul appDropdown class="sidenav">
+    <li *ngFor="let item of menuItems" appDropdownLink routerLinkActive="open">
+      <!-- The comment below is the titles for the different menu items -->
+      <!-- <div class="nav-item-sep" *ngIf="item.type === 'separator'">
+        <span class="text-muted">{{item.name}}</span>
+      </div> -->
+      <div
+        *ngIf="!item.disabled && item.type !== 'separator' && item.type !== 'icon'"
+        class="lvl1"
+      >
+        <!-- the a below holds all different paes -->
+        <a
+          routerLink="/{{item.state}}"
+          appDropdownToggle
+          matRipple
+          *ngIf="item.type === 'link'"
+          routerLinkActive="mat-bg-accent mat-elevation-z1"
+        >
+          <mat-icon>{{item.icon}}</mat-icon>
+          <span class="item-name lvl1">{{item.name}}</span>
+          <span fxFlex></span>
+          <span
+            class="menuitem-badge mat-bg-{{ badge.color }}"
+            [ngStyle]="{background: badge.color}"
+            *ngFor="let badge of item.badges"
+            >{{ badge.value }}</span
+          >
+        </a>
+        
+      </div>
+    </li>
+  </ul>
+</div>
