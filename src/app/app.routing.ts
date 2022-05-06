@@ -42,14 +42,14 @@ export const rootRouterConfig: Routes = [
       {
         path: "passeggeri",
         loadChildren: () =>
-          import("./views/tables/tables.module").then((m) => m.TablesModule),
-        data: { title: "Passeggeri", breadcrumb: "Passeggeri" },
+          import("./views/others/others.module").then((m) => m.OthersModule),
+        data: { title: "Passeggeri", breadcrumb: "Info" },
       },
       {
         path: "cuscinetti",
         loadChildren: () =>
-          import("./views/tables/tables.module").then((m) => m.TablesModule),
-        data: { title: "Cuscinetti", breadcrumb: "Cuscinetti" },
+          import("./views/others/others.module").then((m) => m.OthersModule),
+        data: { title: "Cuscinetti", breadcrumb: "Info" },
       },
     ],
   },

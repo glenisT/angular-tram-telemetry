@@ -46,15 +46,15 @@ export class NavigationService {
       name: "Passeggeri",
       type: "link",
       tooltip: "Passeggeri",
-      icon: "format_line_spacing",
-      state: "passeggeri/mat-table"
+      icon: "check_box_outline_blank",
+      state: "passeggeri/blank"
     },
     {
       name: "Cuscinetti",
       type: "link",
       tooltip: "Cuscinetti",
-      icon: "format_line_spacing",
-      state: "cuscinetti/mat-table"
+      icon: "check_box_outline_blank",
+      state: "cuscinetti/blank"
     },
   ];
 
