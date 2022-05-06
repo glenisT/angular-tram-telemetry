@@ -40,28 +40,28 @@ export class NavigationService {
       name: "HVAC",
       type: "link",
       icon: "check_box_outline_blank",
-      state: "hvac/blank"
+      state: "hvac/telemetry"
     },
     {
       name: "Passeggeri",
       type: "link",
       tooltip: "Passeggeri",
       icon: "check_box_outline_blank",
-      state: "passeggeri/blank"
+      state: "passeggeri/telemetry"
     },
     {
       name: "Cuscinetti",
       type: "link",
       tooltip: "Cuscinetti",
       icon: "check_box_outline_blank",
-      state: "cuscinetti/blank"
+      state: "cuscinetti/telemetry"
     },
     {
       name: "Porte",
       type: "link",
       tooltip: "Cuscinetti",
       icon: "check_box_outline_blank",
-      state: "porte/blank"
+      state: "porte/telemetry"
     },
   ];
 
