@@ -23,7 +23,10 @@ import { SharedModule } from "./../../shared/shared.module";
 import { SharedMaterialModule } from "app/shared/shared-material.module";
 
 import { OthersRoutes } from "./others.routing";
-import { AppBlankComponent } from "./app-blank/app-blank.component";
+import { AppHvacComponent } from "./app-hvac/app-hvac.component";
+import { AppPasseggeriComponent } from "./app-passeggeri/app-passeggeri.component";
+import { AppCuscinettiComponent } from "./app-cuscinetti/app-cuscinetti.component";
+import { AppPorteComponent } from "./app-porte/app-porte.component";
 
 @NgModule({
   imports: [
@@ -38,7 +41,10 @@ import { AppBlankComponent } from "./app-blank/app-blank.component";
     RouterModule.forChild(OthersRoutes)
   ],
   declarations: [
-    AppBlankComponent
+    AppHvacComponent,
+    AppPasseggeriComponent,
+    AppCuscinettiComponent,
+    AppPorteComponent
   ]
 })
 export class OthersModule {}

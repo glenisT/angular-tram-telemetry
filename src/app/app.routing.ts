@@ -37,25 +37,25 @@ export const rootRouterConfig: Routes = [
         path: "hvac",
         loadChildren: () =>
           import("./views/others/others.module").then((m) => m.OthersModule),
-        data: { title: "HVAC", breadcrumb: "HVAC" },
+        data: { title: "", breadcrumb: "HVAC" },
       },
       {
         path: "passeggeri",
         loadChildren: () =>
           import("./views/others/others.module").then((m) => m.OthersModule),
-        data: { title: "Passeggeri", breadcrumb: "Passeggeri" },
+        data: { title: "", breadcrumb: "Passeggeri" },
       },
       {
         path: "cuscinetti",
         loadChildren: () =>
           import("./views/others/others.module").then((m) => m.OthersModule),
-        data: { title: "Cuscinetti", breadcrumb: "Cuscinetti" },
+        data: { title: "", breadcrumb: "Cuscinetti" },
       },
       {
         path: "porte",
         loadChildren: () =>
           import("./views/others/others.module").then((m) => m.OthersModule),
-        data: { title: "Porte", breadcrumb: "Porte" },
+        data: { title: "", breadcrumb: "Porte" },
       },
     ],
   },
