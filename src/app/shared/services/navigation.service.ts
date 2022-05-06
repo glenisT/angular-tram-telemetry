@@ -34,7 +34,7 @@ export class NavigationService {
       type: "link",
       tooltip: "Tram",
       icon: "dashboard",
-      state: "tram/analytics"
+      state: "tram/general"
     },
     {
       name: "HVAC",
@@ -55,6 +55,13 @@ export class NavigationService {
       tooltip: "Cuscinetti",
       icon: "check_box_outline_blank",
       state: "cuscinetti/blank"
+    },
+    {
+      name: "Porte",
+      type: "link",
+      tooltip: "Cuscinetti",
+      icon: "check_box_outline_blank",
+      state: "porte/blank"
     },
   ];
 

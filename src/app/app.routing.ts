@@ -6,7 +6,7 @@ import { AuthGuard } from "./shared/guards/auth.guard";
 export const rootRouterConfig: Routes = [
   {
     path: "",
-    redirectTo: "/tram/analytics",
+    redirectTo: "/tram/general",
     pathMatch: "full",
   },
   {
@@ -50,6 +50,12 @@ export const rootRouterConfig: Routes = [
         loadChildren: () =>
           import("./views/others/others.module").then((m) => m.OthersModule),
         data: { title: "Cuscinetti", breadcrumb: "Info" },
+      },
+      {
+        path: "porte",
+        loadChildren: () =>
+          import("./views/others/others.module").then((m) => m.OthersModule),
+        data: { title: "Porte", breadcrumb: "Info" },
       },
     ],
   },

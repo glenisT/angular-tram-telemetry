@@ -4,7 +4,8 @@ import { AnalyticsComponent } from "./analytics/analytics.component";
 
 export const DashboardRoutes: Routes = [
   {
-    path: "analytics",
-    component: AnalyticsComponent
+    path: "general",
+    component: AnalyticsComponent,
+    data: { title: 'Tram', breadcrumb: '' }
   }
 ];
