@@ -43,19 +43,19 @@ export const rootRouterConfig: Routes = [
         path: "passeggeri",
         loadChildren: () =>
           import("./views/others/others.module").then((m) => m.OthersModule),
-        data: { title: "Passeggeri", breadcrumb: "Info" },
+        data: { title: "Passeggeri", breadcrumb: "Passeggeri" },
       },
       {
         path: "cuscinetti",
         loadChildren: () =>
           import("./views/others/others.module").then((m) => m.OthersModule),
-        data: { title: "Cuscinetti", breadcrumb: "Info" },
+        data: { title: "Cuscinetti", breadcrumb: "Cuscinetti" },
       },
       {
         path: "porte",
         loadChildren: () =>
           import("./views/others/others.module").then((m) => m.OthersModule),
-        data: { title: "Porte", breadcrumb: "Info" },
+        data: { title: "Porte", breadcrumb: "Porte" },
       },
     ],
   },
