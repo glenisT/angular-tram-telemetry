@@ -108,39 +108,67 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   initDailyTrafficChartBar(theme) {
     this.dailyTrafficChartBar = {
       title: {
-        text: 'Dynamic Data + Time Axis'
+        text: 'Consumo di Corrente - Porta 1'
       },
       tooltip: {
         trigger: 'axis',
         formatter: (params) => {
           params = params[0];
           const date = new Date(params.name);
-          return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+          return params.value[1] + ' kW';
         },
         axisPointer: {
           animation: false
         }
       },
       xAxis: {
+        name: 'Tempo',
+        show: false,
         type: 'time',
         splitLine: {
           show: false
         }
       },
       yAxis: {
+        name : 'Corrente',
+        nameLocation: 'middle',
+        nameGap: 50,
+        nameTextStyle: {
+          fontWeight: 'bold',
+          fontFamily: 'roboto'
+        },
         type: 'value',
         boundaryGap: [0, '100%'],
+        splitArea: {
+          show: true
+        },
         splitLine: {
           show: false
         }
       },
+      dataZoom: [
+        {
+            id: 'dataZoomX',
+            type: 'slider',
+            xAxisIndex: [0],
+            filterMode: 'filter'
+        },
+        {
+            id: 'dataZoomY',
+            type: 'slider',
+            yAxisIndex: [0],
+            filterMode: 'empty'
+        }
+      ],
       series: [{
         name: 'Mocking Data',
         type: 'line',
         showSymbol: false,
         hoverAnimation: false,
-        data: this.data
-      }]
+        data: this.data,
+        smooth:true
+      }
+    ]
     };
   }
 
