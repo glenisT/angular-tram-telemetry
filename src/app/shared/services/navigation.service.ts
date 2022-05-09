@@ -33,34 +33,34 @@ export class NavigationService {
       name: "Tram",
       type: "link",
       tooltip: "Tram",
-      icon: "dashboard",
+      icon: "tram",
       state: "tram/general"
     },
     {
       name: "HVAC",
       type: "link",
-      icon: "check_box_outline_blank",
+      icon: "insert_chart",
       state: "hvac/telemetryHVAC"
     },
     {
       name: "Passeggeri",
       type: "link",
       tooltip: "Passeggeri",
-      icon: "check_box_outline_blank",
+      icon: "directions_walk",
       state: "passeggeri/telemetryPasseggeri"
     },
     {
       name: "Cuscinetti",
       type: "link",
       tooltip: "Cuscinetti",
-      icon: "check_box_outline_blank",
+      icon: "timelapse",
       state: "cuscinetti/telemetryCuscinetti"
     },
     {
       name: "Porte",
       type: "link",
       tooltip: "Cuscinetti",
-      icon: "check_box_outline_blank",
+      icon: "meeting_room",
       state: "porte/telemetryPorte"
     },
   ];
