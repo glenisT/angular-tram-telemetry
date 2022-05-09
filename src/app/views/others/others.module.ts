@@ -27,6 +27,7 @@ import { AppHvacComponent } from "./app-hvac/app-hvac.component";
 import { AppPasseggeriComponent } from "./app-passeggeri/app-passeggeri.component";
 import { AppCuscinettiComponent } from "./app-cuscinetti/app-cuscinetti.component";
 import { AppPorteComponent } from "./app-porte/app-porte.component";
+import { NgxEchartsModule } from "ngx-echarts";
 
 @NgModule({
   imports: [
@@ -38,6 +39,7 @@ import { AppPorteComponent } from "./app-porte/app-porte.component";
     ChartsModule,
     FileUploadModule,
     SharedModule,
+    NgxEchartsModule,
     RouterModule.forChild(OthersRoutes)
   ],
   declarations: [
