@@ -8,6 +8,7 @@ import { matxAnimations } from "app/shared/animations/matx-animations";
 import { ThemeService } from "app/shared/services/theme.service";
 import tinyColor from "tinycolor2";
 import PerfectScrollbar from "perfect-scrollbar";
+import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
 
 @Component({
   selector: "app-analytics",
@@ -91,7 +92,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
       },
       series: [
         {
-          data: [34, 45, 31, 45, 31, 43, 26, 43, 31, 45, 33, 40],
+          data: [5, 6, 9, 10, 15, 17, 19, 20, 30],
           type: "line",
           areaStyle: {},
           smooth: false,
@@ -107,18 +108,15 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
         showGrid: false,
         boundaryGap: false,
         data: [
-          "Jan",
-          "Feb",
-          "Mar",
-          "Apr",
-          "May",
-          "Jun",
-          "Jul",
-          "Aug",
-          "Sep",
-          "Oct",
-          "Nov",
-          "Dec"
+          "14:22:10",
+          "14:22:20",
+          "14:22:30",
+          "14:22:40",
+          "14:22:50",
+          "14:23:00",
+          "14:23:10",
+          "14:23:20",
+          "14:23:30"
         ],
         axisLabel: {
           color: "#ccc",
@@ -133,7 +131,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
       },
       yAxis: {
         type: "value",
-        min: 10,
+        min: 0,
         max: 60,
         axisLabel: {
           color: "#ccc",
