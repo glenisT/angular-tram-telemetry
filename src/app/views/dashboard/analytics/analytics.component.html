@@ -1,5 +1,13 @@
 <div class="mat-bg-primary mx--033 mt--033 px-24 pt-24 pb-96" id="graph-container">
-  <h1 class="text-white font-weight-bold">Informazioni generali</h1>
+  <h5 class="text-white font-weight-normal">20/05/2022 - 14:23:30</h5>
+  <h1 class="text-white font-weight-normal">Informazioni generali</h1>
+  <br>
+  <br>
+  <br>
+  <div style="display:flex">
+    <mat-icon>speed</mat-icon>
+    <h3 class="text-white font-weight-bold">Velocita nel tempo</h3>
+  </div>
   <div
     height="180"
     echarts
@@ -29,7 +37,7 @@
               }}</mat-icon>
               <div class="ml-12">
                 <p class="m-0 text-muted mb-4">{{ item.title }}</p>
-                <h5 class="m-0 mat-color-{{item.color}}">{{ item.amount }}</h5>
+                <h5 class="m-0 mat-color-{{item.color}} text-25">{{ item.amount }}</h5>
               </div>
             </div>
           </mat-card>
