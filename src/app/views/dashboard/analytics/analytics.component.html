@@ -13,6 +13,15 @@
     class="chart m-0"
     [options]="dailyTrafficChartBar"
   ></div>
+  <ngx-gauge [type]="gaugeType" 
+           [value]="gaugeValue" 
+           [label]="gaugeLabel"  
+           [append]="gaugeAppendText"
+           [thick]="gaugeThickness"
+           [foregroundColor]="gaugeForegroundColor"
+           [backgroundColor]="gaugeBackgroundColor"
+           [size]="gaugeSize" >
+  </ngx-gauge>
 </div>
 <div class="mt--72">
   <div fxLayout="row wrap">

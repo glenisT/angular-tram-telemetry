@@ -12,6 +12,8 @@ import { DashboardRoutes } from "./dashboard.routing";
 import { AnalyticsComponent } from "./analytics/analytics.component";
 import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
 
+import { NgxGaugeModule } from 'ngx-gauge';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -22,6 +24,7 @@ import { PerfectScrollbarModule } from "ngx-perfect-scrollbar";
     NgxDatatableModule,
     SharedPipesModule,
     PerfectScrollbarModule,
+    NgxGaugeModule,
     RouterModule.forChild(DashboardRoutes)
   ],
   declarations: [AnalyticsComponent],

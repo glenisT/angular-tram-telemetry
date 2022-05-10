@@ -1,8 +1,15 @@
 #graph-container
 {
-    width: 60%;
+    width: 70%;
     height: 110%;
     background-color: darkblue !important;
     // to give the entire page the intented color
     box-shadow: 0 0 0 10in darkblue;  
+}
+
+ngx-gauge
+{
+    position: absolute;
+    top: 30%;
+    left: 75%;
 }

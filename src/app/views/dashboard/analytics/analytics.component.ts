@@ -34,6 +34,17 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
   countryTrafficStats: any[];
   doughNutPieOptions: any;
 
+  //used for creating and customizing the gauge chart
+  gaugeType = "arch";
+  gaugeValue = 30;
+  gaugeLabel = "Velocita";
+  gaugeAppendText = "km/h";
+  gaugeThickness = 20;
+  gaugeForegroundColor = "deepSkyBlue";
+  gaugeBackgroundColor = "rgb(55, 55, 153)";
+  gaugeMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeSize = 300;
+
   statCardList = [
     {
       icon: "tram",
