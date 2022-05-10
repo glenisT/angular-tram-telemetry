@@ -1,5 +1,5 @@
-<div class="mat-bg-primary mx--033 mt--033 px-24 pt-24 pb-96">
-  <h5 class="text-white text-16 mb-16 font-weight-bold">Last 12 Months Sales</h5>
+<div class="mat-bg-primary mx--033 mt--033 px-24 pt-24 pb-96" id="graph-container">
+  <h5 class="text-white text-16 mb-16 font-weight-bold">Informazioni generali</h5>
   <div
     height="180"
     echarts
@@ -9,13 +9,13 @@
 </div>
 <div class="mt--72">
   <div fxLayout="row wrap">
-    <div fxFlex="100" fxFlex.sm="70" fxFlex.gt-sm="70">
+    <div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100">
       <div fxLayout="row wrap">
         <div
           *ngFor="let item of statCardList"
           fxFlex="100"
-          fxFlex.sm="50"
-          fxFlex.gt-sm="50"
+          fxFlex.sm="100"
+          fxFlex.gt-sm="30"
         >
           <mat-card
             class="p-24"
@@ -208,7 +208,7 @@
       </div> -->
     </div>
 
-    <div fxFlex="100" fxFlex.sm="30" fxFlex.gt-sm="30">
+    <!-- <div fxFlex="100" fxFlex.sm="30" fxFlex.gt-sm="30">
       <div fxLayout="row wrap">
         <mat-card fxFlex="100">
           <mat-card-title class="mb-0">Traffic Sources</mat-card-title>
@@ -219,7 +219,7 @@
             style="height: 280px"
           ></div>
         </mat-card>
-        <!-- <mat-card fxFlex="100">
+        <mat-card fxFlex="100">
           <mat-card class="text-center mat-bg-gray p-sm-24 mat-elevation-z0">
             <img src="assets/images/illustrations/upgrade.svg" alt="upgrade" />
             <p class="text-muted m-0 py-24">
@@ -230,7 +230,7 @@
               UPGRADE
             </button>
           </mat-card>
-        </mat-card> -->
+        </mat-card>
       </div>
       <div fxLayout="row wrap">
         <mat-card fxFlex="100">
@@ -324,6 +324,6 @@
           </div>
         </mat-card>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
