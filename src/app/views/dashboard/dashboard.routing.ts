@@ -6,6 +6,6 @@ export const DashboardRoutes: Routes = [
   {
     path: "general",
     component: AnalyticsComponent,
-    data: { title: 'Tram', breadcrumb: '' }
+    data: { title: 'Informazioni Generali', breadcrumb: '' }
   }
 ];

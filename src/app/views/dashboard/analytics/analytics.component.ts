@@ -35,15 +35,15 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
 
   statCardList = [
     {
-      icon: "people",
-      title: "New Leads",
-      amount: "3,050",
+      icon: "tram",
+      title: "Tram ID",
+      amount: "1420",
       color: "primary"
     },
     {
-      icon: "attach_money",
-      title: "This week Sales",
-      amount: "$80,500",
+      icon: "tag",
+      title: "Linea",
+      amount: "14",
       color: "primary"
     },
     {

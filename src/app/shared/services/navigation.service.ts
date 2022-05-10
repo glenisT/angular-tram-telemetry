@@ -30,7 +30,7 @@ export class NavigationService {
   iconMenu: IMenuItem[] = [
     
     {
-      name: "Tram",
+      name: "Informazioni Generali",
       type: "link",
       tooltip: "Tram",
       icon: "tram",
@@ -39,14 +39,14 @@ export class NavigationService {
     {
       name: "HVAC",
       type: "link",
-      icon: "insert_chart",
+      icon: "air",
       state: "hvac/telemetryHVAC"
     },
     {
       name: "Passeggeri",
       type: "link",
       tooltip: "Passeggeri",
-      icon: "directions_walk",
+      icon: "airline_seat_recline_normal",
       state: "passeggeri/telemetryPasseggeri"
     },
     {
@@ -60,7 +60,7 @@ export class NavigationService {
       name: "Porte",
       type: "link",
       tooltip: "Cuscinetti",
-      icon: "meeting_room",
+      icon: "door_sliding",
       state: "porte/telemetryPorte"
     },
   ];
