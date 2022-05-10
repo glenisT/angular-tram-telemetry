@@ -94,7 +94,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
           data: [34, 45, 31, 45, 31, 43, 26, 43, 31, 45, 33, 40],
           type: "line",
           areaStyle: {},
-          smooth: true,
+          smooth: false,
           lineStyle: {
             width: 2,
             color: "#fff"

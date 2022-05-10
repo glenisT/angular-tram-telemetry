@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
   selector: "app-sidenav",
-  templateUrl: "./sidenav.template.html"
+  templateUrl: "./sidenav.template.html",
+  styleUrls: ['sidenav.component.scss']
 })
 export class SidenavComponent {
   @Input("items") public menuItems: any[] = [];
