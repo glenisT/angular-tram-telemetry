@@ -8,19 +8,21 @@
     <div class="sidebar-hold">
       <!-- App Logo -->
       <div class="branding px-20" id="branding">
-        <img src="assets/images/logo.png" alt="" class="app-logo" />
-        <span class="app-logo-text">TramDash</span>
+        <img src="../../../../assets/images/logos/TIM_noovle_logo_bn.png" alt="" class="app-logo" />
+        <img src="../../../../assets/images/logos/ANM_logo.png" alt="" class="app-logo" style="height:28px; margin-left: 12px;" />
+        <!-- <span class="app-logo-text">TramDash</span> -->
 
         <span
           style="margin: auto"
           *ngIf="layoutConf.sidebarStyle !== 'compact'"
         ></span>
-        <mat-slide-toggle
+        <!-- below is the toggle button for collapsable sidebar -->
+        <!-- <mat-slide-toggle
           fxHide.lt-md
           (change)="toggleCollapse()"
           [checked]="!layoutConf.sidebarCompactToggle"
           *ngIf="layoutConf.sidebarStyle !== 'compact'"
-        ></mat-slide-toggle>
+        ></mat-slide-toggle> -->
       </div>
 
       <!-- Sidebar user -->
