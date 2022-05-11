@@ -29,7 +29,8 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   trafficGrowthChart: any;
   bounceRateGrowthChart: any;
 
-  dailyTrafficChartBar: any;
+  dioxideChartBar: any;
+  pmvChartBar: any;
   trafficSourcesChart: any;
   countryTrafficStats: any[];
   doughNutPieOptions: any;
@@ -105,13 +106,124 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {}
   ngOnInit() {
     this.themeService.onThemeChange.subscribe(activeTheme => {
-      this.initDailyTrafficChartBar(activeTheme);
+      this.initDioxideChartBar(activeTheme);
+      this.initPmvChartBar(activeTheme);
     });
-    this.initDailyTrafficChartBar(this.themeService.activatedTheme);
+    this.initDioxideChartBar(this.themeService.activatedTheme);
+    this.initPmvChartBar(this.themeService.activatedTheme);
   }
 
-  initDailyTrafficChartBar(theme) {
-    this.dailyTrafficChartBar = {
+  initDioxideChartBar(theme) {
+    this.dioxideChartBar = {
+      grid: {
+        top: 16,
+        left: 36,
+        right: 16,
+        bottom: 32
+      },
+      legend: {},
+      tooltip: {
+        show: true,
+        trigger: "axis",
+
+        axisPointer: {
+          type: "cross",
+          lineStyle: {
+            opacity: 0
+          }
+        },
+        crossStyle: {
+          color: "#000"
+        }
+      },
+      series: [
+        {
+          data: [5, 6, 9, 10, 15, 17, 19, 20, 30],
+          type: "line",
+          areaStyle: {},
+          smooth: false,
+          lineStyle: {
+            width: 2,
+            color: "#fff"
+          }
+        }
+      ],
+      xAxis: {
+        show: true,
+        type: "category",
+        showGrid: false,
+        boundaryGap: false,
+        data: [
+          "14:22:10",
+          "14:22:20",
+          "14:22:30",
+          "14:22:40",
+          "14:22:50",
+          "14:23:00",
+          "14:23:10",
+          "14:23:20",
+          "14:23:30"
+        ],
+        axisLabel: {
+          color: "#ccc",
+          margin: 20
+        },
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        }
+      },
+      yAxis: {
+        type: "value",
+        min: 0,
+        max: 60,
+        axisLabel: {
+          color: "#ccc",
+          margin: 20,
+          fontSize: 13,
+          fontFamily: "roboto"
+        },
+        splitLine: {
+          show: true,
+          lineStyle: {
+            color: "rgba(255, 255, 255, .1)"
+          }
+        },
+
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        }
+      },
+      color: [
+        {
+          type: "linear",
+          x: 0,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [
+            {
+              offset: 0,
+              color: "rgba(255,255,255,0.3)" // color at 0% position
+            },
+            {
+              offset: 1,
+              color: "rgba(255,255,255,0)" // color at 100% position
+            }
+          ],
+          global: false // false by default
+        }
+      ]
+    };
+  }
+
+  initPmvChartBar(theme) {
+    this.pmvChartBar = {
       grid: {
         top: 16,
         left: 36,
