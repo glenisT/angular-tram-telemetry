@@ -1,7 +1,7 @@
 <!-- this div is used to create the borders in the grid -->
 <div class="borders"></div>
 
-<div class="mat-bg-primary mx--033 mt--033 px-24 pt-24 pb-96" id="graph-container">
+<div class="mat-bg-primary mx--033 mt--033 px-24 pt-24" id="graph-container">
   <div class="header">
     <h5 class="text-white font-weight-normal">20/05/2022 - 14:23:30</h5>
     <h1 class="text-white font-weight-normal">HVAC - Heating, Ventilation and Air Conditioning</h1>
@@ -102,13 +102,12 @@
       </ngx-gauge>
     </div>
   </div>
-  
 </div>
 
 <div class="mt--72">
   <div fxLayout="row wrap">
     <div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100">
-      <div fxLayout="row wrap">
+      <div fxLayout="row wrap"  style="margin-top: -2vh; margin-left: 10vh;">
         <div
           *ngFor="let item of statCardList"
           fxFlex="100"

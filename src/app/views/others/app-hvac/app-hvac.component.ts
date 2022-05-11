@@ -115,11 +115,18 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
 
   initDioxideChartBar(theme) {
     this.dioxideChartBar = {
+      title: {
+        show:true,
+        text:"Valore CO2",
+        textStyle: {
+          color: "white"
+        }
+      },
       grid: {
-        top: 16,
+        top: 56,
         left: 36,
         right: 16,
-        bottom: 32
+        bottom: 150
       },
       legend: {},
       tooltip: {
@@ -224,11 +231,18 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
 
   initPmvChartBar(theme) {
     this.pmvChartBar = {
+      title: {
+        show:true,
+        text:"Indice PMV",
+        textStyle: {
+          color: "white"
+        }
+      },
       grid: {
-        top: 16,
+        top: 56,
         left: 36,
         right: 16,
-        bottom: 32
+        bottom: 150
       },
       legend: {},
       tooltip: {
