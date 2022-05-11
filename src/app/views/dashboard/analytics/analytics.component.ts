@@ -84,7 +84,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
       grid: {
         top: 16,
         left: 36,
-        right: 16,
+        right: 25,
         bottom: 32
       },
       legend: {},
