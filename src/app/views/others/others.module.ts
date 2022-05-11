@@ -28,6 +28,7 @@ import { AppPasseggeriComponent } from "./app-passeggeri/app-passeggeri.componen
 import { AppCuscinettiComponent } from "./app-cuscinetti/app-cuscinetti.component";
 import { AppPorteComponent } from "./app-porte/app-porte.component";
 import { NgxEchartsModule } from "ngx-echarts";
+import { NgxGaugeModule } from "ngx-gauge";
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { NgxEchartsModule } from "ngx-echarts";
     FileUploadModule,
     SharedModule,
     NgxEchartsModule,
+    NgxGaugeModule,
     RouterModule.forChild(OthersRoutes)
   ],
   declarations: [

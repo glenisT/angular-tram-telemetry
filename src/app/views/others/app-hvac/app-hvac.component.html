@@ -1,3 +1,62 @@
-<p class="m-033">
-  This is a HVAC component.
-</p>
+<div class="mat-bg-primary mx--033 mt--033 px-24 pt-24 pb-96" id="graph-container">
+  <h5 class="text-white font-weight-normal">20/05/2022 - 14:23:30</h5>
+  <h1 class="text-white font-weight-normal">Informazioni generali</h1>
+  <br>
+  <br>
+  <div style="display:flex">
+    
+    <h3 class="text-white font-weight-bold">Velocit&agrave; nel tempo</h3>
+  </div>
+  <div
+    height="180"
+    echarts
+    class="chart m-0"
+    [options]="dailyTrafficChartBar"
+  ></div>
+  <div class="ngx-gauge">
+    <span style="display: flex; margin-left: 25%;">
+      <mat-icon>speed</mat-icon>
+      <h3 class="text-white font-weight-bold">Velocit&agrave; attuale</h3>
+    </span>
+    <ngx-gauge [type]="gaugeType" 
+           [value]="gaugeValue" 
+           [label]="gaugeLabel"  
+           [append]="gaugeAppendText"
+           [thick]="gaugeThickness"
+           [foregroundColor]="gaugeForegroundColor"
+           [backgroundColor]="gaugeBackgroundColor"
+           [size]="gaugeSize" >
+    </ngx-gauge>
+  </div>
+</div>
+<div class="mt--72">
+  <div fxLayout="row wrap">
+    <div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100">
+      <div fxLayout="row wrap">
+        <div
+          *ngFor="let item of statCardList"
+          fxFlex="100"
+          fxFlex.sm="30"
+          fxFlex.gt-sm="30"
+        >
+          <mat-card
+            class="p-24"
+            fxFlex
+            fxLayout="row"
+            fxLayoutAlign="space-between center"
+          >
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <mat-icon class="text-48 mat-color-{{item.color}}">{{
+                item.icon
+              }}</mat-icon>
+              <div class="ml-12">
+                <p class="m-0 text-muted mb-4">{{ item.title }}</p>
+                <h5 class="m-0 mat-color-{{item.color}} text-25">{{ item.amount }}</h5>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
