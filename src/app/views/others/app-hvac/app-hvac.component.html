@@ -1,34 +1,110 @@
+<!-- this div is used to create the borders in the grid -->
+<div class="borders"></div>
+
 <div class="mat-bg-primary mx--033 mt--033 px-24 pt-24 pb-96" id="graph-container">
-  <h5 class="text-white font-weight-normal">20/05/2022 - 14:23:30</h5>
-  <h1 class="text-white font-weight-normal">HVAC - Heating, Ventilation and Air Conditioning</h1>
-  <br>
-  <br>
-  <div style="display:flex">
-    
-    <h3 class="text-white font-weight-bold">Velocit&agrave; nel tempo</h3>
+  <div class="header">
+    <h5 class="text-white font-weight-normal">20/05/2022 - 14:23:30</h5>
+    <h1 class="text-white font-weight-normal">HVAC - Heating, Ventilation and Air Conditioning</h1>
+    <br>
+    <br>
   </div>
-  <div
-    height="180"
-    echarts
-    class="chart m-0"
-    [options]="dailyTrafficChartBar"
-  ></div>
-  <div class="ngx-gauge">
-    <span style="display: flex; margin-left: 25%;">
-      <mat-icon>speed</mat-icon>
-      <h3 class="text-white font-weight-bold">Velocit&agrave; attuale</h3>
-    </span>
-    <ngx-gauge [type]="gaugeType" 
-           [value]="gaugeValue" 
-           [label]="gaugeLabel"  
-           [append]="gaugeAppendText"
-           [thick]="gaugeThickness"
-           [foregroundColor]="gaugeForegroundColor"
-           [backgroundColor]="gaugeBackgroundColor"
-           [size]="gaugeSize" >
-    </ngx-gauge>
+
+  <div class="row-1">
+    <div class="ngx-gauge-temp">
+      <span style="display: flex; margin-left: 10%;">
+        <mat-icon style="position: absolute; left:85%; top: 15%;">thermostat</mat-icon>
+        <h3 class="text-white font-weight-bold">Temperatura interna</h3>
+      </span>
+      <ngx-gauge [type]="gaugeTempType" 
+             [value]="gaugeTempValue" 
+             [label]="gaugeTempLabel"  
+             [append]="gaugeTempAppendText"
+             [thick]="gaugeTempThickness"
+             [foregroundColor]="gaugeTempForegroundColor"
+             [backgroundColor]="gaugeTempBackgroundColor"
+             [size]="gaugeTempSize" >
+      </ngx-gauge>
+    </div>
+  
+    <div style="display:flex">    
+      <!-- <h3 class="text-white font-weight-bold">Velocit&agrave; nel tempo</h3> -->
+    </div>
+    <div class="graph">
+      <div
+        height="180"
+        echarts
+        class="chart m-0"
+        [options]="dailyTrafficChartBar"
+      ></div>
+    </div>
+  
+    <div class="ngx-gauge-ppm">
+      <span style="display: flex; margin-left: 25%;">
+        <mat-icon style="position: absolute; left:85%; top: 15%;">cloud</mat-icon>
+        <h3 class="text-white font-weight-bold"></h3>
+      </span>
+      <ngx-gauge [type]="gaugePpmType" 
+             [value]="gaugePpmValue" 
+             [max]="gaugePpmMax"
+             [label]="gaugePpmLabel"  
+             [append]="gaugePpmAppendText"
+             [thick]="gaugePpmThickness"
+             [foregroundColor]="gaugePpmForegroundColor"
+             [backgroundColor]="gaugePpmBackgroundColor"
+             [size]="gaugePpmSize" >
+      </ngx-gauge>
+    </div>
   </div>
+
+  <div class="row-2">
+    <div class="ngx-gauge-umidita">
+      <span style="display: flex; margin-left: 25%;">
+        <mat-icon style="position: absolute; left:85%; top: 15%;">ac_unit</mat-icon>
+        <h3 class="text-white font-weight-bold"></h3>
+      </span>
+      <ngx-gauge [type]="gaugePmvType" 
+             [value]="gaugePmvValue" 
+             [max]="gaugePmvMax"
+             [label]="gaugePmvLabel"  
+             [append]="gaugePmvAppendText"
+             [thick]="gaugePmvThickness"
+             [foregroundColor]="gaugePmvForegroundColor"
+             [backgroundColor]="gaugePmvBackgroundColor"
+             [size]="gaugePmvSize" >
+      </ngx-gauge>
+    </div>
+  
+    <div style="display:flex">    
+      <!-- <h3 class="text-white font-weight-bold">Velocit&agrave; nel tempo</h3> -->
+    </div>
+    <div class="graph">
+      <div
+        height="180"
+        echarts
+        class="chart m-0"
+        [options]="dailyTrafficChartBar"
+      ></div>
+    </div>
+  
+    <div class="ngx-gauge-pmv">
+      <span style="display: flex; margin-left: 20%;">
+        <mat-icon style="position: absolute; left:85%; top: 15%;">opacity</mat-icon>
+        <h3 class="text-white font-weight-bold">Umidit&agrave; interna</h3>
+      </span>
+      <ngx-gauge [type]="gaugeUmiditaType" 
+             [value]="gaugeUmiditaValue" 
+             [label]="gaugeUmiditaLabel"  
+             [append]="gaugeUmiditaAppendText"
+             [thick]="gaugeUmiditaThickness"
+             [foregroundColor]="gaugeUmiditaForegroundColor"
+             [backgroundColor]="gaugeUmiditaBackgroundColor"
+             [size]="gaugeUmiditaSize" >
+      </ngx-gauge>
+    </div>
+  </div>
+  
 </div>
+
 <div class="mt--72">
   <div fxLayout="row wrap">
     <div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100">

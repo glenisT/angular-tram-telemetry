@@ -35,15 +35,47 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   doughNutPieOptions: any;
 
   //used for creating and customizing the gauge chart
-  gaugeType = "arch";
-  gaugeValue = 30;
-  gaugeLabel = "Velocita";
-  gaugeAppendText = "km/h";
-  gaugeThickness = 20;
-  gaugeForegroundColor = "deepSkyBlue";
-  gaugeBackgroundColor = "rgb(55, 55, 153)";
-  gaugeMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugeSize = 300;
+  gaugeTempType = "arch";
+  gaugeTempValue = 23.5;
+  gaugeTempLabel = "";
+  gaugeTempAppendText = "°C";
+  gaugeTempThickness = 20;
+  gaugeTempForegroundColor = "deepSkyBlue";
+  gaugeTempBackgroundColor = "rgb(55, 55, 153)";
+  gaugeTempMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeTempSize = 200;
+
+  gaugePpmType = "arch";
+  gaugePpmValue = 550;
+  gaugePpmMax = 1000;
+  gaugePpmLabel = "";
+  gaugePpmAppendText = "ppm";
+  gaugePpmThickness = 20;
+  gaugePpmForegroundColor = "deepSkyBlue";
+  gaugePpmBackgroundColor = "rgb(55, 55, 153)";
+  gaugePpmMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugePpmSize = 200;
+
+  gaugeUmiditaType = "arch";
+  gaugeUmiditaValue = 40;
+  gaugeUmiditaLabel = "";
+  gaugeUmiditaAppendText = "%";
+  gaugeUmiditaThickness = 20;
+  gaugeUmiditaForegroundColor = "red";
+  gaugeUmiditaBackgroundColor = "rgb(55, 55, 153)";
+  gaugeUmiditaMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeUmiditaSize = 200;
+
+  gaugePmvType = "arch";
+  gaugePmvValue = 1;
+  gaugePmvMax = 3;
+  gaugePmvLabel = "";
+  gaugePmvAppendText = "pmv";
+  gaugePmvThickness = 20;
+  gaugePmvForegroundColor = "deepSkyBlue";
+  gaugePmvBackgroundColor = "rgb(55, 55, 153)";
+  gaugePmvMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugePmvSize = 200;
 
   statCardList = [
     {

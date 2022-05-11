@@ -1,0 +1,62 @@
+#graph-container
+{
+    width: 70%;
+    height: 110%;
+    background-color: darkblue !important;
+    /* to give the entire page the intented color */
+    box-shadow: 0 0 0 10in darkblue;  
+}
+
+.ngx-gauge-ppm
+{
+    position: absolute;
+    top: 23%;
+    left: 80%;
+}
+
+.ngx-gauge-temp
+{
+    position: absolute;
+    top: 23%;
+    right: 80%;
+}
+
+.ngx-gauge-umidita
+{
+    position: absolute;
+    top: 65%;
+    left: 80%;
+}
+
+.ngx-gauge-pmv
+{
+    position: absolute;
+    top: 65%;
+    right: 80%;
+}
+
+.graph
+{
+    margin-left: 40%;
+}
+
+.borders
+{
+    position: absolute;
+    width: 80vw;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.342);
+    top:57vh;
+    left: 2.5vw;
+}
+
+.borders::before
+{
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.342);
+    width: 1px;
+    height: 80vh;
+    left:23%;
+    top: -40vh;
+}
