@@ -14,10 +14,10 @@
     [options]="dailyTrafficChartBar"
   ></div>
   <div class="ngx-gauge">
-    <span style="display: flex; margin-left: 25%;">
-      <mat-icon>speed</mat-icon>
+    <span style="display: flex; margin-left: 28%;">
       <h3 class="text-white font-weight-bold">Velocit&agrave; attuale</h3>
     </span>
+    <mat-icon style="position: absolute; left:85%; top: 15%;">speed</mat-icon> 
     <ngx-gauge [type]="gaugeType" 
            [value]="gaugeValue" 
            [label]="gaugeLabel"  
