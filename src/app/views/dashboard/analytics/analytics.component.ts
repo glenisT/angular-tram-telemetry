@@ -29,7 +29,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
   trafficGrowthChart: any;
   bounceRateGrowthChart: any;
 
-  dailyTrafficChartBar: any;
+  speedChartBar: any;
   trafficSourcesChart: any;
   countryTrafficStats: any[];
   doughNutPieOptions: any;
@@ -74,13 +74,13 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {}
   ngOnInit() {
     this.themeService.onThemeChange.subscribe(activeTheme => {
-      this.initDailyTrafficChartBar(activeTheme);
+      this.initSpeedChartBar(activeTheme);
     });
-    this.initDailyTrafficChartBar(this.themeService.activatedTheme);
+    this.initSpeedChartBar(this.themeService.activatedTheme);
   }
 
-  initDailyTrafficChartBar(theme) {
-    this.dailyTrafficChartBar = {
+  initSpeedChartBar(theme) {
+    this.speedChartBar = {
       grid: {
         top: 16,
         left: 36,
