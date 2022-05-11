@@ -4,8 +4,8 @@
   <br>
   <br>
   <div style="display:flex">
-    <mat-icon>speed</mat-icon>
-    <h3 class="text-white font-weight-bold">Velocita nel tempo</h3>
+    
+    <h3 class="text-white font-weight-bold">Velocit&agrave; nel tempo</h3>
   </div>
   <div
     height="180"
@@ -13,7 +13,12 @@
     class="chart m-0"
     [options]="dailyTrafficChartBar"
   ></div>
-  <ngx-gauge [type]="gaugeType" 
+  <div class="ngx-gauge">
+    <span style="display: flex; margin-left: 25%;">
+      <mat-icon>speed</mat-icon>
+      <h3 class="text-white font-weight-bold">Velocit&agrave; attuale</h3>
+    </span>
+    <ngx-gauge [type]="gaugeType" 
            [value]="gaugeValue" 
            [label]="gaugeLabel"  
            [append]="gaugeAppendText"
@@ -21,7 +26,8 @@
            [foregroundColor]="gaugeForegroundColor"
            [backgroundColor]="gaugeBackgroundColor"
            [size]="gaugeSize" >
-  </ngx-gauge>
+    </ngx-gauge>
+  </div>
 </div>
 <div class="mt--72">
   <div fxLayout="row wrap">
