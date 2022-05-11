@@ -37,6 +37,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
   //used for creating and customizing the gauge chart
   gaugeType = "arch";
   gaugeValue = 30;
+  gaugeMax = 50;
   gaugeLabel = "Velocita";
   gaugeAppendText = "km/h";
   gaugeThickness = 20;
