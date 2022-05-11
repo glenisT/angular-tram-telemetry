@@ -59,7 +59,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
       color: "primary"
     },
     {
-      icon: "store",
+      icon: "check",
       title: "km percorsi",
       amount: 654.21,
       color: "primary"
