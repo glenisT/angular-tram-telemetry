@@ -1,9 +1,14 @@
 .navigation-hold
 {
-    background-color: rgba(0, 0, 240, 0.82) !important;
+    background-image: url('../../../../assets/images/sidebar/sidebar-bg-light.png') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
 }
 
 #branding
 {
-    background-color: rgba(0, 0, 240, 0.82) !important;
+    background-image: url('../../../../assets/images/sidebar/sidebar-bg-light.png') !important;
+    background-size:auto;
+    background-repeat: no-repeat;
 }
