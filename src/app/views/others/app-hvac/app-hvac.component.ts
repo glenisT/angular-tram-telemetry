@@ -124,8 +124,8 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       },
       grid: {
         top: 56,
-        left: 36,
-        right: 16,
+        left: 56,
+        right: 25,
         bottom: 150
       },
       legend: {},
@@ -145,7 +145,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       },
       series: [
         {
-          data: [5, 6, 9, 10, 15, 17, 19, 20, 30],
+          data: [500, 550, 560, 570, 590, 500, 520, 515, 540],
           type: "line",
           areaStyle: {},
           smooth: false,
@@ -161,14 +161,14 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
         showGrid: false,
         boundaryGap: false,
         data: [
-          "14:22:10",
-          "14:22:20",
+          "14:19:30",
+          "14:20:00",
+          "14:20:30",
+          "14:21:00",
+          "14:21:30",
+          "14:22:00",
           "14:22:30",
-          "14:22:40",
-          "14:22:50",
           "14:23:00",
-          "14:23:10",
-          "14:23:20",
           "14:23:30"
         ],
         axisLabel: {
@@ -185,7 +185,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       yAxis: {
         type: "value",
         min: 0,
-        max: 60,
+        max: 1000,
         axisLabel: {
           color: "#ccc",
           margin: 20,
@@ -240,8 +240,8 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       },
       grid: {
         top: 56,
-        left: 36,
-        right: 16,
+        left: 56,
+        right: 25,
         bottom: 150
       },
       legend: {},
@@ -261,7 +261,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       },
       series: [
         {
-          data: [5, 6, 9, 10, 15, 17, 19, 20, 30],
+          data: [1, 1.1, 1.4, 1.3, 1.5, 1.3, 1.4, 1.5, 1, 1.2, 1.1, 1],
           type: "line",
           areaStyle: {},
           smooth: false,
@@ -277,15 +277,18 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
         showGrid: false,
         boundaryGap: false,
         data: [
-          "14:22:10",
-          "14:22:20",
-          "14:22:30",
-          "14:22:40",
-          "14:22:50",
-          "14:23:00",
-          "14:23:10",
+          "14:23:19",
           "14:23:20",
-          "14:23:30"
+          "14:23:21",
+          "14:23:22",
+          "14:23:23",
+          "14:23:24",
+          "14:23:25",
+          "14:23:26",
+          "14:23:27",
+          "14:23:28",
+          "14:23:29",
+          "14:23:30",
         ],
         axisLabel: {
           color: "#ccc",
@@ -301,7 +304,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       yAxis: {
         type: "value",
         min: 0,
-        max: 60,
+        max: 3.0,
         axisLabel: {
           color: "#ccc",
           margin: 20,
