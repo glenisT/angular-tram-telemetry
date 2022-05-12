@@ -37,28 +37,28 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
   passeggeri: any;
 
   //used for creating and customizing the gauge chart
-  gaugePpmType = "full";
-  gaugePpmValue = 54;
-  gaugePpmMax = 70;
-  gaugePpmLabel = "";
-  gaugePpmAppendText = "pax";
-  gaugePpmThickness = 20;
-  gaugePpmForegroundColor = "deepSkyBlue";
-  gaugePpmBackgroundColor = "rgb(55, 55, 153)";
-  gaugePpmMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugePpmSize = 300;
+  gaugePasseggeriType = "full";
+  gaugePasseggeriValue = 54;
+  gaugePasseggeriMax = 70;
+  gaugePasseggeriLabel = "";
+  gaugePasseggeriAppendText = "pax";
+  gaugePasseggeriThickness = 20;
+  gaugePasseggeriForegroundColor = "deepSkyBlue";
+  gaugePasseggeriBackgroundColor = "rgb(55, 55, 153)";
+  gaugePasseggeriMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugePasseggeriSize = 300;
 
-  gaugePmvType = "arch";
-  gaugePmvValue = 52;
-  gaugePmvMin = 0;
-  gaugePmvMax = 70;
-  gaugePmvLabel = "";
-  gaugePmvAppendText = "db";
-  gaugePmvThickness = 20;
-  gaugePmvForegroundColor = "rgb(220, 0, 0)";
-  gaugePmvBackgroundColor = "rgb(55, 55, 153)";
-  gaugePmvMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugePmvSize = 300;
+  gaugeDbType = "arch";
+  gaugeDbValue = 52;
+  gaugeDbMin = 0;
+  gaugeDbMax = 70;
+  gaugeDbLabel = "";
+  gaugeDbAppendText = "db";
+  gaugeDbThickness = 20;
+  gaugeDbForegroundColor = "rgb(220, 0, 0)";
+  gaugeDbBackgroundColor = "rgb(55, 55, 153)";
+  gaugeDbMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeDbSize = 300;
 
   statCardList = [
     {
