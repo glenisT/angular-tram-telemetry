@@ -9,6 +9,7 @@ import { ThemeService } from "app/shared/services/theme.service";
 import tinyColor from "tinycolor2";
 import PerfectScrollbar from "perfect-scrollbar";
 import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
+import { interval } from "rxjs";
 
 @Component({
   selector: "app-analytics",
@@ -36,7 +37,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
 
   //used for creating and customizing the gauge chart
   gaugeType = "arch";
-  gaugeValue = 30;
+  gaugeValue = 0;
   gaugeMax = 50;
   gaugeLabel = "Velocita";
   gaugeAppendText = "km/h";
@@ -77,6 +78,21 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
       this.initSpeedChartBar(activeTheme);
     });
     this.initSpeedChartBar(this.themeService.activatedTheme);
+
+    let timer = setInterval(() => {
+      for(let i = 0; i <= 0; i++)
+      {
+        if(this.gaugeValue == 50)
+        {
+          this.gaugeValue = 49;  //so that value doesn't go beyond 50
+          setTimeout(() => {
+              this.gaugeValue = 0;
+            }, 5000);  //this will make the gauge wait double the timeout(once at value=50 and once at value=0), so calculate times multiplied by 2
+        }
+        this.gaugeValue = this.gaugeValue + 1;
+      }
+    }, 1000);  //interval at which speed updates
+
   }
 
   initSpeedChartBar(theme) {
