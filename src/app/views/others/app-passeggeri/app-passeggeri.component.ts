@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-blank',
   templateUrl: './app-passeggeri.component.html',
-  styleUrls: ['./app-passeggeri.component.css']
+  styleUrls: ['./app-passeggeri.component.scss']
 })
 export class AppPasseggeriComponent implements OnInit {
 
