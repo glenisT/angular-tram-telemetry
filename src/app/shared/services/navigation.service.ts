@@ -53,7 +53,7 @@ export class NavigationService {
       name: "Cuscinetti",
       type: "link",
       tooltip: "Cuscinetti",
-      icon: "timelapse",
+      icon: "noise_aware",
       state: "cuscinetti/telemetryCuscinetti"
     },
     {

@@ -29,35 +29,36 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
   trafficGrowthChart: any;
   bounceRateGrowthChart: any;
 
-  dioxideChartBar: any;
-  pmvChartBar: any;
+  dbChartBar: any;
   trafficSourcesChart: any;
   countryTrafficStats: any[];
   doughNutPieOptions: any;
 
+  passeggeri: any;
+
   //used for creating and customizing the gauge chart
-  gaugePpmType = "arch";
-  gaugePpmValue = 550;
-  gaugePpmMax = 1000;
+  gaugePpmType = "full";
+  gaugePpmValue = 54;
+  gaugePpmMax = 70;
   gaugePpmLabel = "";
-  gaugePpmAppendText = "ppm";
+  gaugePpmAppendText = "pax";
   gaugePpmThickness = 20;
   gaugePpmForegroundColor = "deepSkyBlue";
   gaugePpmBackgroundColor = "rgb(55, 55, 153)";
   gaugePpmMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugePpmSize = 200;
+  gaugePpmSize = 300;
 
   gaugePmvType = "arch";
-  gaugePmvValue = 1.0;
-  gaugePmvMin = 0.5;
-  gaugePmvMax = 1.5;
+  gaugePmvValue = 52;
+  gaugePmvMin = 0;
+  gaugePmvMax = 70;
   gaugePmvLabel = "";
-  gaugePmvAppendText = "pmv";
+  gaugePmvAppendText = "db";
   gaugePmvThickness = 20;
-  gaugePmvForegroundColor = "deepSkyBlue";
+  gaugePmvForegroundColor = "rgb(220, 0, 0)";
   gaugePmvBackgroundColor = "rgb(55, 55, 153)";
   gaugePmvMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugePmvSize = 200;
+  gaugePmvSize = 300;
 
   statCardList = [
     {
@@ -87,11 +88,9 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {}
   ngOnInit() {
     this.themeService.onThemeChange.subscribe(activeTheme => {
-      this.initDioxideChartBar(activeTheme);
-      this.initPmvChartBar(activeTheme);
+      this.initDbChartBar(activeTheme);
     });
-    this.initDioxideChartBar(this.themeService.activatedTheme);
-    this.initPmvChartBar(this.themeService.activatedTheme);
+    this.initDbChartBar(this.themeService.activatedTheme);
 
     //add km to km percorsi card
     setInterval(() => {
@@ -100,56 +99,8 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
         this.statCardList[2].amount = +this.statCardList[2].amount + 1;
       }
     }, 120000);  //add 1km every 2minutes to total KM percorsi
-  }
 
-  initDioxideChartBar(theme) {
-    this.dioxideChartBar = {
-      title: {
-        show:true,
-        text:"Numero passeggeri",
-        textStyle: {
-          color: "white"
-        }
-      },
-      grid: {
-        top: 56,
-        left: 56,
-        right: 25,
-        bottom: 150
-      },
-      legend: {},
-      tooltip: {
-        show: true,
-        trigger: "axis",
-
-        axisPointer: {
-          type: "cross",
-          lineStyle: {
-            opacity: 0
-          }
-        },
-        crossStyle: {
-          color: "#000"
-        }
-      },
-      series: [
-        {
-          data: [500, 550, 560, 570, 590, 500, 520, 515, 540],
-          type: "bar",
-          areaStyle: {},
-          smooth: false,
-          barStyle: {
-            width: 1,
-            color: "blue"
-          }
-        }
-      ],
-      xAxis: {
-        show: true,
-        type: "category",
-        showGrid: false,
-        boundaryGap: false,
-        data: [
+    const dataAxis = [
           "14:19:30",
           "14:20:00",
           "14:20:30",
@@ -159,67 +110,142 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
           "14:22:30",
           "14:23:00",
           "14:23:30"
-        ],
+    ];
+    const data = [
+      20,
+      30,
+      35,
+      38,
+      42,
+      50,
+      55,
+      68,
+      60
+    ];
+    const yMax = 70;
+    const dataShadow = [];
+
+    // tslint:disable-next-line: prefer-for-of
+    for (let i = 0; i < data.length; i++) {
+      dataShadow.push(yMax);
+    }
+
+    this.passeggeri = {
+      title: {
+        text: 'Numero Passeggeri',
+        textStyle: {
+          color: "white"
+        }
+      },
+      grid: {
+        top: 56,
+        left: 56,
+        right: 25,
+        bottom: 100
+      },
+      xAxis: {
+        data: dataAxis,
         axisLabel: {
-          color: "#ccc",
-          margin: 20
-        },
-        axisLine: {
-          show: false
+          inside: true,
+          color: '#fff',
         },
         axisTick: {
-          show: false
-        }
+          show: false,
+        },
+        axisLine: {
+          show: false,
+        },
+        z: 10,
       },
       yAxis: {
-        type: "value",
-        min: 300,
-        max: 800,
-        axisLabel: {
-          color: "#ccc",
-          margin: 20,
-          fontSize: 13,
-          fontFamily: "roboto"
-        },
-        splitLine: {
-          show: true,
-          lineStyle: {
-            color: "rgba(255, 255, 255, .1)"
-          }
-        },
-
         axisLine: {
-          show: false
+          show: false,
         },
         axisTick: {
-          show: false
-        }
+          show: false,
+        },
+        axisLabel: {
+          textStyle: {
+            color: '#999',
+          },
+        },
       },
-      color: [
+      dataZoom: [
         {
-          type: "linear",
-          x: 0,
-          y: 0,
-          x2: 0,
-          y2: 1,
-          colorStops: [
+          type: 'inside',
+        },
+      ],
+      series: [
+        {
+          // For shadow
+          type: 'bar',
+          itemStyle: {
+            color: 'rgba(0,0,0,0.05)'
+          },
+          barGap: '-100%',
+          barCategoryGap: '40%',
+          //commented the data below because it may be useful for when data becomes more dynamic
+          //data: dataShadow,
+
+          //data with specific colors for demo purposes of critical values
+          data: [
             {
-              offset: 0,
-              color: "rgba(255,255,255,0.3)" // color at 0% position
+              value: 20,
+              itemStyle: {color: 'deepskyblue'},
             },
             {
-              offset: 1,
-              color: "rgba(255,255,255,0)" // color at 100% position
+              value: 30,
+              itemStyle: {color: 'deepskyblue'},
+            },
+            {
+              value: 35,
+              itemStyle: {color: 'deepskyblue'},
+            },
+            {
+              value: 42,
+              itemStyle: {color: 'deepskyblue'},
+            },
+            {
+              value: 62,
+              itemStyle: {color: 'rgb(220, 0, 0)'},
+            },
+            {
+              value: 60,
+              itemStyle: {color: 'rgb(220, 0, 0)'},
+            },
+            {
+              value: 55,
+              itemStyle: {color: 'deepskyblue'},
+            },
+            {
+              value: 50,
+              itemStyle: {color: 'deepskyblue'},
+            },
+            {
+              value: 52,
+              itemStyle: {color: 'deepskyblue'},
             }
-          ],
-          global: false // false by default
-        }
-      ]
+        ],
+          animation: false,
+        },
+        {
+          type: 'bar',
+          itemStyle: {
+            color: "deepskyblue"
+          },
+          emphasis: {
+            itemStyle: {
+              color: "deepskyblue"
+            }
+          },
+          //data,
+        },
+      ],
     };
   }
 
-  initPmvChartBar(theme) {
-    this.pmvChartBar = {
+  initDbChartBar(theme) {
+    this.dbChartBar = {
       title: {
         show:true,
         text:"Indice decibel",
@@ -250,7 +276,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
       },
       series: [
         {
-          data: [1, 1.1, 1.4, 1.3, 1.5, 1.3, 1.4, 1.5, 1, 1.2, 1.1, 1],
+          data: [40, 45, 50, 52, 54, 56, 61, 59, 50, 45, 47, 52],
           type: "line",
           areaStyle: {},
           smooth: false,
@@ -266,17 +292,17 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
         showGrid: false,
         boundaryGap: false,
         data: [
-          "14:23:19",
-          "14:23:20",
-          "14:23:21",
-          "14:23:22",
-          "14:23:23",
-          "14:23:24",
-          "14:23:25",
-          "14:23:26",
-          "14:23:27",
-          "14:23:28",
-          "14:23:29",
+          "14:18:00",
+          "14:18:30",
+          "14:19:00",
+          "14:19:30",
+          "14:20:00",
+          "14:20:30",
+          "14:21:00",
+          "14:21:30",
+          "14:22:00",
+          "14:22:30",
+          "14:23:00",
           "14:23:30",
         ],
         axisLabel: {
@@ -293,7 +319,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
       yAxis: {
         type: "value",
         min: 0,
-        max: 3.0,
+        max: 70,
         axisLabel: {
           color: "#ccc",
           margin: 20,
