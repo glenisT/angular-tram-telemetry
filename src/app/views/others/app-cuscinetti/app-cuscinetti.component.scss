@@ -1,0 +1,124 @@
+#graph-container
+{
+    width: 70%;
+    height: 100%;
+    margin-top: -3vh !important;
+    background-color: darkblue !important;
+    /* to give the entire page the intented color */
+    box-shadow: 0 0 0 10in darkblue;  
+}
+
+//first row
+.ngx-gauge:nth-child(1)
+{
+    position: absolute;
+    top: 18%;
+    right: 85%;
+}
+
+.ngx-gauge:nth-child(2)
+{
+    position: absolute;
+    top: 18%;
+    right: 72%;
+}
+
+.ngx-gauge:nth-child(3)
+{
+    position: absolute;
+    top: 18%;
+    right: 55%;
+}
+
+.ngx-gauge:nth-child(4)
+{
+    position: absolute;
+    top: 18%;
+    right: 42%;
+}
+
+.ngx-gauge:nth-child(5)
+{
+    position: absolute;
+    top: 18%;
+    right: 25%;
+}
+
+.ngx-gauge:nth-child(6)
+{
+    position: absolute;
+    top: 18%;
+    right: 12%;
+}
+
+//second row
+.ngx-gauge-2:nth-child(1)
+{
+    position: absolute;
+    top: 58%;
+    right: 85%;
+}
+
+.ngx-gauge-2:nth-child(2)
+{
+    position: absolute;
+    top: 58%;
+    right: 72%;
+}
+
+.ngx-gauge-2:nth-child(3)
+{
+    position: absolute;
+    top: 58%;
+    right: 55%;
+}
+
+.ngx-gauge-2:nth-child(4)
+{
+    position: absolute;
+    top: 58%;
+    right: 42%;
+}
+
+.ngx-gauge-2:nth-child(5)
+{
+    position: absolute;
+    top: 58%;
+    right: 25%;
+}
+
+.ngx-gauge-2:nth-child(6)
+{
+    position: absolute;
+    top: 58%;
+    right: 12%;
+}
+
+.borders
+{
+    position: absolute;
+    width: 80vw;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.342);
+    top:48vh;
+    left: 2.5vw;
+}
+
+.borders::before
+{
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.281);
+    width: 1px;
+    height: 74vh;
+    left:30%;
+    top: -37vh;
+    box-shadow: 25vw 0 0 0 rgba(255, 255, 255, 0.281);
+}
+
+.grid
+{
+    display: grid !important;
+    grid-template-columns: repeat(1, 107vh) !important;
+    grid-template-rows: repeat(2, 42vh);
+}
