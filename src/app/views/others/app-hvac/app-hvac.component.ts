@@ -116,6 +116,14 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
     });
     this.initDioxideChartBar(this.themeService.activatedTheme);
     this.initPmvChartBar(this.themeService.activatedTheme);
+
+    //add km to km percorsi card
+    setInterval(() => {
+      for(let i = 0; i <= 0; i++)
+      {
+        this.statCardList[2].amount = +this.statCardList[2].amount + 1;
+      }
+    }, 120000);  //add 1km every 2minutes to total KM percorsi
   }
 
   initDioxideChartBar(theme) {

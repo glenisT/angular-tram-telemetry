@@ -79,6 +79,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
     });
     this.initSpeedChartBar(this.themeService.activatedTheme);
 
+    //regulate intervals & gaugeValue increment below to synchronize with tram
     let timer = setInterval(() => {
       for(let i = 0; i <= 0; i++)
       {
@@ -92,6 +93,14 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
         this.gaugeValue = this.gaugeValue + 1;
       }
     }, 1000);  //interval at which speed updates
+
+    //add km to km percorsi card
+    setInterval(() => {
+      for(let i = 0; i <= 0; i++)
+      {
+        this.statCardList[2].amount = +this.statCardList[2].amount + 1;
+      }
+    }, 120000);  //add 1km every 2minutes to total KM percorsi
 
   }
 
