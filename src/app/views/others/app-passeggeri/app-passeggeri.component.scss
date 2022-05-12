@@ -38,7 +38,7 @@
 
 .graph
 {
-    margin-left: 40%;
+    margin-left: 0;
 }
 
 .borders
@@ -49,17 +49,6 @@
     background-color: rgba(255, 255, 255, 0.342);
     top:48vh;
     left: 2.5vw;
-}
-
-.borders::before
-{
-    content: '';
-    position: absolute;
-    background-color: rgba(255, 255, 255, 0.281);
-    width: 1px;
-    height: 74vh;
-    left:23%;
-    top: -37vh;
 }
 
 .grid
