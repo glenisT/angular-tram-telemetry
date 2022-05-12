@@ -18,6 +18,8 @@
         </span>
         <ngx-gauge [type]="gaugeTempType" 
                [value]="gaugeTempValue" 
+               [min]="gaugeTempMin"
+               [max]="gaugeTempMax"
                [label]="gaugeTempLabel"  
                [append]="gaugeTempAppendText"
                [thick]="gaugeTempThickness"
@@ -65,6 +67,7 @@
         </span>
         <ngx-gauge [type]="gaugePmvType" 
                [value]="gaugePmvValue" 
+               [min]="gauePmvMin"
                [max]="gaugePmvMax"
                [label]="gaugePmvLabel"  
                [append]="gaugePmvAppendText"
@@ -94,6 +97,8 @@
         </span>
         <ngx-gauge [type]="gaugeUmiditaType" 
                [value]="gaugeUmiditaValue" 
+               [min]="gaugeUmiditaMin"
+               [max]="gaugeUmiditaMax"
                [label]="gaugeUmiditaLabel"  
                [append]="gaugeUmiditaAppendText"
                [thick]="gaugeUmiditaThickness"

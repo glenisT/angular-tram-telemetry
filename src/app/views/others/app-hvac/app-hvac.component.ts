@@ -38,6 +38,8 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   //used for creating and customizing the gauge chart
   gaugeTempType = "arch";
   gaugeTempValue = 23.5;
+  gaugeTempMin = 23.5;
+  gaugeTempMax = 24.5;
   gaugeTempLabel = "";
   gaugeTempAppendText = "°C";
   gaugeTempThickness = 20;
@@ -58,7 +60,9 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugePpmSize = 200;
 
   gaugeUmiditaType = "arch";
-  gaugeUmiditaValue = 40;
+  gaugeUmiditaValue = 44;
+  gaugeUmiditaMin = 43;
+  gaugeUmiditaMax = 47;
   gaugeUmiditaLabel = "";
   gaugeUmiditaAppendText = "%";
   gaugeUmiditaThickness = 20;
@@ -68,8 +72,9 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugeUmiditaSize = 200;
 
   gaugePmvType = "arch";
-  gaugePmvValue = 1;
-  gaugePmvMax = 3;
+  gaugePmvValue = 1.0;
+  gaugePmvMin = 0.5;
+  gaugePmvMax = 1.5;
   gaugePmvLabel = "";
   gaugePmvAppendText = "pmv";
   gaugePmvThickness = 20;
@@ -184,8 +189,8 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       },
       yAxis: {
         type: "value",
-        min: 0,
-        max: 1000,
+        min: 300,
+        max: 800,
         axisLabel: {
           color: "#ccc",
           margin: 20,
