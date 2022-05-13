@@ -36,7 +36,6 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
   doughNutPieOptions: any;
 
   //used for creating and customizing the gauge chart
-  //some variables that are equal along all gauges can be generalized to 1single variable to clean up the code & reassigned accordingly in the HTML(for example color, type, label etc)
   gaugeTempType = "arch";
   gaugeTempValue = 23.8;
   gaugeTempMin = 23.5;
