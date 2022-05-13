@@ -36,6 +36,7 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
   doughNutPieOptions: any;
 
   //used for creating and customizing the gauge chart
+  //some variables that are equal along all gauges can be generalized to 1single variable to clean up the code & reassigned accordingly in the HTML(for example color, type, label etc)
   gaugeTempType = "arch";
   gaugeTempValue = 23.8;
   gaugeTempMin = 23.5;
@@ -108,40 +109,77 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
   gaugeTemp6Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeTemp6Size = 200;
 
-  gaugePpmType = "arch";
-  gaugePpmValue = 550;
-  gaugePpmMax = 1000;
-  gaugePpmLabel = "";
-  gaugePpmAppendText = "ppm";
-  gaugePpmThickness = 20;
-  gaugePpmForegroundColor = "deepSkyBlue";
-  gaugePpmBackgroundColor = "rgb(55, 55, 153)";
-  gaugePpmMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugePpmSize = 200;
+  gaugeStimaType = "full";
+  gaugeStimaValue = 300;
+  gaugeStimaMin = 0;
+  gaugeStimaMax = 365;
+  gaugeStimaLabel = "gg";
+  gaugeStimaAppendText = "";
+  gaugeStimaThickness = 15;
+  gaugeStimaForegroundColor = "rgb(133, 187, 63)";
+  gaugeStimaBackgroundColor = "rgb(55, 55, 153)";
+  gaugeStimaMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeStimaSize = 200;
 
-  gaugeUmiditaType = "arch";
-  gaugeUmiditaValue = 44;
-  gaugeUmiditaMin = 43;
-  gaugeUmiditaMax = 47;
-  gaugeUmiditaLabel = "";
-  gaugeUmiditaAppendText = "%";
-  gaugeUmiditaThickness = 20;
-  gaugeUmiditaForegroundColor = "red";
-  gaugeUmiditaBackgroundColor = "rgb(55, 55, 153)";
-  gaugeUmiditaMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugeUmiditaSize = 200;
+  gaugeStima2Type = "full";
+  gaugeStima2Value = 300;
+  gaugeStima2Min = 0;
+  gaugeStima2Max = 365;
+  gaugeStima2Label = "gg";
+  gaugeStima2AppendText = "";
+  gaugeStima2Thickness = 15;
+  gaugeStima2ForegroundColor = "rgb(201, 0, 0)";
+  gaugeStima2BackgroundColor = "rgb(55, 55, 153)";
+  gaugeStima2Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeStima2Size = 200;
 
-  gaugePmvType = "arch";
-  gaugePmvValue = 1.0;
-  gaugePmvMin = 0.5;
-  gaugePmvMax = 1.5;
-  gaugePmvLabel = "";
-  gaugePmvAppendText = "pmv";
-  gaugePmvThickness = 20;
-  gaugePmvForegroundColor = "deepSkyBlue";
-  gaugePmvBackgroundColor = "rgb(55, 55, 153)";
-  gaugePmvMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugePmvSize = 200;
+  gaugeStima3Type = "full";
+  gaugeStima3Value = 300;
+  gaugeStima3Min = 0;
+  gaugeStima3Max = 365;
+  gaugeStima3Label = "gg";
+  gaugeStima3AppendText = "";
+  gaugeStima3Thickness = 15;
+  gaugeStima3ForegroundColor = "rgb(255, 233, 37)";
+  gaugeStima3BackgroundColor = "rgb(55, 55, 153)";
+  gaugeStima3Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeStima3Size = 200;
+
+  gaugeStima4Type = "full";
+  gaugeStima4Value = 300;
+  gaugeStima4Min = 0;
+  gaugeStima4Max = 365;
+  gaugeStima4Label = "gg";
+  gaugeStima4AppendText = "";
+  gaugeStima4Thickness = 15;
+  gaugeStima4ForegroundColor = "deepSkyBlue";
+  gaugeStima4BackgroundColor = "rgb(55, 55, 153)";
+  gaugeStima4Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeStima4Size = 200;
+
+  gaugeStima5Type = "full";
+  gaugeStima5Value = 300;
+  gaugeStima5Min = 0;
+  gaugeStima5Max = 365;
+  gaugeStima5Label = "gg";
+  gaugeStima5AppendText = "";
+  gaugeStima5Thickness = 15;
+  gaugeStima5ForegroundColor = "deepSkyBlue";
+  gaugeStima5BackgroundColor = "rgb(55, 55, 153)";
+  gaugeStima5Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeStima5Size = 200;
+
+  gaugeStima6Type = "full";
+  gaugeStima6Value = 300;
+  gaugeStima6Min = 0;
+  gaugeStima6Max = 365;
+  gaugeStima6Label = "gg";
+  gaugeStima6AppendText = "";
+  gaugeStima6Thickness = 15;
+  gaugeStima6ForegroundColor = "deepSkyBlue";
+  gaugeStima6BackgroundColor = "rgb(55, 55, 153)";
+  gaugeStima6Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeStima6Size = 200;
 
   statCardList = [
     {

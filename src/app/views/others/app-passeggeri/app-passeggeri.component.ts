@@ -40,8 +40,8 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
   gaugePasseggeriType = "full";
   gaugePasseggeriValue = 54;
   gaugePasseggeriMax = 70;
-  gaugePasseggeriLabel = "";
-  gaugePasseggeriAppendText = "pax";
+  gaugePasseggeriLabel = "pax";
+  gaugePasseggeriAppendText = "";
   gaugePasseggeriThickness = 20;
   gaugePasseggeriForegroundColor = "deepSkyBlue";
   gaugePasseggeriBackgroundColor = "rgb(55, 55, 153)";
