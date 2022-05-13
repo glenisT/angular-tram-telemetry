@@ -115,7 +115,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
      this.now = new Date(2022, 20, 5);
      this.value = Math.random() * 100; //multiplication number sets the maximum value of the random values that will be generated
  
-     for (let i = 0; i < 12; i++) { //'i' sets how many values per single screen of the chart will be shown
+     for (let i = 0; i < 50; i++) { //'i' sets how many values per single screen of the chart will be shown
        this.data.push(this.randomData());
      }
 
