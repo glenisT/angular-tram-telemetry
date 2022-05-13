@@ -38,6 +38,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   dbChartBar: any;
 
   private oneDay = 24 * 3600 * 1000;
+  private oneHour = 3600 * 1000;
   private now: Date;
   private value: number ;
   private data: any[];
@@ -230,6 +231,20 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
           show: false
         }
       },
+      dataZoom: [
+        {
+            id: 'dataZoomX',
+            type: 'inside',
+            xAxisIndex: [0],
+            filterMode: 'filter'
+        },
+        {
+            id: 'dataZoomY',
+            type: 'inside',
+            yAxisIndex: [0],
+            filterMode: 'empty'
+        }
+      ],
       color: [
         {
           type: "linear",
@@ -306,8 +321,8 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       },
       yAxis: {
         type: 'value',
-        min: 0,
-        max: 300,
+        //min: 0,
+        //max: 300,
         boundaryGap: [0, '100%'],
         
         axisLabel: {
@@ -362,6 +377,20 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         },
         areaStyle: {},
       }],
+      dataZoom: [
+        {
+            id: 'dataZoomX',
+            type: 'inside',
+            xAxisIndex: [0],
+            filterMode: 'filter'
+        },
+        {
+            id: 'dataZoomY',
+            type: 'inside',
+            yAxisIndex: [0],
+            filterMode: 'empty'
+        }
+    ]
     };
   }
 
@@ -370,12 +399,12 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   }
 
   randomData() {
-    this.now = new Date(this.now.getTime() + this.oneDay);
-    this.value = this.value + Math.random() * 21 - 10;
+    this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
+    this.value = this.value + Math.random() * 100 - 50;  //determines next value to come to the chart according to a certain interval
     return {
       name: this.now.toString(),
       value: [
-        [this.now.getFullYear(), this.now.getMonth() + 1, this.now.getDate()].join('/'),
+        [this.now.getFullYear(), this.now.getMonth() + 1, this.now.getDate()].join('/'),  //X axis format
         Math.round(this.value)
       ]
     };

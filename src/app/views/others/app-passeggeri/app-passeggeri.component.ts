@@ -172,8 +172,17 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
       },
       dataZoom: [
         {
-          type: 'inside',
+            id: 'dataZoomX',
+            type: 'inside',
+            xAxisIndex: [0],
+            filterMode: 'filter'
         },
+        {
+            id: 'dataZoomY',
+            type: 'inside',
+            yAxisIndex: [0],
+            filterMode: 'empty'
+        }
       ],
       series: [
         {
@@ -358,6 +367,20 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
             }
           ],
           global: false // false by default
+        }
+      ],
+      dataZoom: [
+        {
+            id: 'dataZoomX',
+            type: 'inside',
+            xAxisIndex: [0],
+            filterMode: 'filter'
+        },
+        {
+            id: 'dataZoomY',
+            type: 'inside',
+            yAxisIndex: [0],
+            filterMode: 'empty'
         }
       ]
     };

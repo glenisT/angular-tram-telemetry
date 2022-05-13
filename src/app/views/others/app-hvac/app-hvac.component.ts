@@ -238,7 +238,21 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
           ],
           global: false // false by default
         }
-      ]
+      ],
+      dataZoom: [
+        {
+            id: 'dataZoomX',
+            type: 'inside',
+            xAxisIndex: [0],
+            filterMode: 'filter'
+        },
+        {
+            id: 'dataZoomY',
+            type: 'inside',
+            yAxisIndex: [0],
+            filterMode: 'empty'
+        }
+      ],
     };
   }
 
@@ -357,7 +371,21 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
           ],
           global: false // false by default
         }
-      ]
+      ],
+      dataZoom: [
+        {
+            id: 'dataZoomX',
+            type: 'inside',
+            xAxisIndex: [0],
+            filterMode: 'filter'
+        },
+        {
+            id: 'dataZoomY',
+            type: 'inside',
+            yAxisIndex: [0],
+            filterMode: 'empty'
+        }
+      ],
     };
   }
 }
