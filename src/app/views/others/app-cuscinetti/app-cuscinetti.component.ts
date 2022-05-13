@@ -59,7 +59,7 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
   gaugeTemp6Value = 24.2;
 
   gaugeStimaType = "full";
-  gaugeStimaValue = 300;
+  gaugeStimaValue = 64;
   gaugeStimaMin = 0;
   gaugeStimaMax = 365;
   gaugeStimaLabel = "gg";
@@ -70,15 +70,20 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
   gaugeStimaMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeStimaSize = 200;
 
-  gaugeStima2Value = 300;
+  gaugeStima2Value = 236;
+  gaugeStima2ForegroundColor = "";
 
-  gaugeStima3Value = 300;
+  gaugeStima3Value = 289;
+  gaugeStima3ForegroundColor = "";
 
-  gaugeStima4Value = 300;
+  gaugeStima4Value = 99;
+  gaugeStima4ForegroundColor = "";
 
-  gaugeStima5Value = 300;
+  gaugeStima5Value = 125;
+  gaugeStima5ForegroundColor = "";
 
-  gaugeStima6Value = 300;
+  gaugeStima6Value = 170;
+  gaugeStima6ForegroundColor = "";
 
   statCardList = [
     {
@@ -116,10 +121,119 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
       }
     }, 120000);  //add 1km every 2minutes to total KM percorsi
 
-    if(this.gaugeTempValue > 24)
+    //assign dynamic colors to Stima gauges------------------------------
+    if(this.gaugeStimaValue <= 365)
     {
-      this.gaugeTempForegroundColor = "red";
+      this.gaugeStimaForegroundColor = "green";
     }
+
+    if(this.gaugeStimaValue <= 200)
+    {
+      this.gaugeStimaForegroundColor = "yellow";
+    }
+
+
+    if(this.gaugeStimaValue <= 100)
+    {
+      this.gaugeStimaForegroundColor = "red";
+    }
+
+    //-----2-----
+
+    if(this.gaugeStima2Value < 365)
+    {
+      this.gaugeStima2ForegroundColor = "green";
+    }
+
+
+    if(this.gaugeStima2Value < 200)
+    {
+      this.gaugeStima2ForegroundColor = "yellow";
+    }
+
+
+    if(this.gaugeStima2Value < 100)
+    {
+      this.gaugeStima2ForegroundColor = "red";
+    }
+
+    //-----3-----
+
+    if(this.gaugeStima3Value < 365)
+    {
+      this.gaugeStima3ForegroundColor = "green";
+    }
+
+
+    if(this.gaugeStima3Value < 200)
+    {
+      this.gaugeStima3ForegroundColor = "yellow";
+    }
+
+
+    if(this.gaugeStima3Value < 100)
+    {
+      this.gaugeStima3ForegroundColor = "red";
+    }
+
+    //-----4-----
+
+    if(this.gaugeStima4Value < 365)
+    {
+      this.gaugeStima4ForegroundColor = "green";
+    }
+
+
+    if(this.gaugeStima4Value < 200)
+    {
+      this.gaugeStima4ForegroundColor = "yellow";
+    }
+
+
+    if(this.gaugeStima4Value < 100)
+    {
+      this.gaugeStima4ForegroundColor = "red";
+    }
+
+    //-----5-----
+
+    if(this.gaugeStima5Value < 365)
+    {
+      this.gaugeStima5ForegroundColor = "green";
+    }
+
+
+    if(this.gaugeStima5Value < 200)
+    {
+      this.gaugeStima5ForegroundColor = "yellow";
+    }
+
+
+    if(this.gaugeStima5Value < 100)
+    {
+      this.gaugeStima5ForegroundColor = "red";
+    }
+
+    //-----6-----
+
+    if(this.gaugeStima6Value < 365)
+    {
+      this.gaugeStima6ForegroundColor = "green";
+    }
+
+
+    if(this.gaugeStima6Value < 200)
+    {
+      this.gaugeStima6ForegroundColor = "yellow";
+    }
+
+
+    if(this.gaugeStima6Value < 100)
+    {
+      this.gaugeStima6ForegroundColor = "red";
+    }
+
+    //------------------------------------------------------------
 
   }
 }
