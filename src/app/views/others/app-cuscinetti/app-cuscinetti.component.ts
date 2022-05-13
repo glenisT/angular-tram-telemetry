@@ -36,7 +36,7 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
   doughNutPieOptions: any;
 
   //used for creating and customizing the gauge chart
-  gaugeTempType = "arch";
+  gaugeTempType = "arch"
   gaugeTempValue = 23.8;
   gaugeTempMin = 23.5;
   gaugeTempMax = 24.5;
@@ -129,112 +129,130 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
     if(this.gaugeStimaValue <= 365)
     {
       this.gaugeStimaForegroundColor = "#92d050";
+      document.getElementById("circle").style.backgroundColor = "#92d050d3";
     }
 
     if(this.gaugeStimaValue <= 200)
     {
       this.gaugeStimaForegroundColor = "#ffc001";
+      document.getElementById("circle").style.backgroundColor = "#ffc001d3";
     }
 
 
     if(this.gaugeStimaValue <= 100)
     {
       this.gaugeStimaForegroundColor = "#ff0000";
+      document.getElementById("circle").style.backgroundColor = "#ff0000d3";
     }
 
     //-----2-----
 
-    if(this.gaugeStima2Value < 365)
+    if(this.gaugeStima2Value <= 365)
     {
       this.gaugeStima2ForegroundColor = "#92d050";
+      document.getElementById("circle2").style.backgroundColor = "#92d050d3";
     }
 
 
-    if(this.gaugeStima2Value < 200)
+    if(this.gaugeStima2Value <= 200)
     {
       this.gaugeStima2ForegroundColor = "#ffc001";
+      document.getElementById("circle2").style.backgroundColor = "#ffc001d3";
     }
 
 
-    if(this.gaugeStima2Value < 100)
+    if(this.gaugeStima2Value <= 100)
     {
       this.gaugeStima2ForegroundColor = "#ff0000";
+      document.getElementById("circle2").style.backgroundColor = "#ff0000d3";
     }
 
     //-----3-----
 
-    if(this.gaugeStima3Value < 365)
+    if(this.gaugeStima3Value <= 365)
     {
       this.gaugeStima3ForegroundColor = "#92d050";
+      document.getElementById("circle3").style.backgroundColor = "#92d050d3";
     }
 
 
-    if(this.gaugeStima3Value < 200)
+    if(this.gaugeStima3Value <= 200)
     {
       this.gaugeStima3ForegroundColor = "#ffc001";
+      document.getElementById("circle3").style.backgroundColor = "#ffc001d3";
     }
 
 
-    if(this.gaugeStima3Value < 100)
+    if(this.gaugeStima3Value <= 100)
     {
       this.gaugeStima3ForegroundColor = "#ff0000";
+      document.getElementById("circle3").style.backgroundColor = "#ff0000d3";
     }
 
     //-----4-----
 
-    if(this.gaugeStima4Value < 365)
+    if(this.gaugeStima4Value <= 365)
     {
       this.gaugeStima4ForegroundColor = "#92d050";
+      document.getElementById("circle4").style.backgroundColor = "#92d050d3";
     }
 
 
-    if(this.gaugeStima4Value < 200)
+    if(this.gaugeStima4Value <= 200)
     {
       this.gaugeStima4ForegroundColor = "#ffc001";
+      document.getElementById("circle4").style.backgroundColor = "#ffc001d3";
     }
 
 
-    if(this.gaugeStima4Value < 100)
+    if(this.gaugeStima4Value <= 100)
     {
       this.gaugeStima4ForegroundColor = "#ff0000";
+      document.getElementById("circle4").style.backgroundColor = "#ff0000d3";
     }
 
     //-----5-----
 
-    if(this.gaugeStima5Value < 365)
+    if(this.gaugeStima5Value <= 365)
     {
       this.gaugeStima5ForegroundColor = "#92d050";
+      document.getElementById("circle5").style.backgroundColor = "#92d050d3";
     }
 
 
-    if(this.gaugeStima5Value < 200)
+    if(this.gaugeStima5Value <= 200)
     {
       this.gaugeStima5ForegroundColor = "#ffc001";
+      document.getElementById("circle5").style.backgroundColor = "#ffc001d3";
     }
 
 
-    if(this.gaugeStima5Value < 100)
+    if(this.gaugeStima5Value <= 100)
     {
       this.gaugeStima5ForegroundColor = "#ff0000";
+      document.getElementById("circle5").style.backgroundColor = "#ff0000d3";
     }
 
     //-----6-----
 
-    if(this.gaugeStima6Value < 365)
+    if(this.gaugeStima6Value <= 365)
     {
       this.gaugeStima6ForegroundColor = "#92d050";
+      document.getElementById("circle6").style.backgroundColor = "#92d050d3";
     }
 
 
-    if(this.gaugeStima6Value < 200)
+    if(this.gaugeStima6Value <= 200)
     {
       this.gaugeStima6ForegroundColor = "#ffc001";
+      document.getElementById("circle6").style.backgroundColor = "#ffc001d3";
     }
 
 
-    if(this.gaugeStima6Value < 100)
+    if(this.gaugeStima6Value <= 100)
     {
       this.gaugeStima6ForegroundColor = "#ff0000";
+      document.getElementById("circle6").style.backgroundColor = "#ff0000d3";
     }
 
     //------------------------------------------------------------
