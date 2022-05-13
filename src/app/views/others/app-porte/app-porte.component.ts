@@ -138,7 +138,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     this.dbChartBar = {
       title: {
         show:true,
-        text:"Indice decibel",
+        text:"Porta 2",
         textStyle: {
           color: "white"
         }
@@ -272,30 +272,42 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         formatter: (params) => {
           params = params[0];
           const date = new Date(params.name);
-          return params.value[1] + ' kW';
+          return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
         },
+        show: true,
+
         axisPointer: {
-          animation: false
+          type: "cross",
+          lineStyle: {
+            opacity: 0
+          }
+        },
+        crossStyle: {
+          color: "#000"
         }
       },
       xAxis: {
-        name: 'Tempo',
-        show: true,
-        type: 'time',
+        type: 'time',        
+        showGrid: false,
+        boundaryGap: false,
         splitLine: {
           show: false
         },
         axisLabel: {
           color: "#ccc",
-          margin: 20,
-          fontSize: 13,
-          fontFamily: "roboto"
+          margin: 20
+        },
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
         },
       },
       yAxis: {
-        type: "value",
-        min: 0,
-        max: 1000,
+        type: 'value',
+        boundaryGap: [0, '100%'],
+        
         axisLabel: {
           color: "#ccc",
           margin: 20,
@@ -314,31 +326,25 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         axisTick: {
           show: false
         },
-        //name : 'Corrente',
-        nameLocation: 'middle',
-        nameGap: 50,
-        nameTextStyle: {
-          fontWeight: 'bold',
-          fontFamily: 'roboto',
-          color: "white"
-        },
-        boundaryGap: [0, '100%'],
-        splitArea: {
-          show: true
-        },
       },
-      dataZoom: [
+      color: [
         {
-            id: 'dataZoomX',
-            type: 'inside',
-            xAxisIndex: [0],
-            filterMode: 'filter'
-        },
-        {
-            id: 'dataZoomY',
-            type: 'inside',
-            yAxisIndex: [0],
-            filterMode: 'empty'
+          type: "linear",
+          x: 0,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [
+            {
+              offset: 0,
+              color: "rgba(255,255,255,0.3)" // color at 0% position
+            },
+            {
+              offset: 1,
+              color: "rgba(255,255,255,0)" // color at 100% position
+            }
+          ],
+          global: false // false by default
         }
       ],
       series: [{
@@ -347,14 +353,13 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         showSymbol: false,
         hoverAnimation: false,
         data: this.data,
-        smooth:true,
-        areaStyle: {},
+        smooth: false,
         lineStyle: {
           width: 2,
           color: "#fff"
-         }
-      }
-    ]
+        },
+        areaStyle: {},
+      }],
     };
   }
 
