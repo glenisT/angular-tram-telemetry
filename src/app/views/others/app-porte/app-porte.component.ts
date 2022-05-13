@@ -45,28 +45,22 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
 
   statCardList = [
     {
-      icon: "people",
-      title: "New Leads",
-      amount: "3,050",
+      icon: "tram",
+      title: "Numero Veicolo",
+      amount: "2154AnZ",
       color: "primary"
     },
     {
-      icon: "attach_money",
-      title: "This week Sales",
-      amount: "$80,500",
+      icon: "tag",
+      title: "Linea",
+      amount: "Linea 4",
       color: "primary"
     },
     {
-      icon: "store",
-      title: "Inventory Status",
-      amount: "8.5% Stock Surplus",
-      color: "accent"
-    },
-    {
-      icon: "shopping_cart",
-      title: "Orders to deliver",
-      amount: "305 Orders",
-      color: "accent"
+      icon: "check",
+      title: "km percorsi",
+      amount: 654.21,
+      color: "primary"
     }
   ];
 
@@ -106,6 +100,14 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     });
     this.initDailyTrafficChartBar(this.themeService.activatedTheme);
     this.initDbChartBar(this.themeService.activatedTheme);
+
+    //add km to km percorsi card
+    setInterval(() => {
+      for(let i = 0; i <= 0; i++)
+      {
+        this.statCardList[2].amount = +this.statCardList[2].amount + 1;
+      }
+    }, 120000);  //add 1km every 2minutes to total KM percorsi
 
      // generate some random testing data:
      this.data = [];
@@ -278,11 +280,17 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       },
       xAxis: {
         name: 'Tempo',
-        show: false,
+        show: true,
         type: 'time',
         splitLine: {
           show: false
-        }
+        },
+        axisLabel: {
+          color: "#ccc",
+          margin: 20,
+          fontSize: 13,
+          fontFamily: "roboto"
+        },
       },
       yAxis: {
         type: "value",
@@ -364,127 +372,5 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         Math.round(this.value)
       ]
     };
-  }
-
-  initDoughNutPieOptions(theme) {
-    this.doughNutPieOptions = {
-      backgroundColor: "transparent",
-      color: [
-        "#f44336",
-        "#ff9e43",
-        "rgba(116, 103, 239, 1)"
-      ],
-      legend: {
-        show: true,
-        itemGap: 20,
-        icon: "circle",
-        bottom: 0,
-        textStyle: {
-          fontSize: 13,
-          fontFamily: "roboto"
-        }
-      },
-      tooltip: {
-        show: false,
-        trigger: "item",
-        formatter: "{a} <br/>{b}: {c} ({d}%)"
-      },
-      xAxis: [
-        {
-          axisLine: {
-            show: false
-          },
-          splitLine: {
-            show: false
-          }
-        }
-      ],
-      yAxis: [
-        {
-          axisLine: {
-            show: false
-          },
-          splitLine: {
-            show: false
-          }
-        }
-      ],
-
-      series: [
-        {
-          name: "Traffic Rate",
-          type: "pie",
-          radius: ["45%", "72.55%"],
-          center: ["50%", "50%"],
-          avoidLabelOverlap: false,
-          hoverOffset: 5,
-          stillShowZeroSum: false,
-
-          label: {
-            normal: {
-              show: false,
-              position: "center",
-              textStyle: {
-                fontSize: "13",
-                fontWeight: "normal"
-              },
-              formatter: "{a}"
-            },
-            emphasis: {
-              show: true,
-              textStyle: {
-                fontSize: "15",
-                fontWeight: "normal",
-                color: "rgba(116, 103, 239, 1)"
-              },
-              formatter: "{b} \n{c} ({d}%)"
-            }
-          },
-          labelLine: {
-            normal: {
-              show: false
-            }
-          },
-          data: [
-            {
-              value: 65,
-              name: "Google"
-            },
-            {
-              value: 20,
-              name: "Facebook"
-            },
-            { value: 15, name: "Others" }
-          ],
-
-          itemStyle: {
-            emphasis: {
-              shadowBlur: 10,
-              shadowOffsetX: 0,
-              shadowColor: "rgba(0, 0, 0, 0.5)"
-            }
-          }
-        }
-      ]
-    };
-  }
-
-  getProductStatus(value) {
-    if (value) {
-      if (value < 20) {
-        return {
-          color: "accent",
-          status: `${value} available`
-        };
-      } else
-        return {
-          color: "primary",
-          status: `in stock`
-        };
-    } else
-      return {
-        color: "warn",
-        status: `out of stcok`
-      };
   }
 }
