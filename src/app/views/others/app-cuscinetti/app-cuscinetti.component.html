@@ -34,7 +34,9 @@
           <mat-icon style="position: absolute; left:85%; top: 15%;">build</mat-icon>
           <h3 class="text-white font-weight-bold">Stima durata</h3>
         </span>
-        <div class="circle" id="circle"></div>
+        <div class="circle" id="circle" style="display: flex; justify-content:center; align-items: center;">
+          <h5 id="cambio">Cambiamento necessario!</h5>
+        </div>
         <ngx-gauge [type]="gaugeStimaType" 
                [value]="gaugeStimaValue" 
                [min]="gaugeStimaMin"

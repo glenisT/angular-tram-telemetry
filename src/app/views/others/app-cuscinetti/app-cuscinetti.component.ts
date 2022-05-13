@@ -61,7 +61,7 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
   //---------------------------------------------------------------------
 
   gaugeStimaType = "full";
-  gaugeStimaValue = 64;
+  gaugeStimaValue = 365;
   gaugeStimaMin = 0;
   gaugeStimaMax = 365;
   gaugeStimaLabel = "gg";
@@ -124,6 +124,38 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
         this.statCardList[2].amount = +this.statCardList[2].amount + 1;
       }
     }, 120000);  //add 1km every 2minutes to total KM percorsi
+
+    //----------Demo for dynamic colors of Stima----------
+    let timer = setInterval(() => {
+      for(let i = 0; i <= 0; i++)
+      {
+        if(this.gaugeStimaValue == 0)
+        {
+          this.gaugeStimaValue = 1;
+          clearInterval(timer);
+        }
+        this.gaugeStimaValue = this.gaugeStimaValue - 1;
+
+
+        if(this.gaugeStimaValue <= 200)
+        {
+          this.gaugeStimaForegroundColor = "#ffc001";
+          document.getElementById("circle").style.backgroundColor = "#ffc001d3";
+        }
+
+        if(this.gaugeStimaValue <= 100)
+        {
+          this.gaugeStimaForegroundColor = "#ff0000";
+          document.getElementById("circle").style.backgroundColor = "#ff0000d3";
+        }
+
+        if(this.gaugeStimaValue <= 90)
+        {
+          document.getElementById("circle").style.animation = "danger 0.5s alternate infinite forwards";
+          document.getElementById("cambio").style.display = "flex";
+        }
+      }
+    }, 50);
 
     //assign dynamic colors to Stima gauges------------------------------
     if(this.gaugeStimaValue <= 365)
