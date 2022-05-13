@@ -55,7 +55,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
   gaugeDbLabel = "";
   gaugeDbAppendText = "db";
   gaugeDbThickness = 20;
-  gaugeDbForegroundColor = "rgb(220, 0, 0)";
+  gaugeDbForegroundColor = "#ff0000";
   gaugeDbBackgroundColor = "rgb(55, 55, 153)";
   gaugeDbMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeDbSize = 300;
@@ -207,11 +207,11 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
             },
             {
               value: 62,
-              itemStyle: {color: 'rgb(220, 0, 0)'},
+              itemStyle: {color: '#ff0000'},
             },
             {
               value: 60,
-              itemStyle: {color: 'rgb(220, 0, 0)'},
+              itemStyle: {color: '#ff0000'},
             },
             {
               value: 55,

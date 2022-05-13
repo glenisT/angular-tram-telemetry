@@ -58,6 +58,8 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
 
   gaugeTemp6Value = 24.2;
 
+  //---------------------------------------------------------------------
+
   gaugeStimaType = "full";
   gaugeStimaValue = 64;
   gaugeStimaMin = 0;
@@ -84,6 +86,8 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
 
   gaugeStima6Value = 170;
   gaugeStima6ForegroundColor = "";
+
+  //---------------------------------------------------------------------
 
   statCardList = [
     {
@@ -124,113 +128,113 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
     //assign dynamic colors to Stima gauges------------------------------
     if(this.gaugeStimaValue <= 365)
     {
-      this.gaugeStimaForegroundColor = "green";
+      this.gaugeStimaForegroundColor = "#92d050";
     }
 
     if(this.gaugeStimaValue <= 200)
     {
-      this.gaugeStimaForegroundColor = "yellow";
+      this.gaugeStimaForegroundColor = "#ffc001";
     }
 
 
     if(this.gaugeStimaValue <= 100)
     {
-      this.gaugeStimaForegroundColor = "red";
+      this.gaugeStimaForegroundColor = "#ff0000";
     }
 
     //-----2-----
 
     if(this.gaugeStima2Value < 365)
     {
-      this.gaugeStima2ForegroundColor = "green";
+      this.gaugeStima2ForegroundColor = "#92d050";
     }
 
 
     if(this.gaugeStima2Value < 200)
     {
-      this.gaugeStima2ForegroundColor = "yellow";
+      this.gaugeStima2ForegroundColor = "#ffc001";
     }
 
 
     if(this.gaugeStima2Value < 100)
     {
-      this.gaugeStima2ForegroundColor = "red";
+      this.gaugeStima2ForegroundColor = "#ff0000";
     }
 
     //-----3-----
 
     if(this.gaugeStima3Value < 365)
     {
-      this.gaugeStima3ForegroundColor = "green";
+      this.gaugeStima3ForegroundColor = "#92d050";
     }
 
 
     if(this.gaugeStima3Value < 200)
     {
-      this.gaugeStima3ForegroundColor = "yellow";
+      this.gaugeStima3ForegroundColor = "#ffc001";
     }
 
 
     if(this.gaugeStima3Value < 100)
     {
-      this.gaugeStima3ForegroundColor = "red";
+      this.gaugeStima3ForegroundColor = "#ff0000";
     }
 
     //-----4-----
 
     if(this.gaugeStima4Value < 365)
     {
-      this.gaugeStima4ForegroundColor = "green";
+      this.gaugeStima4ForegroundColor = "#92d050";
     }
 
 
     if(this.gaugeStima4Value < 200)
     {
-      this.gaugeStima4ForegroundColor = "yellow";
+      this.gaugeStima4ForegroundColor = "#ffc001";
     }
 
 
     if(this.gaugeStima4Value < 100)
     {
-      this.gaugeStima4ForegroundColor = "red";
+      this.gaugeStima4ForegroundColor = "#ff0000";
     }
 
     //-----5-----
 
     if(this.gaugeStima5Value < 365)
     {
-      this.gaugeStima5ForegroundColor = "green";
+      this.gaugeStima5ForegroundColor = "#92d050";
     }
 
 
     if(this.gaugeStima5Value < 200)
     {
-      this.gaugeStima5ForegroundColor = "yellow";
+      this.gaugeStima5ForegroundColor = "#ffc001";
     }
 
 
     if(this.gaugeStima5Value < 100)
     {
-      this.gaugeStima5ForegroundColor = "red";
+      this.gaugeStima5ForegroundColor = "#ff0000";
     }
 
     //-----6-----
 
     if(this.gaugeStima6Value < 365)
     {
-      this.gaugeStima6ForegroundColor = "green";
+      this.gaugeStima6ForegroundColor = "#92d050";
     }
 
 
     if(this.gaugeStima6Value < 200)
     {
-      this.gaugeStima6ForegroundColor = "yellow";
+      this.gaugeStima6ForegroundColor = "#ffc001";
     }
 
 
     if(this.gaugeStima6Value < 100)
     {
-      this.gaugeStima6ForegroundColor = "red";
+      this.gaugeStima6ForegroundColor = "#ff0000";
     }
 
     //------------------------------------------------------------

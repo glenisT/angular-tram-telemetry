@@ -66,7 +66,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugeUmiditaLabel = "";
   gaugeUmiditaAppendText = "%";
   gaugeUmiditaThickness = 20;
-  gaugeUmiditaForegroundColor = "red";
+  gaugeUmiditaForegroundColor = "#ff0000";
   gaugeUmiditaBackgroundColor = "rgb(55, 55, 153)";
   gaugeUmiditaMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeUmiditaSize = 200;
