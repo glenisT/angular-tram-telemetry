@@ -112,20 +112,20 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
      // generate some random testing data:
      this.data = [];
      this.now = new Date(2022, 20, 5);
-     this.value = Math.random() * 1000;
+     this.value = Math.random() * 100; //multiplication number sets the maximum value of the random values that will be generated
  
-     for (let i = 0; i < 1000; i++) {
+     for (let i = 0; i < 12; i++) { //'i' sets how many values per single screen of the chart will be shown
        this.data.push(this.randomData());
      }
 
-     // Mock dynamic data:
+    // Mock dynamic data:
     this.timer = setInterval(() => {
-      for (let i = 0; i < 5; i++) {
+      for (let i = 0; i < 1; i++) { //use num in 'i < num' to manipulate how many values will be displayed at once
         this.data.shift();
         this.data.push(this.randomData());
       }
 
-      // update series data:
+      // update chart series data:
       this.updateDailyTrafficChartBar = {
         series: [{
           data: this.data
@@ -209,7 +209,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       yAxis: {
         type: "value",
         min: 0,
-        max: 70,
+        max: 100,
         axisLabel: {
           color: "#ccc",
           margin: 20,
@@ -306,6 +306,8 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       },
       yAxis: {
         type: 'value',
+        min: 0,
+        max: 300,
         boundaryGap: [0, '100%'],
         
         axisLabel: {
