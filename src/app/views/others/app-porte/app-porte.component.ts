@@ -158,11 +158,10 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     }, 1000);
   }
 
-  initSecondaPortaChartBar(theme) {
-    this.secondaPortaChartBar = {
+  initPrimaPortaChartBar(theme) {
+    this.primaPortaChartBar = {
       title: {
-        show:true,
-        text:"Porta 2",
+        text: 'Porta 1',
         textStyle: {
           color: "white"
         }
@@ -173,10 +172,14 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         right: 25,
         bottom: 200
       },
-      legend: {},
       tooltip: {
+        trigger: 'axis',
+        formatter: (params) => {
+          params = params[0];
+          const date = new Date(params.name);
+          return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+        },
         show: true,
-        trigger: "axis",
 
         axisPointer: {
           type: "cross",
@@ -188,37 +191,13 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
           color: "#000"
         }
       },
-      series: [
-        {
-          data: [40, 45, 50, 52, 54, 56, 61, 59, 50, 45, 47, 52],
-          type: "line",
-          areaStyle: {},
-          smooth: false,
-          lineStyle: {
-            width: 2,
-            color: "#fff"
-          }
-        }
-      ],
       xAxis: {
-        show: true,
-        type: "category",
+        type: 'time',        
         showGrid: false,
         boundaryGap: false,
-        data: [
-          "14:18:00",
-          "14:18:30",
-          "14:19:00",
-          "14:19:30",
-          "14:20:00",
-          "14:20:30",
-          "14:21:00",
-          "14:21:30",
-          "14:22:00",
-          "14:22:30",
-          "14:23:00",
-          "14:23:30",
-        ],
+        splitLine: {
+          show: false
+        },
         axisLabel: {
           color: "#ccc",
           margin: 20
@@ -228,12 +207,14 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         },
         axisTick: {
           show: false
-        }
+        },
       },
       yAxis: {
-        type: "value",
+        type: 'value',
         min: 0,
         max: 100,
+        boundaryGap: [0, '100%'],
+        
         axisLabel: {
           color: "#ccc",
           margin: 20,
@@ -246,28 +227,13 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
             color: "rgba(255, 255, 255, .1)"
           }
         },
-
         axisLine: {
           show: false
         },
         axisTick: {
           show: false
-        }
-      },
-      dataZoom: [
-        {
-            id: 'dataZoomX',
-            type: 'inside',
-            xAxisIndex: [0],
-            filterMode: 'filter'
         },
-        {
-            id: 'dataZoomY',
-            type: 'inside',
-            yAxisIndex: [0],
-            filterMode: 'empty'
-        }
-      ],
+      },
       color: [
         {
           type: "linear",
@@ -287,14 +253,41 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
           ],
           global: false // false by default
         }
-      ]
+      ],
+      series: [{
+        name: 'Mocking Data',
+        type: 'line',
+        showSymbol: false,
+        hoverAnimation: false,
+        data: this.data,
+        smooth: false,
+        lineStyle: {
+          width: 2,
+          color: "#fff"
+        },
+        areaStyle: {},
+      }],
+      dataZoom: [
+        {
+            id: 'dataZoomX',
+            type: 'inside',
+            xAxisIndex: [0],
+            filterMode: 'filter'
+        },
+        {
+            id: 'dataZoomY',
+            type: 'inside',
+            yAxisIndex: [0],
+            filterMode: 'empty'
+        }
+    ]
     };
   }
 
-  initPrimaPortaChartBar(theme) {
-    this.primaPortaChartBar = {
+  initSecondaPortaChartBar(theme) {
+    this.secondaPortaChartBar = {
       title: {
-        text: 'Porta 1',
+        text: 'Porta 2',
         textStyle: {
           color: "white"
         }
