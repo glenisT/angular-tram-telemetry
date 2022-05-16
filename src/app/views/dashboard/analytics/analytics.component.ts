@@ -129,7 +129,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
       },
       series: [
         {
-          data: [5, 6, 9, 10, 15, 17, 19, 20, 30],
+          data: [0, 6, 10, 15, 24, 30, 35, 42, 50],
           type: "line",
           areaStyle: {},
           smooth: false,
@@ -169,7 +169,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
       yAxis: {
         type: "value",
         min: 0,
-        max: 60,
+        max: 50,
         axisLabel: {
           color: "#ccc",
           margin: 20,
