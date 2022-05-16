@@ -20,62 +20,80 @@
           height="180"
           echarts
           class="chart m-0"
-          [options]="dailyTrafficChartBar"
-          [merge]="updateDailyTrafficChartBar"
+          [options]="primaPortaChartBar"
+          [merge]="updatePortaChartBar"
         ></div>
       </div>
     
       <div class="ngx-gauge-ap">
-        <span style="display: flex; margin-left: 25%;">
-          <mat-icon style="position: absolute; left:85%; top: 15%;">people</mat-icon>
-          <h3 class="text-white font-weight-bold"></h3>
+        <span style="display: flex; margin-left: 20%;">
+          <!-- <mat-icon style="position: absolute; left:85%; top: 15%;">people</mat-icon> -->
+          <h3 class="text-white font-weight-bold">Ultima Apertura</h3>
         </span>
-        <ngx-gauge [type]="gaugePasseggeriType" 
-               [value]="gaugePasseggeriValue" 
-               [max]="gaugePasseggeriMax"
-               [label]="gaugePasseggeriLabel"  
-               [append]="gaugePasseggeriAppendText"
-               [thick]="gaugePasseggeriThickness"
-               [foregroundColor]="gaugePasseggeriForegroundColor"
-               [backgroundColor]="gaugePasseggeriBackgroundColor"
-               [size]="gaugePasseggeriSize" >
+        <ngx-gauge [type]="gaugeApertura1Type" 
+               [value]="gaugeApertura1Value" 
+               [max]="gaugeApertura1Max"
+               [label]="gaugeApertura1Label"  
+               [append]="gaugeApertura1AppendText"
+               [thick]="gaugeApertura1Thickness"
+               [foregroundColor]="gaugeApertura1ForegroundColor"
+               [backgroundColor]="gaugeApertura1BackgroundColor"
+               [size]="gaugeApertura1Size" >
         </ngx-gauge>
       </div>
 
       <div class="ngx-gauge-chius">
-        <span style="display: flex; margin-left: 25%;">
-          <mat-icon style="position: absolute; left:85%; top: 15%;">people</mat-icon>
-          <h3 class="text-white font-weight-bold"></h3>
+        <span style="display: flex; margin-left: 20%;">
+          <!-- <mat-icon style="position: absolute; left:85%; top: 15%;">people</mat-icon> -->
+          <h3 class="text-white font-weight-bold">Ultima Chiusura</h3>
         </span>
-        <ngx-gauge [type]="gaugePasseggeriType" 
-               [value]="gaugePasseggeriValue" 
-               [max]="gaugePasseggeriMax"
-               [label]="gaugePasseggeriLabel"  
-               [append]="gaugePasseggeriAppendText"
-               [thick]="gaugePasseggeriThickness"
-               [foregroundColor]="gaugePasseggeriForegroundColor"
-               [backgroundColor]="gaugePasseggeriBackgroundColor"
-               [size]="gaugePasseggeriSize" >
+        <ngx-gauge [type]="gaugeChiusura1Type" 
+               [value]="gaugeChiusura1Value" 
+               [max]="gaugeChiusura1Max"
+               [label]="gaugeChiusura1Label"  
+               [append]="gaugeChiusura1AppendText"
+               [thick]="gaugeChiusura1Thickness"
+               [foregroundColor]="gaugeChiusura1ForegroundColor"
+               [backgroundColor]="gaugeChiusura1BackgroundColor"
+               [size]="gaugeChiusura1Size" >
         </ngx-gauge>
       </div>
     </div>
   
     <div class="row-2">
       <div class="ngx-gauge-umidita">
-        <span style="display: flex; margin-left: 25%;">
-          <mat-icon style="position: absolute; left:85%; top: 15%;">graphic_eq</mat-icon>
-          <h3 class="text-white font-weight-bold"></h3>
+        <span style="display: flex; margin-left: 20%;">
+          <!-- <mat-icon style="position: absolute; left:85%; top: 15%;">graphic_eq</mat-icon> -->
+          <h3 class="text-white font-weight-bold">Ultima Apertura</h3>
         </span>
-        <ngx-gauge [type]="gaugeDbType" 
-               [value]="gaugeDbValue" 
-               [min]="gaugeDbMin"
-               [max]="gaugeDbMax"
-               [label]="gaugeDbLabel"  
-               [append]="gaugeDbAppendText"
-               [thick]="gaugeDbThickness"
-               [foregroundColor]="gaugeDbForegroundColor"
-               [backgroundColor]="gaugeDbBackgroundColor"
-               [size]="gaugeDbSize" >
+        <ngx-gauge [type]="gaugeApertura2Type" 
+               [value]="gaugeApertura2Value" 
+               [min]="gaugeApertura2Min"
+               [max]="gaugeApertura2Max"
+               [label]="gaugeApertura2Label"  
+               [append]="gaugeApertura2AppendText"
+               [thick]="gaugeApertura2Thickness"
+               [foregroundColor]="gaugeApertura2ForegroundColor"
+               [backgroundColor]="gaugeApertura2BackgroundColor"
+               [size]="gaugeApertura2Size" >
+        </ngx-gauge>
+      </div>
+
+      <div class="ngx-gauge-umidita">
+        <span style="display: flex; margin-left: 20%;">
+          <!-- <mat-icon style="position: absolute; left:85%; top: 15%;">graphic_eq</mat-icon> -->
+          <h3 class="text-white font-weight-bold">Ultima Chiusura</h3>
+        </span>
+        <ngx-gauge [type]="gaugeChiusura2Type" 
+               [value]="gaugeChiusura2Value" 
+               [min]="gaugeChiusura2Min"
+               [max]="gaugeChiusura2Max"
+               [label]="gaugeChiusura2Label"  
+               [append]="gaugeChiusura2AppendText"
+               [thick]="gaugeChiusura2Thickness"
+               [foregroundColor]="gaugeChiusura2ForegroundColor"
+               [backgroundColor]="gaugeChiusura2BackgroundColor"
+               [size]="gaugeChiusura2Size" >
         </ngx-gauge>
       </div>
     
@@ -87,7 +105,7 @@
           height="180"
           echarts
           class="chart m-0"
-          [options]="dbChartBar"
+          [options]="secondaPortaChartBar"
         ></div>
       </div>
     </div>

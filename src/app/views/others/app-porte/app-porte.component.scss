@@ -11,27 +11,39 @@
 .ngx-gauge-ap
 {
     position: absolute;
-    top: 16%;
+    top: 11.5%;
     left: 70%;
 }
 
 .ngx-gauge-chius
 {
     position: absolute;
-    top: 16%;
+    top: 11.5%;
     left: 82%;
 }
 
 .ngx-gauge-umidita
 {
     position: absolute;
-    top: 55%;
+    top: 42.5%;
     left: 70%;
+}
+
+.ngx-gauge-umidita:nth-child(2)
+{
+    position: absolute;
+    top: 42.5%;
+    left: 82%;
 }
 
 .graph
 {
-    margin-left: 0;
+    margin-top: -2.5%;
+}
+
+.graph:nth-child(4)
+{
+    margin-top: -15%;
 }
 
 .borders
@@ -40,7 +52,7 @@
     width: 80vw;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.342);
-    top:48vh;
+    top: 36vh;
     left: 2.5vw;
 }
 

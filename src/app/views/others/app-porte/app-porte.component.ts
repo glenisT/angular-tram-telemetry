@@ -29,13 +29,13 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   trafficGrowthChart: any;
   bounceRateGrowthChart: any;
 
-  dailyTrafficChartBar: any;
-  updateDailyTrafficChartBar: any;
+  primaPortaChartBar: any;
+  updatePortaChartBar: any;
   trafficSourcesChart: any;
   countryTrafficStats: any[];
   doughNutPieOptions: any;
 
-  dbChartBar: any;
+  secondaPortaChartBar: any;
 
   private oneDay = 24 * 3600 * 1000;
   private oneHour = 3600 * 1000;
@@ -66,28 +66,51 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   ];
 
   //used for creating and customizing the gauge chart
-  gaugePasseggeriType = "full";
-  gaugePasseggeriValue = 54;
-  gaugePasseggeriMax = 70;
-  gaugePasseggeriLabel = "pax";
-  gaugePasseggeriAppendText = "";
-  gaugePasseggeriThickness = 20;
-  gaugePasseggeriForegroundColor = "deepSkyBlue";
-  gaugePasseggeriBackgroundColor = "rgb(55, 55, 153)";
-  gaugePasseggeriMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugePasseggeriSize = 200;
+  gaugeApertura1Type = "arch";
+  gaugeApertura1Value = 24;
+  gaugeApertura1Max = 100;
+  gaugeApertura1Label = "";
+  gaugeApertura1AppendText = "V";
+  gaugeApertura1Thickness = 20;
+  gaugeApertura1ForegroundColor = "deepSkyBlue";
+  gaugeApertura1BackgroundColor = "rgb(55, 55, 153)";
+  gaugeApertura1Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeApertura1Size = 200;
 
-  gaugeDbType = "arch";
-  gaugeDbValue = 52;
-  gaugeDbMin = 0;
-  gaugeDbMax = 70;
-  gaugeDbLabel = "";
-  gaugeDbAppendText = "db";
-  gaugeDbThickness = 20;
-  gaugeDbForegroundColor = "#ff0000";
-  gaugeDbBackgroundColor = "rgb(55, 55, 153)";
-  gaugeDbMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugeDbSize = 200;
+  gaugeChiusura1Type = "arch";
+  gaugeChiusura1Value = 60;
+  gaugeChiusura1Max = 100;
+  gaugeChiusura1Label = "";
+  gaugeChiusura1AppendText = "V";
+  gaugeChiusura1Thickness = 20;
+  gaugeChiusura1ForegroundColor = "deepSkyBlue";
+  gaugeChiusura1BackgroundColor = "rgb(55, 55, 153)";
+  gaugeChiusura1Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeChiusura1Size = 200;
+
+  gaugeApertura2Type = "arch";
+  gaugeApertura2Value = 26;
+  gaugeApertura2Min = 0;
+  gaugeApertura2Max = 100;
+  gaugeApertura2Label = "";
+  gaugeApertura2AppendText = "V";
+  gaugeApertura2Thickness = 20;
+  gaugeApertura2ForegroundColor = "deepSkyBlue";
+  gaugeApertura2BackgroundColor = "rgb(55, 55, 153)";
+  gaugeApertura2Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeApertura2Size = 200;
+
+  gaugeChiusura2Type = "arch";
+  gaugeChiusura2Value = 30;
+  gaugeChiusura2Min = 0;
+  gaugeChiusura2Max = 100;
+  gaugeChiusura2Label = "";
+  gaugeChiusura2AppendText = "V";
+  gaugeChiusura2Thickness = 20;
+  gaugeChiusura2ForegroundColor = "deepSkyBlue";
+  gaugeChiusura2BackgroundColor = "rgb(55, 55, 153)";
+  gaugeChiusura2Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeChiusura2Size = 200;
 
   displayedColumns: string[] = ["name", "price", "available", "action"];
 
@@ -96,11 +119,11 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {}
   ngOnInit() {
     this.themeService.onThemeChange.subscribe(activeTheme => {
-      this.initDailyTrafficChartBar(activeTheme);
-      this.initDbChartBar(activeTheme);
+      this.initPrimaPortaChartBar(activeTheme);
+      this.initSecondaPortaChartBar(activeTheme);
     });
-    this.initDailyTrafficChartBar(this.themeService.activatedTheme);
-    this.initDbChartBar(this.themeService.activatedTheme);
+    this.initPrimaPortaChartBar(this.themeService.activatedTheme);
+    this.initSecondaPortaChartBar(this.themeService.activatedTheme);
 
     //add km to km percorsi card
     setInterval(() => {
@@ -127,7 +150,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       }
 
       // update chart series data:
-      this.updateDailyTrafficChartBar = {
+      this.updatePortaChartBar = {
         series: [{
           data: this.data
         }]
@@ -135,8 +158,8 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     }, 1000);
   }
 
-  initDbChartBar(theme) {
-    this.dbChartBar = {
+  initSecondaPortaChartBar(theme) {
+    this.secondaPortaChartBar = {
       title: {
         show:true,
         text:"Porta 2",
@@ -148,7 +171,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         top: 56,
         left: 56,
         right: 25,
-        bottom: 150
+        bottom: 200
       },
       legend: {},
       tooltip: {
@@ -268,8 +291,8 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     };
   }
 
-  initDailyTrafficChartBar(theme) {
-    this.dailyTrafficChartBar = {
+  initPrimaPortaChartBar(theme) {
+    this.primaPortaChartBar = {
       title: {
         text: 'Porta 1',
         textStyle: {
@@ -280,7 +303,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         top: 56,
         left: 56,
         right: 25,
-        bottom: 150
+        bottom: 200
       },
       tooltip: {
         trigger: 'axis',
