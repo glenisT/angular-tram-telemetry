@@ -25,7 +25,24 @@
         ></div>
       </div>
     
-      <div class="ngx-gauge-ppm">
+      <div class="ngx-gauge-ap">
+        <span style="display: flex; margin-left: 25%;">
+          <mat-icon style="position: absolute; left:85%; top: 15%;">people</mat-icon>
+          <h3 class="text-white font-weight-bold"></h3>
+        </span>
+        <ngx-gauge [type]="gaugePasseggeriType" 
+               [value]="gaugePasseggeriValue" 
+               [max]="gaugePasseggeriMax"
+               [label]="gaugePasseggeriLabel"  
+               [append]="gaugePasseggeriAppendText"
+               [thick]="gaugePasseggeriThickness"
+               [foregroundColor]="gaugePasseggeriForegroundColor"
+               [backgroundColor]="gaugePasseggeriBackgroundColor"
+               [size]="gaugePasseggeriSize" >
+        </ngx-gauge>
+      </div>
+
+      <div class="ngx-gauge-chius">
         <span style="display: flex; margin-left: 25%;">
           <mat-icon style="position: absolute; left:85%; top: 15%;">people</mat-icon>
           <h3 class="text-white font-weight-bold"></h3>

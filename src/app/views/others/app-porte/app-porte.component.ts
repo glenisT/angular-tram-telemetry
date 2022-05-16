@@ -75,7 +75,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugePasseggeriForegroundColor = "deepSkyBlue";
   gaugePasseggeriBackgroundColor = "rgb(55, 55, 153)";
   gaugePasseggeriMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugePasseggeriSize = 300;
+  gaugePasseggeriSize = 200;
 
   gaugeDbType = "arch";
   gaugeDbValue = 52;
@@ -87,7 +87,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeDbForegroundColor = "#ff0000";
   gaugeDbBackgroundColor = "rgb(55, 55, 153)";
   gaugeDbMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugeDbSize = 300;
+  gaugeDbSize = 200;
 
   displayedColumns: string[] = ["name", "price", "available", "action"];
 
@@ -321,8 +321,8 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       },
       yAxis: {
         type: 'value',
-        //min: 0,
-        //max: 300,
+        min: 0,
+        max: 100,
         boundaryGap: [0, '100%'],
         
         axisLabel: {
@@ -400,7 +400,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
 
   randomData() {
     this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
-    this.value = this.value + Math.random() * 100 - 50;  //determines next value to come to the chart according to a certain interval
+    this.value = Math.random() * 100;  //determines next value to come to the chart according to a certain interval
     return {
       name: this.now.toString(),
       value: [
