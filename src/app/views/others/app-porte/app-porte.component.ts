@@ -30,12 +30,14 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   bounceRateGrowthChart: any;
 
   primaPortaChartBar: any;
+  secondaPortaChartBar: any;
+  terzaPortaChartBar: any;
   updatePortaChartBar: any;
+
   trafficSourcesChart: any;
   countryTrafficStats: any[];
   doughNutPieOptions: any;
 
-  secondaPortaChartBar: any;
 
   private oneDay = 24 * 3600 * 1000;
   private oneHour = 3600 * 1000;
@@ -112,6 +114,30 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeChiusura2Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeChiusura2Size = 200;
 
+  gaugeApertura3Type = "arch";
+  gaugeApertura3Value = 24;
+  gaugeApertura3Min = 0;
+  gaugeApertura3Max = 100;
+  gaugeApertura3Label = "";
+  gaugeApertura3AppendText = "V";
+  gaugeApertura3Thickness = 20;
+  gaugeApertura3ForegroundColor = "deepSkyBlue";
+  gaugeApertura3BackgroundColor = "rgb(55, 55, 153)";
+  gaugeApertura3Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeApertura3Size = 200;
+
+  gaugeChiusura3Type = "arch";
+  gaugeChiusura3Value = 21;
+  gaugeChiusura3Min = 0;
+  gaugeChiusura3Max = 100;
+  gaugeChiusura3Label = "";
+  gaugeChiusura3AppendText = "V";
+  gaugeChiusura3Thickness = 20;
+  gaugeChiusura3ForegroundColor = "deepSkyBlue";
+  gaugeChiusura3BackgroundColor = "rgb(55, 55, 153)";
+  gaugeChiusura3Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeChiusura3Size = 200;
+
   displayedColumns: string[] = ["name", "price", "available", "action"];
 
   constructor(private themeService: ThemeService) {}
@@ -121,9 +147,11 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     this.themeService.onThemeChange.subscribe(activeTheme => {
       this.initPrimaPortaChartBar(activeTheme);
       this.initSecondaPortaChartBar(activeTheme);
+      this.initTerzaPortaChartBar(activeTheme);
     });
     this.initPrimaPortaChartBar(this.themeService.activatedTheme);
     this.initSecondaPortaChartBar(this.themeService.activatedTheme);
+    this.initTerzaPortaChartBar(this.themeService.activatedTheme);
 
     //add km to km percorsi card
     setInterval(() => {
@@ -288,6 +316,132 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     this.secondaPortaChartBar = {
       title: {
         text: 'Porta 2',
+        textStyle: {
+          color: "white"
+        }
+      },
+      grid: {
+        top: 56,
+        left: 56,
+        right: 25,
+        bottom: 200
+      },
+      tooltip: {
+        trigger: 'axis',
+        formatter: (params) => {
+          params = params[0];
+          const date = new Date(params.name);
+          return date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear() + ' : ' + params.value[1];
+        },
+        show: true,
+
+        axisPointer: {
+          type: "cross",
+          lineStyle: {
+            opacity: 0
+          }
+        },
+        crossStyle: {
+          color: "#000"
+        }
+      },
+      xAxis: {
+        type: 'time',        
+        showGrid: false,
+        boundaryGap: false,
+        splitLine: {
+          show: false
+        },
+        axisLabel: {
+          color: "#ccc",
+          margin: 20
+        },
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+      },
+      yAxis: {
+        type: 'value',
+        min: 0,
+        max: 100,
+        boundaryGap: [0, '100%'],
+        
+        axisLabel: {
+          color: "#ccc",
+          margin: 20,
+          fontSize: 13,
+          fontFamily: "roboto"
+        },
+        splitLine: {
+          show: true,
+          lineStyle: {
+            color: "rgba(255, 255, 255, .1)"
+          }
+        },
+        axisLine: {
+          show: false
+        },
+        axisTick: {
+          show: false
+        },
+      },
+      color: [
+        {
+          type: "linear",
+          x: 0,
+          y: 0,
+          x2: 0,
+          y2: 1,
+          colorStops: [
+            {
+              offset: 0,
+              color: "rgba(255,255,255,0.3)" // color at 0% position
+            },
+            {
+              offset: 1,
+              color: "rgba(255,255,255,0)" // color at 100% position
+            }
+          ],
+          global: false // false by default
+        }
+      ],
+      series: [{
+        name: 'Mocking Data',
+        type: 'line',
+        showSymbol: false,
+        hoverAnimation: false,
+        data: this.data,
+        smooth: false,
+        lineStyle: {
+          width: 2,
+          color: "#fff"
+        },
+        areaStyle: {},
+      }],
+      dataZoom: [
+        {
+            id: 'dataZoomX',
+            type: 'inside',
+            xAxisIndex: [0],
+            filterMode: 'filter'
+        },
+        {
+            id: 'dataZoomY',
+            type: 'inside',
+            yAxisIndex: [0],
+            filterMode: 'empty'
+        }
+    ]
+    };
+  }
+
+  initTerzaPortaChartBar(theme) {
+    this.terzaPortaChartBar = {
+      title: {
+        text: 'Porta 3',
         textStyle: {
           color: "white"
         }

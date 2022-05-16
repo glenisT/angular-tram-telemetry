@@ -8,42 +8,61 @@
     box-shadow: 0 0 0 10in #032d62;  
 }
 
-.ngx-gauge-ap
+.ngx-gauge-ap-1
 {
     position: absolute;
-    top: 11.5%;
+    top: 10%;
     left: 70%;
 }
 
-.ngx-gauge-chius
+.ngx-gauge-chius-1
 {
     position: absolute;
-    top: 11.5%;
+    top: 10%;
     left: 82%;
 }
 
-.ngx-gauge-umidita
+.ngx-gauge-ap-2
 {
     position: absolute;
-    top: 40%;
+    top: 38%;
     left: 70%;
 }
 
-.ngx-gauge-umidita:nth-child(2)
+.ngx-gauge-chius-2
 {
     position: absolute;
-    top: 40%;
+    top: 38%;
     left: 82%;
 }
 
-.graph
+.ngx-gauge-ap-3
 {
-    margin-top: -2.5%;
+    position: absolute;
+    top: 66%;
+    left: 70%;
 }
 
-.graph:nth-child(4)
+.ngx-gauge-chius-3
 {
-    margin-top: -15%;
+    position: absolute;
+    top: 66%;
+    left: 82%;
+}
+
+.graph-1
+{
+    margin-top: -4%;
+}
+
+.graph-2
+{
+    margin-top: -17.5%;
+}
+
+.graph-3
+{
+    margin-top: -32%;
 }
 
 .borders
@@ -52,8 +71,9 @@
     width: 80vw;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.342);
-    top: 36vh;
+    top: 34vh;
     left: 2.5vw;
+    box-shadow: 0 26.5vh 0 0 rgba(255, 255, 255, 0.342);
 }
 
 .grid
