@@ -1,15 +1,10 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
-  ChangeDetectionStrategy
+  AfterViewInit
 } from "@angular/core";
 import { matxAnimations } from "app/shared/animations/matx-animations";
 import { ThemeService } from "app/shared/services/theme.service";
-import tinyColor from "tinycolor2";
-import PerfectScrollbar from "perfect-scrollbar";
-import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
-import { interval } from "rxjs";
 
 @Component({
   selector: "app-analytics",
@@ -18,22 +13,8 @@ import { interval } from "rxjs";
   animations: matxAnimations
 })
 export class AnalyticsComponent implements OnInit, AfterViewInit {
-  trafficVsSaleOptions: any;
-  trafficVsSale: any;
-  trafficData: any;
-  saleData: any;
-
-  sessionOptions: any;
-  sessions: any;
-  sessionsData: any;
-
-  trafficGrowthChart: any;
-  bounceRateGrowthChart: any;
 
   speedChartBar: any;
-  trafficSourcesChart: any;
-  countryTrafficStats: any[];
-  doughNutPieOptions: any;
 
   //used for creating and customizing the gauge chart
   gaugeType = "arch";

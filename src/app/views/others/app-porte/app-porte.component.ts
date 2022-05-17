@@ -2,13 +2,9 @@ import {
   Component,
   OnInit,
   AfterViewInit,
-  ChangeDetectionStrategy
 } from "@angular/core";
 import { matxAnimations } from "app/shared/animations/matx-animations";
 import { ThemeService } from "app/shared/services/theme.service";
-import tinyColor from "tinycolor2";
-import PerfectScrollbar from "perfect-scrollbar";
-import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
 
 @Component({
   selector: "app-blank",
@@ -17,27 +13,11 @@ import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/h
   animations: matxAnimations
 })
 export class AppPorteComponent implements OnInit, AfterViewInit {
-  trafficVsSaleOptions: any;
-  trafficVsSale: any;
-  trafficData: any;
-  saleData: any;
-
-  sessionOptions: any;
-  sessions: any;
-  sessionsData: any;
-
-  trafficGrowthChart: any;
-  bounceRateGrowthChart: any;
 
   primaPortaChartBar: any;
   secondaPortaChartBar: any;
   terzaPortaChartBar: any;
   updatePortaChartBar: any;
-
-  trafficSourcesChart: any;
-  countryTrafficStats: any[];
-  doughNutPieOptions: any;
-
 
   private oneDay = 24 * 3600 * 1000;
   private oneHour = 3600 * 1000;
@@ -76,7 +56,6 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeApertura1Thickness = 20;
   gaugeApertura1ForegroundColor = "deepSkyBlue";
   gaugeApertura1BackgroundColor = "rgb(55, 55, 153)";
-  gaugeApertura1Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeApertura1Size = 200;
 
   gaugeChiusura1Type = "arch";
@@ -87,7 +66,6 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeChiusura1Thickness = 20;
   gaugeChiusura1ForegroundColor = "deepSkyBlue";
   gaugeChiusura1BackgroundColor = "rgb(55, 55, 153)";
-  gaugeChiusura1Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeChiusura1Size = 200;
 
   gaugeApertura2Type = "arch";
@@ -99,7 +77,6 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeApertura2Thickness = 20;
   gaugeApertura2ForegroundColor = "deepSkyBlue";
   gaugeApertura2BackgroundColor = "rgb(55, 55, 153)";
-  gaugeApertura2Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeApertura2Size = 200;
 
   gaugeChiusura2Type = "arch";
@@ -111,7 +88,6 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeChiusura2Thickness = 20;
   gaugeChiusura2ForegroundColor = "deepSkyBlue";
   gaugeChiusura2BackgroundColor = "rgb(55, 55, 153)";
-  gaugeChiusura2Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeChiusura2Size = 200;
 
   gaugeApertura3Type = "arch";
@@ -123,7 +99,6 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeApertura3Thickness = 20;
   gaugeApertura3ForegroundColor = "deepSkyBlue";
   gaugeApertura3BackgroundColor = "rgb(55, 55, 153)";
-  gaugeApertura3Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeApertura3Size = 200;
 
   gaugeChiusura3Type = "arch";
@@ -135,8 +110,9 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeChiusura3Thickness = 20;
   gaugeChiusura3ForegroundColor = "deepSkyBlue";
   gaugeChiusura3BackgroundColor = "rgb(55, 55, 153)";
-  gaugeChiusura3Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeChiusura3Size = 200;
+
+  //----------------------------------------------------------------------
 
   displayedColumns: string[] = ["name", "price", "available", "action"];
 

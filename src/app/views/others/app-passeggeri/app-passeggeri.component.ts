@@ -1,14 +1,10 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
-  ChangeDetectionStrategy
+  AfterViewInit
 } from "@angular/core";
 import { matxAnimations } from "app/shared/animations/matx-animations";
 import { ThemeService } from "app/shared/services/theme.service";
-import tinyColor from "tinycolor2";
-import PerfectScrollbar from "perfect-scrollbar";
-import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
 
 @Component({
   selector: "app-blank",
@@ -17,22 +13,8 @@ import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/h
   animations: matxAnimations
 })
 export class AppPasseggeriComponent implements OnInit, AfterViewInit {
-  trafficVsSaleOptions: any;
-  trafficVsSale: any;
-  trafficData: any;
-  saleData: any;
-
-  sessionOptions: any;
-  sessions: any;
-  sessionsData: any;
-
-  trafficGrowthChart: any;
-  bounceRateGrowthChart: any;
 
   dbChartBar: any;
-  trafficSourcesChart: any;
-  countryTrafficStats: any[];
-  doughNutPieOptions: any;
 
   passeggeri: any;
 
@@ -45,7 +27,6 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
   gaugePasseggeriThickness = 20;
   gaugePasseggeriForegroundColor = "deepSkyBlue";
   gaugePasseggeriBackgroundColor = "rgb(55, 55, 153)";
-  gaugePasseggeriMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugePasseggeriSize = 300;
 
   gaugeDbType = "arch";
@@ -57,8 +38,9 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
   gaugeDbThickness = 20;
   gaugeDbForegroundColor = "#ff0000";
   gaugeDbBackgroundColor = "rgb(55, 55, 153)";
-  gaugeDbMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeDbSize = 300;
+
+  //---------------------------------------------------------
 
   statCardList = [
     {

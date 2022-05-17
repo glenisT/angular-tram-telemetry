@@ -1,14 +1,10 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
-  ChangeDetectionStrategy
+  AfterViewInit
 } from "@angular/core";
 import { matxAnimations } from "app/shared/animations/matx-animations";
 import { ThemeService } from "app/shared/services/theme.service";
-import tinyColor from "tinycolor2";
-import PerfectScrollbar from "perfect-scrollbar";
-import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
 
 @Component({
   selector: "app-blank",
@@ -17,17 +13,8 @@ import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/h
   animations: matxAnimations
 })
 export class AppHvacComponent implements OnInit, AfterViewInit {
-  trafficVsSaleOptions: any;
-  trafficVsSale: any;
   trafficData: any;
   saleData: any;
-
-  sessionOptions: any;
-  sessions: any;
-  sessionsData: any;
-
-  trafficGrowthChart: any;
-  bounceRateGrowthChart: any;
 
   dioxideChartBar: any;
   pmvChartBar: any;
@@ -45,7 +32,6 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugeTempThickness = 20;
   gaugeTempForegroundColor = "deepSkyBlue";
   gaugeTempBackgroundColor = "rgb(55, 55, 153)";
-  gaugeTempMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeTempSize = 200;
 
   gaugePpmType = "arch";
@@ -56,7 +42,6 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugePpmThickness = 20;
   gaugePpmForegroundColor = "deepSkyBlue";
   gaugePpmBackgroundColor = "rgb(55, 55, 153)";
-  gaugePpmMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugePpmSize = 200;
 
   gaugeUmiditaType = "arch";
@@ -68,7 +53,6 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugeUmiditaThickness = 20;
   gaugeUmiditaForegroundColor = "#ff0000";
   gaugeUmiditaBackgroundColor = "rgb(55, 55, 153)";
-  gaugeUmiditaMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeUmiditaSize = 200;
 
   gaugePmvType = "arch";
@@ -80,8 +64,9 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugePmvThickness = 20;
   gaugePmvForegroundColor = "deepSkyBlue";
   gaugePmvBackgroundColor = "rgb(55, 55, 153)";
-  gaugePmvMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugePmvSize = 200;
+
+  //--------------------------------------------------------------------
 
   statCardList = [
     {

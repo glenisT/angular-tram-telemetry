@@ -1,14 +1,10 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
-  ChangeDetectionStrategy
+  AfterViewInit
 } from "@angular/core";
 import { matxAnimations } from "app/shared/animations/matx-animations";
 import { ThemeService } from "app/shared/services/theme.service";
-import tinyColor from "tinycolor2";
-import PerfectScrollbar from "perfect-scrollbar";
-import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
 
 @Component({
   selector: "app-blank",
@@ -17,23 +13,6 @@ import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/h
   animations: matxAnimations
 })
 export class AppCuscinettiComponent implements OnInit, AfterViewInit {
-  trafficVsSaleOptions: any;
-  trafficVsSale: any;
-  trafficData: any;
-  saleData: any;
-
-  sessionOptions: any;
-  sessions: any;
-  sessionsData: any;
-
-  trafficGrowthChart: any;
-  bounceRateGrowthChart: any;
-
-  dioxideChartBar: any;
-  pmvChartBar: any;
-  trafficSourcesChart: any;
-  countryTrafficStats: any[];
-  doughNutPieOptions: any;
 
   //used for creating and customizing the gauge chart
   gaugeTempType = "arch"
