@@ -72,6 +72,28 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
 
   constructor(private themeService: ThemeService) {}
 
+  //waiting function
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async transition() {
+    while (true) {        
+      for(let i = 0; i <= 0; i++)
+      {
+        if(this.gaugeValue == 50)
+        {
+          this.gaugeValue = 50;  //reach top speed at 50km/h (to stop incrementation)
+          await this.sleep(9000); //wait 9seconds before slowing down
+          this.gaugeValue = 0;
+          await this.sleep(12000); //wait 12seconds at station
+        }
+        await this.sleep(90);  //increment speed every 0.09s because 50/4.5s = 0.09km/s (formula is maximumSpeed/maximumSpeedReachedInterval = incrementInterval)
+        this.gaugeValue = this.gaugeValue + 1;
+      }
+    }
+  }
+
   ngAfterViewInit() {}
   ngOnInit() {
     this.themeService.onThemeChange.subscribe(activeTheme => {
@@ -79,20 +101,9 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
     });
     this.initSpeedChartBar(this.themeService.activatedTheme);
 
-    //regulate intervals & gaugeValue increment below to synchronize with tram
-    let timer = setInterval(() => {
-      for(let i = 0; i <= 0; i++)
-      {
-        if(this.gaugeValue == 50)
-        {
-          this.gaugeValue = 49;  //so that value doesn't go beyond 50
-          setTimeout(() => {
-              this.gaugeValue = 0;
-            }, 5000);  //this will make the gauge wait double the timeout(once at value=50 and once at value=0), so calculate times multiplied by 2
-        }
-        this.gaugeValue = this.gaugeValue + 1;
-      }
-    }, 1000);  //interval at which speed updates
+    setTimeout(() => {
+      this.transition();
+    }, 12000); //wait 12 seconds first time. Delete timeout and keep only function if train model starts right away
 
     //add km to km percorsi card
     setInterval(() => {
