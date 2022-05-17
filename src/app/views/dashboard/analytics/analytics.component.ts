@@ -10,6 +10,7 @@ import tinyColor from "tinycolor2";
 import PerfectScrollbar from "perfect-scrollbar";
 import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
 import { interval } from "rxjs";
+import { DataSaverService } from "app/views/data-saver.service";
 
 @Component({
   selector: "app-analytics",
@@ -37,7 +38,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
 
   //used for creating and customizing the gauge chart
   gaugeType = "arch";
-  gaugeValue = 0;
+  message = 0;
   gaugeMax = 50;
   gaugeLabel = "Velocita";
   gaugeAppendText = "km/h";
@@ -70,27 +71,30 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ["name", "price", "available", "action"];
 
-  constructor(private themeService: ThemeService) {}
+  constructor(private themeService: ThemeService, private data: DataSaverService) {}
 
   ngAfterViewInit() {}
   ngOnInit() {
+    
+    this.data.currentMessage.subscribe(message => this.message = message);
+
     this.themeService.onThemeChange.subscribe(activeTheme => {
       this.initSpeedChartBar(activeTheme);
     });
     this.initSpeedChartBar(this.themeService.activatedTheme);
 
-    //regulate intervals & gaugeValue increment below to synchronize with tram
+    //regulate intervals & message increment below to synchronize with tram
     let timer = setInterval(() => {
       for(let i = 0; i <= 0; i++)
       {
-        if(this.gaugeValue == 50)
+        if(this.message == 50)
         {
-          this.gaugeValue = 49;  //so that value doesn't go beyond 50
+          this.message = 49;  //so that value doesn't go beyond 50
           setTimeout(() => {
-              this.gaugeValue = 0;
+              this.message = 0;
             }, 5000);  //this will make the gauge wait double the timeout(once at value=50 and once at value=0), so calculate times multiplied by 2
         }
-        this.gaugeValue = this.gaugeValue + 1;
+        this.message = this.message + 1;
       }
     }, 1000);  //interval at which speed updates
 

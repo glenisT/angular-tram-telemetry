@@ -9,6 +9,7 @@ import { ThemeService } from "app/shared/services/theme.service";
 import tinyColor from "tinycolor2";
 import PerfectScrollbar from "perfect-scrollbar";
 import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
+import { DataSaverService } from "app/views/data-saver.service";
 
 @Component({
   selector: "app-blank",
@@ -83,10 +84,15 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ["name", "price", "available", "action"];
 
-  constructor(private themeService: ThemeService) {}
+  message: number;
+
+  constructor(private themeService: ThemeService, private data: DataSaverService) {}
 
   ngAfterViewInit() {}
   ngOnInit() {
+
+    this.data.currentMessage.subscribe(message => this.message = message);
+
     this.themeService.onThemeChange.subscribe(activeTheme => {
       this.initDbChartBar(activeTheme);
     });

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
+import { DataSaverService } from "app/views/data-saver.service";
 
 @Component({
   selector: "app-sidenav",
@@ -10,7 +11,7 @@ export class SidenavComponent {
   @Input("hasIconMenu") public hasIconTypeMenuItem: boolean;
   @Input("iconMenuTitle") public iconTypeMenuTitle: string;
 
-  constructor() {}
+  constructor(private data: DataSaverService) {}
   ngOnInit() {}
 
   // Only for demo purpose

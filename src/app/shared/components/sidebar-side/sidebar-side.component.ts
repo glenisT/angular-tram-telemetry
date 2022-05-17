@@ -4,6 +4,7 @@ import { ThemeService } from "../../services/theme.service";
 import { Subscription } from "rxjs";
 import { ILayoutConf, LayoutService } from "app/shared/services/layout.service";
 import { JwtAuthService } from "app/shared/services/auth/jwt-auth.service";
+import { DataSaverService } from "app/views/data-saver.service";
 
 @Component({
   selector: "app-sidebar-side",
@@ -21,7 +22,8 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
     private navService: NavigationService,
     public themeService: ThemeService,
     private layout: LayoutService,
-    public jwtAuth: JwtAuthService
+    public jwtAuth: JwtAuthService,
+    private data: DataSaverService
   ) {}
 
   ngOnInit() {
@@ -45,5 +47,10 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
     this.layout.publishLayoutChange({
       sidebarCompactToggle: !this.layoutConf.sidebarCompactToggle
     });
+  }
+
+  newMessage()
+  {
+    this.data.changeMessage(31);
   }
 }
