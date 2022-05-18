@@ -35,8 +35,9 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugeTempSize = 200;
 
   gaugePpmType = "arch";
-  gaugePpmValue = 550;
-  gaugePpmMax = 1000;
+  gaugePpmValue = 500;
+  gaugePpmMin = 300;
+  gaugePpmMax = 800;
   gaugePpmLabel = "";
   gaugePpmAppendText = "ppm";
   gaugePpmThickness = 20;
@@ -65,6 +66,9 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugePmvForegroundColor = "deepSkyBlue";
   gaugePmvBackgroundColor = "rgb(55, 55, 153)";
   gaugePmvSize = 200;
+
+  //gauge animation duration in ms
+  gaugeDuration = 500;
 
   //--------------------------------------------------------------------
 
@@ -99,6 +103,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   }
 
   //values by which the temperature varies
+  //if it is needed to have fluctuations synchronized in time, with no stops, remove 0 from array and lower the 'max' argument by 1 where getRandomInt() is used
   temperatureDeltas = [-0.2, -0.1, 0, 0.1, 0.2];
 
   //random int value for indexing through temperatureDeltas
@@ -111,12 +116,12 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   async changeTemperature() {
     while (true) {
       //a lower timeout might cause the function to behave badly, due to TS not being very accurate with operations on FLOAT values 
-      //& the gauge library's animation times(which are not customizable) interferance with the callbacks on the browser
+      //& the gauge library's animation times interferance with the callbacks on the browser
       await this.sleep(5000);
       if(this.gaugeTempValue >= 24.4) //24.4 because a +0.2 would send this beyond the maximum
       {
-        //keep only negative values so it goes over maximum
-        this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(0, 3)];
+        //keep only negative values & +0.1 so it doesn't go over maximum
+        this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(0, 4)];
       }
       else if(this.gaugeTempValue <= 23.6)
       {
@@ -125,8 +130,58 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       }
       else
       {
+        //make all values available
         this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(0, 5)];
       }
+    }
+  }
+
+  async changeHumidity() {
+    while (true) {
+      await this.sleep(5000);
+      if(this.gaugeUmiditaValue == this.gaugeUmiditaMax)
+      {
+        this.gaugeUmiditaValue = this.gaugeUmiditaValue + this.temperatureDeltas[this.getRandomInt(1, 3)] * 10;
+      }
+      else if(this.gaugeUmiditaValue == this.gaugeUmiditaMin)
+      {
+        this.gaugeUmiditaValue = this.gaugeUmiditaValue + this.temperatureDeltas[this.getRandomInt(2, 4)] * 10;
+      }
+      else
+      {
+        this.gaugeUmiditaValue = this.gaugeUmiditaValue + this.temperatureDeltas[this.getRandomInt(1, 4)] * 10;
+      }
+    }
+  }
+
+  async changeDioxide() {
+    while (true) {
+      
+      //set for(){} iteration count according to the intervals needed and the time it takes the tram to complete 1 ride according to the formulas:
+      //durationOfFullRide = iterationCount * increasePpmInterval + waitBeforeDoorsOpen
+      //iterationCount = durationOfFullRide / increasePpmInterval
+      for(let i = 0; i < 3; i++)
+      {
+        await this.sleep(5000); //increasePpmInterval
+        this.gaugePpmValue = this.gaugePpmValue + this.getRandomInt(1, 10);
+        if(this.gaugePpmValue <= this.gaugePpmMin)
+        {
+          this.gaugePpmValue = 300;
+        }
+        else if(this.gaugePpmValue >= 700)
+        {
+          this.gaugePpmLabel = "Livello CO2 alto!";
+          this.gaugePpmForegroundColor = "red";
+          if(this.gaugePpmValue >= this.gaugePpmMax)
+          {
+            this.gaugePpmValue = 800;
+            this.gaugePpmLabel = "Livello CO2 alto!";
+            this.gaugePpmForegroundColor = "red";
+          }
+        }
+      }
+      await this.sleep(3000);  //waitBeforeDoorsOpen
+      this.gaugePpmValue = this.gaugePpmValue - 10 * this.getRandomInt(2, 4);  //when doors open, drop PPM by 20 or 30ppm
     }
   }
 
@@ -139,7 +194,13 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
     this.initDioxideChartBar(this.themeService.activatedTheme);
     this.initPmvChartBar(this.themeService.activatedTheme);
 
+    //put all the 'changeGauge()' functions inside this timeout if the tram begins in the station, waiting 12seconds
+    //setTimeout(() => {
+    //}, 12000);
+
     this.changeTemperature();
+    this.changeHumidity();
+    this.changeDioxide();
 
     //add km to km percorsi card
     setInterval(() => {

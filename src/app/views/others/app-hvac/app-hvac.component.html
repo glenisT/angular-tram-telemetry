@@ -25,7 +25,8 @@
                [thick]="gaugeTempThickness"
                [foregroundColor]="gaugeTempForegroundColor"
                [backgroundColor]="gaugeTempBackgroundColor"
-               [size]="gaugeTempSize" >
+               [size]="gaugeTempSize"
+               [duration]="gaugeDuration" >
         </ngx-gauge>
       </div>
     
@@ -49,12 +50,14 @@
         <ngx-gauge [type]="gaugePpmType" 
                [value]="gaugePpmValue" 
                [max]="gaugePpmMax"
+               [min]="gaugePpmMin"
                [label]="gaugePpmLabel"  
                [append]="gaugePpmAppendText"
                [thick]="gaugePpmThickness"
                [foregroundColor]="gaugePpmForegroundColor"
                [backgroundColor]="gaugePpmBackgroundColor"
-               [size]="gaugePpmSize" >
+               [size]="gaugePpmSize"
+               [duration]="gaugeDuration" >
         </ngx-gauge>
       </div>
     </div>
@@ -74,7 +77,8 @@
                [thick]="gaugePmvThickness"
                [foregroundColor]="gaugePmvForegroundColor"
                [backgroundColor]="gaugePmvBackgroundColor"
-               [size]="gaugePmvSize" >
+               [size]="gaugePmvSize"
+               [duration]="gaugeDuration" >
         </ngx-gauge>
       </div>
     
@@ -104,7 +108,8 @@
                [thick]="gaugeUmiditaThickness"
                [foregroundColor]="gaugeUmiditaForegroundColor"
                [backgroundColor]="gaugeUmiditaBackgroundColor"
-               [size]="gaugeUmiditaSize" >
+               [size]="gaugeUmiditaSize"
+               [duration]="gaugeDuration" >
         </ngx-gauge>
       </div>
     </div>
