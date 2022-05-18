@@ -93,6 +93,43 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
 
   constructor(private themeService: ThemeService) {}
 
+  //waiting function
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  //values by which the temperature varies
+  temperatureDeltas = [-0.2, -0.1, 0, 0.1, 0.2];
+
+  //random int value for indexing through temperatureDeltas
+  getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive, so (0,5) = [0, 1, 2, 3, 4]
+  }
+
+  async changeTemperature() {
+    while (true) {
+      //a lower timeout might cause the function to behave badly, due to TS not being very accurate with operations on FLOAT values 
+      //& the gauge library's animation times(which are not customizable) interferance with the callbacks on the browser
+      await this.sleep(5000);
+      if(this.gaugeTempValue >= 24.4) //24.4 because a +0.2 would send this beyond the maximum
+      {
+        //keep only negative values so it goes over maximum
+        this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(0, 3)];
+      }
+      else if(this.gaugeTempValue <= 23.6)
+      {
+        //keep only positive values to avoid the temperature going lower than the minimum value
+        this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(2, 5)];
+      }
+      else
+      {
+        this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(0, 5)];
+      }
+    }
+  }
+
   ngAfterViewInit() {}
   ngOnInit() {
     this.themeService.onThemeChange.subscribe(activeTheme => {
@@ -101,6 +138,8 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
     });
     this.initDioxideChartBar(this.themeService.activatedTheme);
     this.initPmvChartBar(this.themeService.activatedTheme);
+
+    this.changeTemperature();
 
     //add km to km percorsi card
     setInterval(() => {
