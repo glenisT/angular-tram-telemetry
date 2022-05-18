@@ -156,7 +156,6 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
 
   async changeDioxide() {
     while (true) {
-      
       //set for(){} iteration count according to the intervals needed and the time it takes the tram to complete 1 ride according to the formulas:
       //durationOfFullRide = iterationCount * increasePpmInterval + waitBeforeDoorsOpen
       //iterationCount = durationOfFullRide / increasePpmInterval
