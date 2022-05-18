@@ -159,15 +159,16 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       //set for(){} iteration count according to the intervals needed and the time it takes the tram to complete 1 ride according to the formulas:
       //durationOfFullRide = iterationCount * increasePpmInterval + waitBeforeDoorsOpen
       //iterationCount = durationOfFullRide / increasePpmInterval
+      if(this.gaugePpmValue <= this.gaugePpmMin)
+      {
+        this.gaugePpmValue = 300;
+      }
       for(let i = 0; i < 3; i++)
       {
         await this.sleep(5000); //increasePpmInterval
         this.gaugePpmValue = this.gaugePpmValue + this.getRandomInt(1, 10);
-        if(this.gaugePpmValue <= this.gaugePpmMin)
-        {
-          this.gaugePpmValue = 300;
-        }
-        else if(this.gaugePpmValue >= 700)
+
+        if(this.gaugePpmValue >= 700)
         {
           this.gaugePpmLabel = "Livello CO2 alto!";
           this.gaugePpmForegroundColor = "red";
@@ -181,6 +182,24 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       }
       await this.sleep(3000);  //waitBeforeDoorsOpen
       this.gaugePpmValue = this.gaugePpmValue - 10 * this.getRandomInt(2, 4);  //when doors open, drop PPM by 20 or 30ppm
+    }
+  }
+
+  async changePmv() {
+    while (true) {
+      await this.sleep(1000);
+      if(this.gaugePmvValue >= 1.4)
+      {
+        this.gaugePmvValue = this.gaugePmvValue + this.temperatureDeltas[this.getRandomInt(0, 4)];
+      }
+      else if(this.gaugePmvValue <= 0.6)
+      {
+        this.gaugePmvValue = this.gaugePmvValue + this.temperatureDeltas[this.getRandomInt(2, 5)];
+      }
+      else
+      {
+        this.gaugePmvValue = this.gaugePmvValue + this.temperatureDeltas[this.getRandomInt(0, 5)];
+      }
     }
   }
 
