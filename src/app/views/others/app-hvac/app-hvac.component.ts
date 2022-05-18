@@ -219,6 +219,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
     this.changeTemperature();
     this.changeHumidity();
     this.changeDioxide();
+    this.changePmv();
 
     //add km to km percorsi card
     setInterval(() => {
