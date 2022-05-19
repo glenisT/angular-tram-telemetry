@@ -41,6 +41,9 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
   gaugeDbBackgroundColor = "rgb(55, 55, 153)";
   gaugeDbSize = 300;
 
+  //gauge animation duration in ms
+  gaugeDuration = 500;
+
   //---------------------------------------------------------
 
   statCardList = [
