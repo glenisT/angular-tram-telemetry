@@ -118,8 +118,13 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
 
   constructor(private themeService: ThemeService) {}
 
+  //waiting function
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   ngAfterViewInit() {}
-  ngOnInit() {
+  async ngOnInit() {
     this.themeService.onThemeChange.subscribe(activeTheme => {
       this.initPrimaPortaChartBar(activeTheme);
       this.initSecondaPortaChartBar(activeTheme);
@@ -137,14 +142,14 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       }
     }, 120000);  //add 1km every 2minutes to total KM percorsi
 
-     // generate some random testing data:
-     this.data = [];
-     this.now = new Date(2022, 20, 5);
-     this.value = Math.random() * 100; //multiplication number sets the maximum value of the random values that will be generated
+    // generate some random testing data:
+    this.data = [];
+    this.now = new Date(2022, 20, 5);
+    this.value = Math.random() * 100; //multiplication number sets the maximum value of the random values that will be generated
  
-     for (let i = 0; i < 50; i++) { //'i' sets how many values per single screen of the chart will be shown
-       this.data.push(this.randomData());
-     }
+    for (let i = 0; i < 50; i++) { //'i' sets how many values per single screen of the chart will be shown
+      this.data.push(this.randomData());
+    }
 
     // Mock dynamic data:
     this.timer = setInterval(() => {
@@ -547,6 +552,18 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   randomData() {
     this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
     this.value = Math.random() * 100;  //determines next value to come to the chart according to a certain interval
+    return {
+      name: this.now.toString(),
+      value: [
+        [this.now.getFullYear(), this.now.getMonth() + 1, this.now.getDate()].join('/'),  //X axis format
+        Math.round(this.value)
+      ]
+    };
+  }
+
+  preRandomData() {
+    this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
+    this.value = Math.random() * 10;  //determines next value to come to the chart according to a certain interval
     return {
       name: this.now.toString(),
       value: [
