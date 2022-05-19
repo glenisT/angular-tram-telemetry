@@ -80,36 +80,43 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive, so (0,5) = [0, 1, 2, 3, 4]
   }
 
-  passeggeriDeltas = [-5, -2, 0, 2, 5];
+  passeggeriDeltas = [-5, -2, 2, 5];
 
   async changePax() {
     while (true) {
       //set for(){} iteration count according to the intervals needed and the time it takes the tram to complete 1 ride according to the formulas:
-      //durationOfFullRide = iterationCount * increasePpmInterval + waitBeforeDoorsOpen
-      //iterationCount = durationOfFullRide / increasePpmInterval
+      //durationOfFullRide is the time it takes the train to complete 1 giro (from leaving station to returning to station)
+      //timeInStation is the time the train stays in the station
+      //openDoors is the imagined time it takes for the doors to open and passengers to get out AFTER the train has stopped
+
+      //timeUntilOpenDoors = durationOfFullRide + openDoors | to make it seem more realistic(doors take some time to open)
+      //iterationCount = timeUntilOpenDoors - openDoors / durationOfFullRide
+      //timeLeftInStation = durationOfFullRide + (timeUntilDoorsOpen - openDoors) - (timeUntilDoorsOpen + passengersGetOut)
+      //timeInStation = timeUntilOpenDoors - durationOfFullRide + passengersGetOut + timeLeftInStation
       if(this.gaugePasseggeriValue <= this.gaugePasseggeriMin)
       {
         this.gaugePasseggeriValue = 50;
       }
-      for(let i = 0; i < 3; i++)
+      for(let i = 0; i < 1; i++)
       {
-        await this.sleep(5000); //increasePpmInterval
-        this.gaugePasseggeriValue = this.gaugePasseggeriValue + this.getRandomInt(1, 10);
+        await this.sleep(20000); //timeUntilOpenDoors
+        this.gaugePasseggeriValue = this.gaugePasseggeriValue + this.passeggeriDeltas[this.getRandomInt(0, 2)]; //passengers get out of train
+        await this.sleep(5000); //passengersGetOut (wait for passengers to get out)
+        this.gaugePasseggeriValue = this.gaugePasseggeriValue + this.passeggeriDeltas[this.getRandomInt(2, 4)]; //new passengers get inside train
 
         if(this.gaugePasseggeriValue >= 60)
         {
-          this.gaugePasseggeriLabel = "Livello CO2 alto!";
+          this.gaugePasseggeriLabel = "Numero pass alto!";
           this.gaugePasseggeriForegroundColor = "red";
           if(this.gaugePasseggeriValue >= this.gaugePasseggeriMax)
           {
             this.gaugePasseggeriValue = 70;
-            this.gaugePasseggeriLabel = "Livello CO2 alto!";
+            this.gaugePasseggeriLabel = "Numero pass alto!";
             this.gaugePasseggeriForegroundColor = "red";
           }
         }
       }
-      await this.sleep(3000);  //waitBeforeDoorsOpen
-      this.gaugePasseggeriValue = this.gaugePasseggeriValue - 10 * this.getRandomInt(2, 4);  //when doors open, drop PPM by 20 or 30ppm
+      await this.sleep(5000);  //timeLeftInStation
     }
   }
 
@@ -119,6 +126,8 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
       this.initDbChartBar(activeTheme);
     });
     this.initDbChartBar(this.themeService.activatedTheme);
+
+    this.changePax();
 
     //add km to km percorsi card
     setInterval(() => {
