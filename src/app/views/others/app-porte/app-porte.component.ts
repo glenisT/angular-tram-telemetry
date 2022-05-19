@@ -131,11 +131,12 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       for (let i = 0; i < 25; i++) { //'i' sets how many values per single screen of the chart will be shown
         this.data.push(this.preRandomData());
       }
-      await this.sleep(18000);  //wait for full giro 
+      await this.sleep(18000);  //waitForFullGiro 
       //for (let i = 0; i < 4; i++) {
+        await this.sleep(2000) //waitToOpenDoors
         this.data.push(this.randomData());  //open doors
       //}
-      await this.sleep(2000);  //wait to close doors
+      await this.sleep(10000);  //waitToCloseDoors = totalTimeInStation - waitToOpenDoors
       //for (let i = 0; i < 4; i++) {
         this.data.push(this.randomData());  //close doors
       //}
@@ -144,7 +145,10 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
 
   async clearData()
   {
-    await this.sleep(60000); //wait 3 stops (chart becomes too crowded)
+    //wait 3 stops (chart becomes too crowded)
+    //add cycles as needed
+    //1 cycle = waitForFullGiro + waitToOpenDoors + waitToCloseDoors
+    await this.sleep(90000); 
     this.data = [];
   }
 
