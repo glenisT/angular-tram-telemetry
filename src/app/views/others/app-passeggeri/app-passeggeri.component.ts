@@ -68,6 +68,51 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
 
   constructor(private themeService: ThemeService) {}
 
+  //waiting function
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  //random int value for indexing through temperatureDeltas
+  getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive, so (0,5) = [0, 1, 2, 3, 4]
+  }
+
+  passeggeriDeltas = [-5, -2, 0, 2, 5];
+
+  async changePax() {
+    while (true) {
+      //set for(){} iteration count according to the intervals needed and the time it takes the tram to complete 1 ride according to the formulas:
+      //durationOfFullRide = iterationCount * increasePpmInterval + waitBeforeDoorsOpen
+      //iterationCount = durationOfFullRide / increasePpmInterval
+      if(this.gaugePasseggeriValue <= this.gaugePasseggeriMin)
+      {
+        this.gaugePasseggeriValue = 50;
+      }
+      for(let i = 0; i < 3; i++)
+      {
+        await this.sleep(5000); //increasePpmInterval
+        this.gaugePasseggeriValue = this.gaugePasseggeriValue + this.getRandomInt(1, 10);
+
+        if(this.gaugePasseggeriValue >= 60)
+        {
+          this.gaugePasseggeriLabel = "Livello CO2 alto!";
+          this.gaugePasseggeriForegroundColor = "red";
+          if(this.gaugePasseggeriValue >= this.gaugePasseggeriMax)
+          {
+            this.gaugePasseggeriValue = 70;
+            this.gaugePasseggeriLabel = "Livello CO2 alto!";
+            this.gaugePasseggeriForegroundColor = "red";
+          }
+        }
+      }
+      await this.sleep(3000);  //waitBeforeDoorsOpen
+      this.gaugePasseggeriValue = this.gaugePasseggeriValue - 10 * this.getRandomInt(2, 4);  //when doors open, drop PPM by 20 or 30ppm
+    }
+  }
+
   ngAfterViewInit() {}
   ngOnInit() {
     this.themeService.onThemeChange.subscribe(activeTheme => {
