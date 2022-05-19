@@ -123,8 +123,27 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     return new Promise(resolve => setTimeout(resolve, ms));
   }
 
+  async changeRange()
+  {
+    for(let i = 0; i >= 0; i++)
+    {
+      //display values on first screen
+      for (let i = 0; i < 25; i++) { //'i' sets how many values per single screen of the chart will be shown
+        this.data.push(this.preRandomData());
+      }
+      await this.sleep(18000);  //wait for full giro 
+      //for (let i = 0; i < 4; i++) {
+        this.data.push(this.randomData());  //open doors
+      //}
+      await this.sleep(2000);  //wait to close doors
+      //for (let i = 0; i < 4; i++) {
+        this.data.push(this.randomData());  //close doors
+      //}
+    }
+  }
+
   ngAfterViewInit() {}
-  async ngOnInit() {
+  ngOnInit() {
     this.themeService.onThemeChange.subscribe(activeTheme => {
       this.initPrimaPortaChartBar(activeTheme);
       this.initSecondaPortaChartBar(activeTheme);
@@ -147,15 +166,13 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     this.now = new Date(2022, 20, 5);
     this.value = Math.random() * 100; //multiplication number sets the maximum value of the random values that will be generated
  
-    for (let i = 0; i < 50; i++) { //'i' sets how many values per single screen of the chart will be shown
-      this.data.push(this.randomData());
-    }
+    this.changeRange();
 
     // Mock dynamic data:
     this.timer = setInterval(() => {
-      for (let i = 0; i < 1; i++) { //use num in 'i < num' to manipulate how many values will be displayed at once
+      for (let i = 0; i < 1; i++) { //use num in 'i < num' to manipulate how many new values will arrive at once
         this.data.shift();
-        this.data.push(this.randomData());
+        this.data.push(this.preRandomData());
       }
 
       // update chart series data:
@@ -549,9 +566,19 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     clearInterval(this.timer);
   }
 
+  async changeValueRange()
+  {
+    while(true)
+    {
+      this.preRandomData();
+      await this.sleep(12000);
+      this.randomData();
+    }
+  }
+
   randomData() {
     this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
-    this.value = Math.random() * 100;  //determines next value to come to the chart according to a certain interval
+    this.value = Math.random() * 40 + 60;  //determines next value to come to the chart according to a certain interval
     return {
       name: this.now.toString(),
       value: [
@@ -563,7 +590,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
 
   preRandomData() {
     this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
-    this.value = Math.random() * 10;  //determines next value to come to the chart according to a certain interval
+    this.value = Math.random() * 30;  //determines next value to come to the chart according to a certain interval
     return {
       name: this.now.toString(),
       value: [
