@@ -1,8 +1,7 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
-  ChangeDetectionStrategy
+  AfterViewInit
 } from "@angular/core";
 import { matxAnimations } from "app/shared/animations/matx-animations";
 import { ThemeService } from "app/shared/services/theme.service";
@@ -18,17 +17,8 @@ import { DataSaverService } from "app/views/data-saver.service";
   animations: matxAnimations
 })
 export class AppHvacComponent implements OnInit, AfterViewInit {
-  trafficVsSaleOptions: any;
-  trafficVsSale: any;
   trafficData: any;
   saleData: any;
-
-  sessionOptions: any;
-  sessions: any;
-  sessionsData: any;
-
-  trafficGrowthChart: any;
-  bounceRateGrowthChart: any;
 
   dioxideChartBar: any;
   pmvChartBar: any;
@@ -46,18 +36,17 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugeTempThickness = 20;
   gaugeTempForegroundColor = "deepSkyBlue";
   gaugeTempBackgroundColor = "rgb(55, 55, 153)";
-  gaugeTempMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeTempSize = 200;
 
   gaugePpmType = "arch";
-  gaugePpmValue = 550;
-  gaugePpmMax = 1000;
+  gaugePpmValue = 500;
+  gaugePpmMin = 300;
+  gaugePpmMax = 800;
   gaugePpmLabel = "";
   gaugePpmAppendText = "ppm";
   gaugePpmThickness = 20;
   gaugePpmForegroundColor = "deepSkyBlue";
   gaugePpmBackgroundColor = "rgb(55, 55, 153)";
-  gaugePpmMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugePpmSize = 200;
 
   gaugeUmiditaType = "arch";
@@ -69,7 +58,6 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugeUmiditaThickness = 20;
   gaugeUmiditaForegroundColor = "#ff0000";
   gaugeUmiditaBackgroundColor = "rgb(55, 55, 153)";
-  gaugeUmiditaMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeUmiditaSize = 200;
 
   gaugePmvType = "arch";
@@ -81,8 +69,12 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   gaugePmvThickness = 20;
   gaugePmvForegroundColor = "deepSkyBlue";
   gaugePmvBackgroundColor = "rgb(55, 55, 153)";
-  gaugePmvMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugePmvSize = 200;
+
+  //gauge animation duration in ms
+  gaugeDuration = 500;
+
+  //--------------------------------------------------------------------
 
   statCardList = [
     {
@@ -112,6 +104,113 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   message: number;
 
 
+  //waiting function
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  //values by which the temperature varies
+  //if it is needed to have fluctuations synchronized in time, with no stops, remove 0 from array and lower the 'max' argument by 1 where getRandomInt() is used
+  temperatureDeltas = [-0.2, -0.1, 0, 0.1, 0.2];
+
+  //random int value for indexing through temperatureDeltas
+  getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive, so (0,5) = [0, 1, 2, 3, 4]
+  }
+
+  async changeTemperature() {
+    while (true) {
+      //a lower timeout might cause the function to behave badly, due to TS not being very accurate with operations on FLOAT values 
+      //& the gauge library's animation times interferance with the callbacks on the browser
+      await this.sleep(5000);
+      if(this.gaugeTempValue >= 24.4) //24.4 because a +0.2 would send this beyond the maximum
+      {
+        //keep only negative values & +0.1 so it doesn't go over maximum
+        this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(0, 4)];
+      }
+      else if(this.gaugeTempValue <= 23.6)
+      {
+        //keep only positive values to avoid the temperature going lower than the minimum value
+        this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(2, 5)];
+      }
+      else
+      {
+        //make all values available
+        this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(0, 5)];
+      }
+    }
+  }
+
+  async changeHumidity() {
+    while (true) {
+      await this.sleep(5000);
+      if(this.gaugeUmiditaValue == this.gaugeUmiditaMax)
+      {
+        this.gaugeUmiditaValue = this.gaugeUmiditaValue + this.temperatureDeltas[this.getRandomInt(1, 3)] * 10;
+      }
+      else if(this.gaugeUmiditaValue == this.gaugeUmiditaMin)
+      {
+        this.gaugeUmiditaValue = this.gaugeUmiditaValue + this.temperatureDeltas[this.getRandomInt(2, 4)] * 10;
+      }
+      else
+      {
+        this.gaugeUmiditaValue = this.gaugeUmiditaValue + this.temperatureDeltas[this.getRandomInt(1, 4)] * 10;
+      }
+    }
+  }
+
+  async changeDioxide() {
+    while (true) {
+      //set for(){} iteration count according to the intervals needed and the time it takes the tram to complete 1 ride according to the formulas:
+      //durationOfFullRide is the time it takes the train to complete 1 giro (from leaving station to returning to station)
+      //durationOfFullRide = iterationCount * increasePpmInterval + waitBeforeDoorsOpen
+      //iterationCount = durationOfFullRide / increasePpmInterval
+      if(this.gaugePpmValue <= this.gaugePpmMin)
+      {
+        this.gaugePpmValue = 300;
+      }
+      for(let i = 0; i < 3; i++)
+      {
+        await this.sleep(5000); //increasePpmInterval
+        this.gaugePpmValue = this.gaugePpmValue + this.getRandomInt(1, 10);
+
+        if(this.gaugePpmValue >= 700)
+        {
+          this.gaugePpmLabel = "Livello CO2 alto!";
+          this.gaugePpmForegroundColor = "red";
+          if(this.gaugePpmValue >= this.gaugePpmMax)
+          {
+            this.gaugePpmValue = 800;
+            this.gaugePpmLabel = "Livello CO2 alto!";
+            this.gaugePpmForegroundColor = "red";
+          }
+        }
+      }
+      await this.sleep(3000);  //waitBeforeDoorsOpen
+      this.gaugePpmValue = this.gaugePpmValue - 10 * this.getRandomInt(2, 4);  //when doors open, drop PPM by 20 or 30ppm
+    }
+  }
+
+  async changePmv() {
+    while (true) {
+      await this.sleep(1000);
+      if(this.gaugePmvValue >= 1.4)
+      {
+        this.gaugePmvValue = this.gaugePmvValue + this.temperatureDeltas[this.getRandomInt(0, 4)];
+      }
+      else if(this.gaugePmvValue <= 0.6)
+      {
+        this.gaugePmvValue = this.gaugePmvValue + this.temperatureDeltas[this.getRandomInt(2, 5)];
+      }
+      else
+      {
+        this.gaugePmvValue = this.gaugePmvValue + this.temperatureDeltas[this.getRandomInt(0, 5)];
+      }
+    }
+  }
+
   ngAfterViewInit() {}
   ngOnInit() {
 
@@ -123,6 +222,15 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
     });
     this.initDioxideChartBar(this.themeService.activatedTheme);
     this.initPmvChartBar(this.themeService.activatedTheme);
+
+    //put all the 'changeGauge()' functions inside this timeout if the tram begins in the station, waiting 12seconds
+    //setTimeout(() => {
+    //}, 12000);
+
+    this.changeTemperature();
+    this.changeHumidity();
+    this.changeDioxide();
+    this.changePmv();
 
     //add km to km percorsi card
     setInterval(() => {

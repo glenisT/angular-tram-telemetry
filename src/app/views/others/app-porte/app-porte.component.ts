@@ -2,13 +2,9 @@ import {
   Component,
   OnInit,
   AfterViewInit,
-  ChangeDetectionStrategy
 } from "@angular/core";
 import { matxAnimations } from "app/shared/animations/matx-animations";
 import { ThemeService } from "app/shared/services/theme.service";
-import tinyColor from "tinycolor2";
-import PerfectScrollbar from "perfect-scrollbar";
-import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
 
 @Component({
   selector: "app-blank",
@@ -17,27 +13,11 @@ import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/h
   animations: matxAnimations
 })
 export class AppPorteComponent implements OnInit, AfterViewInit {
-  trafficVsSaleOptions: any;
-  trafficVsSale: any;
-  trafficData: any;
-  saleData: any;
-
-  sessionOptions: any;
-  sessions: any;
-  sessionsData: any;
-
-  trafficGrowthChart: any;
-  bounceRateGrowthChart: any;
 
   primaPortaChartBar: any;
   secondaPortaChartBar: any;
   terzaPortaChartBar: any;
   updatePortaChartBar: any;
-
-  trafficSourcesChart: any;
-  countryTrafficStats: any[];
-  doughNutPieOptions: any;
-
 
   private oneDay = 24 * 3600 * 1000;
   private oneHour = 3600 * 1000;
@@ -76,7 +56,6 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeApertura1Thickness = 20;
   gaugeApertura1ForegroundColor = "deepSkyBlue";
   gaugeApertura1BackgroundColor = "rgb(55, 55, 153)";
-  gaugeApertura1Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeApertura1Size = 200;
 
   gaugeChiusura1Type = "arch";
@@ -87,7 +66,6 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeChiusura1Thickness = 20;
   gaugeChiusura1ForegroundColor = "deepSkyBlue";
   gaugeChiusura1BackgroundColor = "rgb(55, 55, 153)";
-  gaugeChiusura1Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeChiusura1Size = 200;
 
   gaugeApertura2Type = "arch";
@@ -99,7 +77,6 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeApertura2Thickness = 20;
   gaugeApertura2ForegroundColor = "deepSkyBlue";
   gaugeApertura2BackgroundColor = "rgb(55, 55, 153)";
-  gaugeApertura2Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeApertura2Size = 200;
 
   gaugeChiusura2Type = "arch";
@@ -111,7 +88,6 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeChiusura2Thickness = 20;
   gaugeChiusura2ForegroundColor = "deepSkyBlue";
   gaugeChiusura2BackgroundColor = "rgb(55, 55, 153)";
-  gaugeChiusura2Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeChiusura2Size = 200;
 
   gaugeApertura3Type = "arch";
@@ -123,7 +99,6 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeApertura3Thickness = 20;
   gaugeApertura3ForegroundColor = "deepSkyBlue";
   gaugeApertura3BackgroundColor = "rgb(55, 55, 153)";
-  gaugeApertura3Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeApertura3Size = 200;
 
   gaugeChiusura3Type = "arch";
@@ -135,12 +110,47 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeChiusura3Thickness = 20;
   gaugeChiusura3ForegroundColor = "deepSkyBlue";
   gaugeChiusura3BackgroundColor = "rgb(55, 55, 153)";
-  gaugeChiusura3Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeChiusura3Size = 200;
+
+  //----------------------------------------------------------------------
 
   displayedColumns: string[] = ["name", "price", "available", "action"];
 
   constructor(private themeService: ThemeService) {}
+
+  //waiting function
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  async changeRange()
+  {
+    for(let i = 0; i >= 0; i++)
+    {
+      //display values on first screen
+      for (let i = 0; i < 25; i++) { //'i' sets how many values per single screen of the chart will be shown
+        this.data.push(this.preRandomData());
+      }
+      await this.sleep(18000);  //waitForFullGiro 
+      //for (let i = 0; i < 4; i++) {
+        await this.sleep(2000) //waitToOpenDoors
+        this.data.push(this.randomData());  //open doors
+      //}
+      await this.sleep(10000);  //waitToCloseDoors = totalTimeInStation - waitToOpenDoors
+      //for (let i = 0; i < 4; i++) {
+        this.data.push(this.randomData());  //close doors
+      //}
+    }
+  }
+
+  async clearData()
+  {
+    //wait 3 stops (chart becomes too crowded)
+    //add cycles as needed
+    //1 cycle = waitForFullGiro + waitToOpenDoors + waitToCloseDoors
+    await this.sleep(90000); 
+    this.data = [];
+  }
 
   ngAfterViewInit() {}
   ngOnInit() {
@@ -161,20 +171,18 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       }
     }, 120000);  //add 1km every 2minutes to total KM percorsi
 
-     // generate some random testing data:
-     this.data = [];
-     this.now = new Date(2022, 20, 5);
-     this.value = Math.random() * 100; //multiplication number sets the maximum value of the random values that will be generated
+    // generate some random testing data:
+    this.data = [];
+    this.now = new Date(2022, 20, 5);
+    this.value = Math.random() * 100; //multiplication number sets the maximum value of the random values that will be generated
  
-     for (let i = 0; i < 50; i++) { //'i' sets how many values per single screen of the chart will be shown
-       this.data.push(this.randomData());
-     }
+    this.changeRange();
 
     // Mock dynamic data:
     this.timer = setInterval(() => {
-      for (let i = 0; i < 1; i++) { //use num in 'i < num' to manipulate how many values will be displayed at once
+      for (let i = 0; i < 1; i++) { //use num in 'i < num' to manipulate how many new values will arrive at once
         this.data.shift();
-        this.data.push(this.randomData());
+        this.data.push(this.preRandomData());
       }
 
       // update chart series data:
@@ -184,6 +192,8 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         }]
       };
     }, 1000);
+
+    this.clearData();
   }
 
   initPrimaPortaChartBar(theme) {
@@ -568,9 +578,31 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     clearInterval(this.timer);
   }
 
+  async changeValueRange()
+  {
+    while(true)
+    {
+      this.preRandomData();
+      await this.sleep(12000);
+      this.randomData();
+    }
+  }
+
   randomData() {
     this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
-    this.value = Math.random() * 100;  //determines next value to come to the chart according to a certain interval
+    this.value = Math.random() * 40 + 60;  //determines next value to come to the chart according to a certain interval
+    return {
+      name: this.now.toString(),
+      value: [
+        [this.now.getFullYear(), this.now.getMonth() + 1, this.now.getDate()].join('/'),  //X axis format
+        Math.round(this.value)
+      ]
+    };
+  }
+
+  preRandomData() {
+    this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
+    this.value = Math.random() * 30;  //determines next value to come to the chart according to a certain interval
     return {
       name: this.now.toString(),
       value: [

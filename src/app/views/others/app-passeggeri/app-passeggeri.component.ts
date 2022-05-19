@@ -1,8 +1,7 @@
 import {
   Component,
   OnInit,
-  AfterViewInit,
-  ChangeDetectionStrategy
+  AfterViewInit
 } from "@angular/core";
 import { matxAnimations } from "app/shared/animations/matx-animations";
 import { ThemeService } from "app/shared/services/theme.service";
@@ -18,48 +17,38 @@ import { DataSaverService } from "app/views/data-saver.service";
   animations: matxAnimations
 })
 export class AppPasseggeriComponent implements OnInit, AfterViewInit {
-  trafficVsSaleOptions: any;
-  trafficVsSale: any;
-  trafficData: any;
-  saleData: any;
-
-  sessionOptions: any;
-  sessions: any;
-  sessionsData: any;
-
-  trafficGrowthChart: any;
-  bounceRateGrowthChart: any;
 
   dbChartBar: any;
-  trafficSourcesChart: any;
-  countryTrafficStats: any[];
-  doughNutPieOptions: any;
 
   passeggeri: any;
 
   //used for creating and customizing the gauge chart
   gaugePasseggeriType = "full";
   gaugePasseggeriValue = 54;
+  gaugePasseggeriMin = 50;
   gaugePasseggeriMax = 70;
   gaugePasseggeriLabel = "pax";
   gaugePasseggeriAppendText = "";
   gaugePasseggeriThickness = 20;
   gaugePasseggeriForegroundColor = "deepSkyBlue";
   gaugePasseggeriBackgroundColor = "rgb(55, 55, 153)";
-  gaugePasseggeriMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugePasseggeriSize = 300;
 
   gaugeDbType = "arch";
   gaugeDbValue = 52;
-  gaugeDbMin = 0;
+  gaugeDbMin = 40;
   gaugeDbMax = 70;
   gaugeDbLabel = "";
   gaugeDbAppendText = "db";
   gaugeDbThickness = 20;
   gaugeDbForegroundColor = "#ff0000";
   gaugeDbBackgroundColor = "rgb(55, 55, 153)";
-  gaugeDbMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeDbSize = 300;
+
+  //gauge animation duration in ms
+  gaugeDuration = 500;
+
+  //---------------------------------------------------------
 
   statCardList = [
     {
@@ -88,6 +77,61 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
 
   constructor(private themeService: ThemeService, private data: DataSaverService) {}
 
+  //waiting function
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  //random int value for indexing through temperatureDeltas
+  getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive, so (0,5) = [0, 1, 2, 3, 4]
+  }
+
+  passeggeriDeltas = [-5, -2, 2, 5];
+
+  async changePax() {
+    while (true) {
+      //set for(){} iteration count according to the intervals needed and the time it takes the tram to complete 1 ride according to the formulas:
+      //durationOfFullRide is the time it takes the train to complete 1 giro (from leaving station to returning to station)
+      //timeInStation is the time the train stays in the station
+      //timeUntilOpenDoors is the imagined time it takes for the doors to open and passengers to get out AFTER the train has stopped
+
+      //iterationCount = timeUntilOpenDoors + durationOfFullRide / durationOfFullRide
+      //timeLeftInStation = (durationOfFullRide + timeInStation) - (durationOfFullRide + timeUntilOpenDoors + passengersGetOut)
+      //timeInStation = timeUntilOpenDoors + passengersGetOut + timeLeftInStation
+      if(this.gaugePasseggeriValue <= this.gaugePasseggeriMin)
+      {
+        this.gaugePasseggeriValue = 50;
+      }
+      for(let i = 0; i < 1; i++)
+      {
+        await this.sleep(18000); //durationOfFullRide
+        await this.sleep(2000); //timeUntilOpenDoors
+        this.gaugePasseggeriValue = this.gaugePasseggeriValue + this.passeggeriDeltas[this.getRandomInt(0, 2)]; //passengers get out of train
+        this.gaugeDbValue = this.gaugeDbValue + this.passeggeriDeltas[this.getRandomInt(2, 4)]; //noise level rises
+        await this.sleep(5000); //passengersGetOut (wait for passengers to get out)
+        this.gaugePasseggeriValue = this.gaugePasseggeriValue + this.passeggeriDeltas[this.getRandomInt(2, 4)]; //new passengers get inside train
+        this.gaugeDbValue = this.gaugeDbValue + 2; //noise level rises
+
+        if(this.gaugePasseggeriValue >= 60)
+        {
+          this.gaugePasseggeriLabel = "Numero pass alto!";
+          this.gaugePasseggeriForegroundColor = "red";
+          if(this.gaugePasseggeriValue >= this.gaugePasseggeriMax)
+          {
+            this.gaugePasseggeriValue = 70;
+            this.gaugePasseggeriLabel = "Numero pass alto!";
+            this.gaugePasseggeriForegroundColor = "red";
+          }
+        }
+      }
+      await this.sleep(5000);  //timeLeftInStation
+      this.gaugeDbValue = this.gaugeDbValue - 5; //noise level drops
+    }
+  }
+
   ngAfterViewInit() {}
   ngOnInit() {
 
@@ -97,6 +141,8 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
       this.initDbChartBar(activeTheme);
     });
     this.initDbChartBar(this.themeService.activatedTheme);
+
+    this.changePax();
 
     //add km to km percorsi card
     setInterval(() => {

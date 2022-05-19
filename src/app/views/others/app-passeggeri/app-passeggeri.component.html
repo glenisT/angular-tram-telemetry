@@ -31,13 +31,15 @@
         </span>
         <ngx-gauge [type]="gaugePasseggeriType" 
                [value]="gaugePasseggeriValue" 
+               [min]="gaugePasseggeriMin"
                [max]="gaugePasseggeriMax"
                [label]="gaugePasseggeriLabel"  
                [append]="gaugePasseggeriAppendText"
                [thick]="gaugePasseggeriThickness"
                [foregroundColor]="gaugePasseggeriForegroundColor"
                [backgroundColor]="gaugePasseggeriBackgroundColor"
-               [size]="gaugePasseggeriSize" >
+               [size]="gaugePasseggeriSize"
+               [duration]="gaugeDuration" >
         </ngx-gauge>
       </div>
     </div>
@@ -57,7 +59,8 @@
                [thick]="gaugeDbThickness"
                [foregroundColor]="gaugeDbForegroundColor"
                [backgroundColor]="gaugeDbBackgroundColor"
-               [size]="gaugeDbSize" >
+               [size]="gaugeDbSize"
+               [duration]="gaugeDuration" >
         </ngx-gauge>
       </div>
     

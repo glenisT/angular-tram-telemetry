@@ -34,7 +34,7 @@ export class NavigationService {
       type: "link",
       tooltip: "Tram",
       icon: "tram",
-      state: "tram/general"
+      state: "tram/general" //this is the route that displays on browser
     },
     {
       name: "HVAC",
