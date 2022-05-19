@@ -142,6 +142,12 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     }
   }
 
+  async clearData()
+  {
+    await this.sleep(60000); //wait 3 stops (chart becomes too crowded)
+    this.data = [];
+  }
+
   ngAfterViewInit() {}
   ngOnInit() {
     this.themeService.onThemeChange.subscribe(activeTheme => {
@@ -182,6 +188,8 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         }]
       };
     }, 1000);
+
+    this.clearData();
   }
 
   initPrimaPortaChartBar(theme) {
