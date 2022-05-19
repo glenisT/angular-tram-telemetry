@@ -21,6 +21,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
   //used for creating and customizing the gauge chart
   gaugePasseggeriType = "full";
   gaugePasseggeriValue = 54;
+  gaugePasseggeriMin = 50;
   gaugePasseggeriMax = 70;
   gaugePasseggeriLabel = "pax";
   gaugePasseggeriAppendText = "";
@@ -31,7 +32,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
 
   gaugeDbType = "arch";
   gaugeDbValue = 52;
-  gaugeDbMin = 0;
+  gaugeDbMin = 40;
   gaugeDbMax = 70;
   gaugeDbLabel = "";
   gaugeDbAppendText = "db";
