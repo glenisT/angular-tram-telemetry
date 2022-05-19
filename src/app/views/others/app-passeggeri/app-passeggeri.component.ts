@@ -87,22 +87,24 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
       //set for(){} iteration count according to the intervals needed and the time it takes the tram to complete 1 ride according to the formulas:
       //durationOfFullRide is the time it takes the train to complete 1 giro (from leaving station to returning to station)
       //timeInStation is the time the train stays in the station
-      //openDoors is the imagined time it takes for the doors to open and passengers to get out AFTER the train has stopped
+      //timeUntilOpenDoors is the imagined time it takes for the doors to open and passengers to get out AFTER the train has stopped
 
-      //timeUntilOpenDoors = durationOfFullRide + openDoors | to make it seem more realistic(doors take some time to open)
-      //iterationCount = timeUntilOpenDoors - openDoors / durationOfFullRide
-      //timeLeftInStation = durationOfFullRide + (timeUntilDoorsOpen - openDoors) - (timeUntilDoorsOpen + passengersGetOut)
-      //timeInStation = timeUntilOpenDoors - durationOfFullRide + passengersGetOut + timeLeftInStation
+      //iterationCount = timeUntilOpenDoors + durationOfFullRide / durationOfFullRide
+      //timeLeftInStation = (durationOfFullRide + timeInStation) - (durationOfFullRide + timeUntilOpenDoors + passengersGetOut)
+      //timeInStation = timeUntilOpenDoors + passengersGetOut + timeLeftInStation
       if(this.gaugePasseggeriValue <= this.gaugePasseggeriMin)
       {
         this.gaugePasseggeriValue = 50;
       }
       for(let i = 0; i < 1; i++)
       {
-        await this.sleep(20000); //timeUntilOpenDoors
+        await this.sleep(18000); //durationOfFullRide
+        await this.sleep(2000); //timeUntilOpenDoors
         this.gaugePasseggeriValue = this.gaugePasseggeriValue + this.passeggeriDeltas[this.getRandomInt(0, 2)]; //passengers get out of train
+        this.gaugeDbValue = this.gaugeDbValue + this.passeggeriDeltas[this.getRandomInt(2, 4)]; //noise level rises
         await this.sleep(5000); //passengersGetOut (wait for passengers to get out)
         this.gaugePasseggeriValue = this.gaugePasseggeriValue + this.passeggeriDeltas[this.getRandomInt(2, 4)]; //new passengers get inside train
+        this.gaugeDbValue = this.gaugeDbValue + 2; //noise level rises
 
         if(this.gaugePasseggeriValue >= 60)
         {
@@ -117,6 +119,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
         }
       }
       await this.sleep(5000);  //timeLeftInStation
+      this.gaugeDbValue = this.gaugeDbValue - 5; //noise level drops
     }
   }
 
