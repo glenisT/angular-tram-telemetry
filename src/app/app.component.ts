@@ -7,6 +7,7 @@ import { RoutePartsService } from "./shared/services/route-parts.service";
 
 import { filter } from 'rxjs/operators';
 import { LayoutService } from './shared/services/layout.service';
+import { DataSaverService } from './views/data-saver.service';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private routePartsService: RoutePartsService,
     // private themeService: ThemeService,
     private layout: LayoutService,
+    private dataService: DataSaverService
   ) { }
 
   paths = ['/tram/general', '/hvac/telemetryHVAC', '/passeggeri/telemetryPasseggeri', '/cuscinetti/telemetryCuscinetti', '/porte/telemetryPorte']
@@ -39,6 +41,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     for(this.i = 1; this.i <= 4; this.i++)
     {
       await this.sleep(60000); //60s per page. Make this a multiple of entire tram cycles (cycle = durationOfGiro + durationOfWaitingInStation)
+      this.dataService.statCardList[2].amount = +this.dataService.statCardList[2].amount + 1;
       this.router.navigate([this.paths[this.i]], {relativeTo: this.activeRoute});
       if(this.i == 4)
       {
@@ -50,7 +53,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.changePageTitle();
     // this.layout.setAppLayout()
-    //this.switchPages();
+    this.switchPages();
   }
   ngAfterViewInit() {
   }

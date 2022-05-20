@@ -256,9 +256,4 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
     //------------------------------------------------------------
 
   }
-
-  newMessage()
-  {
-    this.data.changeMessage(31);
-  }
 }

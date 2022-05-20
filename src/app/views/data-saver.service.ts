@@ -27,7 +27,10 @@ export class DataSaverService {
     }
   ];
 
-  @Input() amountSaver = this.statCardList[2].amount;
+  //incremented in app.component.ts' route navigator function because the incrementation must happen at the exact time of the route change
+  //otherwise, the slight delays between the two times accumulate and after some cycles, the delay accumulation makes the browser compensate
+  //causing the value incrementation to not respect the timeouts assigned in the code
+  @Input() amountSaver = this.statCardList[2].amount; 
   @Input() message = 0;
 
   private messageSource = new BehaviorSubject<number>(0);
@@ -36,28 +39,23 @@ export class DataSaverService {
   constructor() { }
 
   //waiting function
-  sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
+  // sleep(ms) {
+  //   return new Promise(resolve => setTimeout(resolve, ms));
+  // }
 
-  i: number;
-  async addKm()
-  {
-      for(this.i = 0; this.i <= 0; this.i++)
-      {
-        await this.sleep(5000);
-        this.statCardList[2].amount = +this.statCardList[2].amount + 1;
-        this.i = -1;
-      }
-  }
+  // i: number;
+  // async addKm()
+  // {
+  //     for(this.i = 0; this.i <= 0; this.i++)
+  //     {
+  //       await this.sleep(120000);
+  //       this.statCardList[2].amount = +this.statCardList[2].amount + 1;
+  //       this.i = -1;
+  //     }
+  // }
 
   ngOnInit()
   {
-    this.addKm();
-  }
-
-  changeMessage(message: number)
-  {
-    this.messageSource.next(message);
+    //this.addKm();
   }
 }

@@ -51,11 +51,11 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
         if(this.message == 50)
         {
           this.message = 50;  //reach top speed at 50km/h (to stop incrementation)
-          await this.sleep(9000); //wait 9seconds before slowing down
+          await this.sleep(13000); //wait 9seconds before slowing down
           this.message = 0;
           await this.sleep(12000); //wait 12seconds at station
         }
-        await this.sleep(90);  //increment speed every 0.09s because 50/4.5s = 0.09km/s (formula is maximumSpeed/maximumSpeedReachedInterval = incrementInterval)
+        await this.sleep(100);  //increment speed every 0.1s because 5s/50km = 0.1s/km (formula is maximumSpeed/maximumSpeedReachedInterval = incrementInterval)
         this.message = this.message + 1;
       }
     }
@@ -69,7 +69,11 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
     this.initSpeedChartBar(this.themeService.activatedTheme);
 
     this.data.ngOnInit();
-    this.transition();
+
+    setInterval(() => {
+      this.transition();
+    }, 12000) //wait 12seconds in station
+
 
   }
 
