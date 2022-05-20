@@ -58,6 +58,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.dataService.statCardList[2].amount = +this.dataService.statCardList[2].amount + 1;  //add KM according to how many are run in 1 tram cycle
     }, 5000) 
   }
+  
   ngAfterViewInit() {
   }
   changePageTitle() {
