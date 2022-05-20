@@ -26,9 +26,31 @@ export class AppComponent implements OnInit, AfterViewInit {
     private layout: LayoutService,
   ) { }
 
+  paths = ['/tram/general', '/hvac/telemetryHVAC', '/passeggeri/telemetryPasseggeri', '/cuscinetti/telemetryCuscinetti', '/porte/telemetryPorte']
+
+   //waiting function
+   sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  i: number;
+  async switchPages()
+  {
+    for(this.i = 0; this.i <= 4; this.i++)
+    {
+      await this.sleep(60000); //60s per page
+      this.router.navigate([this.paths[this.i]], {relativeTo: this.activeRoute});
+      if(this.i == 4)
+      {
+        this.i = -1;
+      }
+    }
+  }
+
   ngOnInit() {
     this.changePageTitle();
     // this.layout.setAppLayout()
+    this.switchPages();
   }
   ngAfterViewInit() {
   }
