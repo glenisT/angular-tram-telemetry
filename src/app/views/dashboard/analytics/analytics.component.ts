@@ -23,7 +23,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
 
   //used for creating and customizing the gauge chart
   gaugeType = "arch";
-  message = 0;
+  message = this.data.message;
   gaugeMax = 50;
   gaugeLabel = "Velocita";
   gaugeAppendText = "km/h";
@@ -33,52 +33,13 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
   gaugeMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
   gaugeSize = 300;
 
-  statCardList = [
-    {
-      icon: "tram",
-      title: "Numero Veicolo",
-      amount: "2154AnZ",
-      color: "primary"
-    },
-    {
-      icon: "tag",
-      title: "Linea",
-      amount: "Linea 4",
-      color: "primary"
-    },
-    {
-      icon: "check",
-      title: "km percorsi",
-      amount: 654.21,
-      color: "primary"
-    }
-  ];
+  statCardList = this.data.statCardList;
 
   displayedColumns: string[] = ["name", "price", "available", "action"];
 
   constructor(private themeService: ThemeService, private data: DataSaverService) {}
 
-  //waiting function
-  sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
-
-  async transition() {
-    while (true) {
-      for(let i = 0; i <= 0; i++)
-      {
-        if(this.message == 50)
-        {
-          this.message = 50;  //reach top speed at 50km/h (to stop incrementation)
-          await this.sleep(9000); //wait 9seconds before slowing down
-          this.message = 0;
-          await this.sleep(12000); //wait 12seconds at station
-        }
-        await this.sleep(90);  //increment speed every 0.09s because 50/4.5s = 0.09km/s (formula is maximumSpeed/maximumSpeedReachedInterval = incrementInterval)
-        this.message = this.message + 1;
-      }
-    }
-  }
+  
 
   ngAfterViewInit() {}
   ngOnInit() {
@@ -87,17 +48,8 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
     });
     this.initSpeedChartBar(this.themeService.activatedTheme);
 
-    setTimeout(() => {
-      this.transition();
-    }, 12000); //wait 12 seconds first time. Delete timeout and keep only function if train model starts right away
-
-    //add km to km percorsi card
-    setInterval(() => {
-      for(let i = 0; i <= 0; i++)
-      {
-        this.statCardList[2].amount = +this.statCardList[2].amount + 1;
-      }
-    }, 120000);  //add 1km every 2minutes to total KM percorsi
+    this.data.ngOnInit();
+    this.data.transition();
 
   }
 

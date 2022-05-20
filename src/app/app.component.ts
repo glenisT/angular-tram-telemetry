@@ -50,7 +50,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.changePageTitle();
     // this.layout.setAppLayout()
-    this.switchPages();
+    //this.switchPages();
   }
   ngAfterViewInit() {
   }
