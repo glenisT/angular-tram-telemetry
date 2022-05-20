@@ -35,15 +35,20 @@ export class DataSaverService {
 
   constructor() { }
 
-  addKm()
+  //waiting function
+  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+  i: number;
+  async addKm()
   {
-    //add km to km percorsi card
-    setInterval(() => {
-      for(let i = 0; i <= 0; i++)
+      for(this.i = 0; this.i <= 0; this.i++)
       {
+        await this.sleep(5000);
         this.statCardList[2].amount = +this.statCardList[2].amount + 1;
+        this.i = -1;
       }
-    }, 3000);  //add 1km every 2minutes to total KM percorsi
   }
 
   ngOnInit()
