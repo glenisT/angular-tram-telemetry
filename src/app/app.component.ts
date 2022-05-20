@@ -41,7 +41,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     for(this.i = 1; this.i <= 4; this.i++)
     {
       await this.sleep(60000); //60s per page. Make this a multiple of entire tram cycles (cycle = durationOfGiro + durationOfWaitingInStation)
-      this.dataService.statCardList[2].amount = +this.dataService.statCardList[2].amount + 1;
+      this.dataService.statCardList[2].amount = +this.dataService.statCardList[2].amount + 1;  //add KM according to how many are run in 1 tram cycle
       this.router.navigate([this.paths[this.i]], {relativeTo: this.activeRoute});
       if(this.i == 4)
       {
