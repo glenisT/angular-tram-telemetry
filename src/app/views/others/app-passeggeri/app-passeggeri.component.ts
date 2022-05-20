@@ -50,26 +50,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
 
   //---------------------------------------------------------
 
-  statCardList = [
-    {
-      icon: "tram",
-      title: "Numero Veicolo",
-      amount: "2154AnZ",
-      color: "primary"
-    },
-    {
-      icon: "tag",
-      title: "Linea",
-      amount: "Linea 4",
-      color: "primary"
-    },
-    {
-      icon: "check",
-      title: "km percorsi",
-      amount: 654.21,
-      color: "primary"
-    }
-  ];
+  statCardList = this.data.statCardList;
 
   displayedColumns: string[] = ["name", "price", "available", "action"];
 
@@ -144,13 +125,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
 
     this.changePax();
 
-    //add km to km percorsi card
-    setInterval(() => {
-      for(let i = 0; i <= 0; i++)
-      {
-        this.statCardList[2].amount = +this.statCardList[2].amount + 1;
-      }
-    }, 120000);  //add 1km every 2minutes to total KM percorsi
+    this.data.ngOnInit();
 
     const dataAxis = [
           "14:19:30",

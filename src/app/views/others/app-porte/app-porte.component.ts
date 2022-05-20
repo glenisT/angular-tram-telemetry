@@ -5,6 +5,7 @@ import {
 } from "@angular/core";
 import { matxAnimations } from "app/shared/animations/matx-animations";
 import { ThemeService } from "app/shared/services/theme.service";
+import { DataSaverService } from "app/views/data-saver.service";
 
 @Component({
   selector: "app-blank",
@@ -26,26 +27,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   private data: any[];
   private timer: any;
 
-  statCardList = [
-    {
-      icon: "tram",
-      title: "Numero Veicolo",
-      amount: "2154AnZ",
-      color: "primary"
-    },
-    {
-      icon: "tag",
-      title: "Linea",
-      amount: "Linea 4",
-      color: "primary"
-    },
-    {
-      icon: "check",
-      title: "km percorsi",
-      amount: 654.21,
-      color: "primary"
-    }
-  ];
+  statCardList = this.dataService.statCardList;
 
   //used for creating and customizing the gauge chart
   gaugeApertura1Type = "arch";
@@ -116,7 +98,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ["name", "price", "available", "action"];
 
-  constructor(private themeService: ThemeService) {}
+  constructor(private themeService: ThemeService, private dataService: DataSaverService) {}
 
   //waiting function
   sleep(ms) {
@@ -163,13 +145,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     this.initSecondaPortaChartBar(this.themeService.activatedTheme);
     this.initTerzaPortaChartBar(this.themeService.activatedTheme);
 
-    //add km to km percorsi card
-    setInterval(() => {
-      for(let i = 0; i <= 0; i++)
-      {
-        this.statCardList[2].amount = +this.statCardList[2].amount + 1;
-      }
-    }, 120000);  //add 1km every 2minutes to total KM percorsi
+    this.dataService.ngOnInit();
 
     // generate some random testing data:
     this.data = [];
