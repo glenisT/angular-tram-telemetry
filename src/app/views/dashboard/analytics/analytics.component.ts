@@ -70,7 +70,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
 
     this.data.ngOnInit();
 
-    setInterval(() => {
+    setTimeout(() => {
       this.transition();
     }, 12000) //wait 12seconds in station
 
