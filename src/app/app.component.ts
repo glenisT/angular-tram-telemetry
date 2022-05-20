@@ -36,9 +36,9 @@ export class AppComponent implements OnInit, AfterViewInit {
   i: number;
   async switchPages()
   {
-    for(this.i = 0; this.i <= 4; this.i++)
+    for(this.i = 1; this.i <= 4; this.i++)
     {
-      await this.sleep(60000); //60s per page
+      await this.sleep(60000); //60s per page. Make this a multiple of entire tram cycles (cycle = durationOfGiro + durationOfWaitingInStation)
       this.router.navigate([this.paths[this.i]], {relativeTo: this.activeRoute});
       if(this.i == 4)
       {
