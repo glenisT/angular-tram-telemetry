@@ -1,6 +1,6 @@
 KEY COMPONENTS:
 1. Tram section: app/views/dashboard
-2. Other sections: app/views/others/app-<nomeSezione>
+2. Other sections: app/views/others/app-sectionName
 3. Sidebar: app/shared/components/sidebar-side
 4. DataSaver service: app/views/data-saver.service.ts
 
@@ -22,3 +22,5 @@ FOR FUTURE CHANGES:
   - If the application is initialized at the moment BEFORE the tram starts moving (so we need to wait for the tram's time in station)
   1. In analytics.component.ts uncomment the setTimeout lines in ngOnInit().
   2. Repeat step 1 in app.component.ts.
+
+  - To change the icon in the browser tab, simply add a 48x48 .ico png into the src folder and name it 'favicon.ico'.
