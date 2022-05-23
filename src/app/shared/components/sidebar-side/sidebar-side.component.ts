@@ -48,9 +48,4 @@ export class SidebarSideComponent implements OnInit, OnDestroy, AfterViewInit {
       sidebarCompactToggle: !this.layoutConf.sidebarCompactToggle
     });
   }
-
-  newMessage()
-  {
-    this.data.changeMessage(31);
-  }
 }
