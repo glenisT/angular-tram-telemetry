@@ -52,7 +52,11 @@ export class AppComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.changePageTitle();
     // this.layout.setAppLayout()
-    this.switchPages();
+
+    //setTimeout(() => {
+      this.switchPages();
+    //}, 12000)
+
 
     setInterval(() => {
       this.dataService.statCardList[2].amount = +this.dataService.statCardList[2].amount + 1;  //add KM according to how many are run in 1 tram cycle
