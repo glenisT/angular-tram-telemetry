@@ -128,15 +128,15 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
     this.data.ngOnInit();
 
     const dataAxis = [
-          "14:19:30",
-          "14:20:00",
-          "14:20:30",
-          "14:21:00",
-          "14:21:30",
-          "14:22:00",
-          "14:22:30",
-          "14:23:00",
-          "14:23:30"
+          "9:00-10:00",
+          "10:00-11:00",
+          "11:00-12:00",
+          "12:00-13:00",
+          "13:00-14:00",
+          "14:00-15:00",
+          "15:00-16:00",
+          "16:00-17:00",
+          "17:00-18:00"
     ];
     const data = [
       20,
@@ -219,7 +219,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
             color: 'rgba(0,0,0,0.05)'
           },
           barGap: '-100%',
-          barCategoryGap: '40%',
+          barCategoryGap: '30%',
           //commented the data below because it may be useful for when data becomes more dynamic
           //data: dataShadow,
 
@@ -286,7 +286,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
         show:true,
         text:"Indice decibel",
         textStyle: {
-          color: "white"
+          color: "white",
         }
       },
       grid: {
@@ -312,7 +312,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
       },
       series: [
         {
-          data: [40, 45, 50, 52, 54, 56, 61, 59, 50, 45, 47, 52],
+          data: [40, 45, 50, 52, 54, 56, 61, 59, 50],
           type: "line",
           areaStyle: {},
           smooth: false,
@@ -328,18 +328,15 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
         showGrid: false,
         boundaryGap: false,
         data: [
-          "14:18:00",
-          "14:18:30",
-          "14:19:00",
-          "14:19:30",
-          "14:20:00",
-          "14:20:30",
-          "14:21:00",
-          "14:21:30",
-          "14:22:00",
-          "14:22:30",
-          "14:23:00",
-          "14:23:30",
+          "9:00-10:00",
+          "10:00-11:00",
+          "11:00-12:00",
+          "12:00-13:00",
+          "13:00-14:00",
+          "14:00-15:00",
+          "15:00-16:00",
+          "16:00-17:00",
+          "17:00-18:00",
         ],
         axisLabel: {
           color: "#ccc",
@@ -350,7 +347,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
         },
         axisTick: {
           show: false
-        }
+        },
       },
       yAxis: {
         type: "value",
