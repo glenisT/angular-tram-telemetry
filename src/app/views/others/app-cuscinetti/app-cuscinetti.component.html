@@ -238,36 +238,37 @@
       </div>
     </div>
   </div>
-</div>
 
-<div class="mt--72">
-  <div fxLayout="row wrap">
-    <div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100">
-      <div fxLayout="row wrap"  style="margin-top: -2vh; margin-left: 10vh;">
-        <div
-          *ngFor="let item of statCardList"
-          fxFlex="100"
-          fxFlex.sm="30"
-          fxFlex.gt-sm="30"
-        >
-          <mat-card
-            class="p-24"
-            fxFlex
-            fxLayout="row"
-            fxLayoutAlign="space-between center"
+  <div class="mt--72">
+    <div fxLayout="row wrap">
+      <div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100">
+        <div fxLayout="row wrap"  style="margin-top: -2vh; margin-left: 10vh;">
+          <div
+            *ngFor="let item of statCardList"
+            fxFlex="100"
+            fxFlex.sm="30"
+            fxFlex.gt-sm="30"
           >
-            <div fxLayout="row" fxLayoutAlign="center center">
-              <mat-icon class="text-48 mat-color-{{item.color}}">{{
-                item.icon
-              }}</mat-icon>
-              <div class="ml-12">
-                <p class="m-0 text-muted mb-4">{{ item.title }}</p>
-                <h5 class="m-0 mat-color-{{item.color}} text-25">{{ item.amount }}</h5>
+            <mat-card
+              class="p-24"
+              fxFlex
+              fxLayout="row"
+              fxLayoutAlign="space-between center"
+            >
+              <div fxLayout="row" fxLayoutAlign="center center">
+                <mat-icon class="text-48 mat-color-{{item.color}}">{{
+                  item.icon
+                }}</mat-icon>
+                <div class="ml-12">
+                  <p class="m-0 text-muted mb-4">{{ item.title }}</p>
+                  <h5 class="m-0 mat-color-{{item.color}} text-25">{{ item.amount }}</h5>
+                </div>
               </div>
-            </div>
-          </mat-card>
+            </mat-card>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+
