@@ -64,9 +64,7 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {}
   ngOnInit() {
     this.themeService.onThemeChange.subscribe(activeTheme => {
-      this.initSpeedChartBar(activeTheme);
     });
-    this.initSpeedChartBar(this.themeService.activatedTheme);
 
     this.data.ngOnInit();
 
@@ -75,128 +73,5 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
     //}, 12000) //wait 12seconds in station
 
 
-  }
-
-  initSpeedChartBar(theme) {
-    this.speedChartBar = {
-      grid: {
-        top: 16,
-        left: 36,
-        right: 25,
-        bottom: 32
-      },
-      legend: {},
-      tooltip: {
-        show: true,
-        trigger: "axis",
-
-        axisPointer: {
-          type: "cross",
-          lineStyle: {
-            opacity: 0
-          }
-        },
-        crossStyle: {
-          color: "#000"
-        }
-      },
-      series: [
-        {
-          data: [0, 6, 10, 15, 24, 30, 35, 42, 50],
-          type: "line",
-          areaStyle: {},
-          smooth: false,
-          lineStyle: {
-            width: 2,
-            color: "#fff"
-          }
-        }
-      ],
-      xAxis: {
-        show: true,
-        type: "category",
-        showGrid: false,
-        boundaryGap: false,
-        data: [
-          "14:22:10",
-          "14:22:20",
-          "14:22:30",
-          "14:22:40",
-          "14:22:50",
-          "14:23:00",
-          "14:23:10",
-          "14:23:20",
-          "14:23:30"
-        ],
-        axisLabel: {
-          color: "#ccc",
-          margin: 20
-        },
-        axisLine: {
-          show: false
-        },
-        axisTick: {
-          show: false
-        }
-      },
-      yAxis: {
-        type: "value",
-        min: 0,
-        max: 50,
-        axisLabel: {
-          color: "#ccc",
-          margin: 20,
-          fontSize: 13,
-          fontFamily: "roboto"
-        },
-        splitLine: {
-          show: true,
-          lineStyle: {
-            color: "rgba(255, 255, 255, .1)"
-          }
-        },
-
-        axisLine: {
-          show: false
-        },
-        axisTick: {
-          show: false
-        }
-      },
-      color: [
-        {
-          type: "linear",
-          x: 0,
-          y: 0,
-          x2: 0,
-          y2: 1,
-          colorStops: [
-            {
-              offset: 0,
-              color: "rgba(255,255,255,0.3)" // color at 0% position
-            },
-            {
-              offset: 1,
-              color: "rgba(255,255,255,0)" // color at 100% position
-            }
-          ],
-          global: false // false by default
-        }
-      ],
-      dataZoom: [
-        {
-            id: 'dataZoomX',
-            type: 'inside',
-            xAxisIndex: [0],
-            filterMode: 'filter'
-        },
-        {
-            id: 'dataZoomY',
-            type: 'inside',
-            yAxisIndex: [0],
-            filterMode: 'empty'
-        }
-      ],
-    };
   }
 }
