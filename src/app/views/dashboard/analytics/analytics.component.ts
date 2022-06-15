@@ -27,11 +27,24 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
   gaugeMax = 50;
   gaugeLabel = "Velocita";
   gaugeAppendText = "km/h";
-  gaugeThickness = 20;
+  gaugeThickness = 35;
   gaugeForegroundColor = "deepSkyBlue";
   gaugeBackgroundColor = "rgb(55, 55, 153)";
   gaugeMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
-  gaugeSize = 300;
+  gaugeSize = 600;
+
+  gaugePasseggeriType = "full";
+  gaugePasseggeriValue = 54;
+  gaugePasseggeriMin = 50;
+  gaugePasseggeriMax = 70;
+  gaugePasseggeriLabel = "pax";
+  gaugePasseggeriAppendText = "";
+  gaugePasseggeriThickness = 10;
+  gaugePasseggeriForegroundColor = "deepSkyBlue";
+  gaugePasseggeriBackgroundColor = "rgb(55, 55, 153)";
+  gaugePasseggeriSize = 250;
+
+  gaugeDuration = 500;
 
   statCardList = this.data.statCardList;
 
