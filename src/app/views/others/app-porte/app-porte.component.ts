@@ -19,12 +19,16 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   secondaPortaChartBar: any;
   terzaPortaChartBar: any;
   updatePortaChartBar: any;
+  updatePortaChartBar2: any;
+  updatePortaChartBar3: any;
 
   private oneDay = 24 * 3600 * 1000;
   private oneHour = 3600 * 1000;
   private now: Date;
   private value: number ;
   private data: any[];
+  private data2: any[];
+  private data3: any[];
   private timer: any;
 
   statCardList = this.dataService.statCardList;
@@ -112,15 +116,21 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       //display values on first screen
       for (let i = 0; i < 25; i++) { //'i' sets how many values per single screen of the chart will be shown
         this.data.push(this.preRandomData());
+        this.data2.push(this.preRandomData2());
+        this.data3.push(this.preRandomData3());
       }
       await this.sleep(18000);  //waitForFullGiro 
       //for (let i = 0; i < 4; i++) {
         await this.sleep(2000) //waitToOpenDoors
         this.data.push(this.randomData());  //open doors
+        this.data2.push(this.randomData2());  //open doors
+        this.data3.push(this.randomData3());  //open doors
       //}
       await this.sleep(10000);  //waitToCloseDoors = totalTimeInStation - waitToOpenDoors
       //for (let i = 0; i < 4; i++) {
         this.data.push(this.randomData());  //close doors
+        this.data2.push(this.randomData2());  //close doors
+        this.data3.push(this.randomData2());  //close doors
       //}
     }
   }
@@ -132,6 +142,8 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     //1 cycle = waitForFullGiro + waitToOpenDoors + waitToCloseDoors
     await this.sleep(90000); 
     this.data = [];
+    this.data2 = [];
+    this.data3 = [];
   }
 
   ngAfterViewInit() {}
@@ -149,6 +161,8 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
 
     // generate some random testing data:
     this.data = [];
+    this.data2 = [];
+    this.data3 = [];
     this.now = new Date(2022, 20, 5);
     this.value = Math.random() * 100; //multiplication number sets the maximum value of the random values that will be generated
  
@@ -158,13 +172,27 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     this.timer = setInterval(() => {
       for (let i = 0; i < 1; i++) { //use num in 'i < num' to manipulate how many new values will arrive at once
         this.data.shift();
+        this.data2.shift();
+        this.data3.shift();
         this.data.push(this.preRandomData());
+        this.data2.push(this.preRandomData2());
+        this.data3.push(this.preRandomData3());
       }
 
       // update chart series data:
       this.updatePortaChartBar = {
         series: [{
           data: this.data
+        }]
+      };
+      this.updatePortaChartBar2 = {
+        series: [{
+          data: this.data2
+        }]
+      };
+      this.updatePortaChartBar3 = {
+        series: [{
+          data: this.data3
         }]
       };
     }, 1000);
@@ -399,7 +427,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         type: 'line',
         showSymbol: false,
         hoverAnimation: false,
-        data: this.data,
+        data: this.data2,
         smooth: false,
         lineStyle: {
           width: 2,
@@ -525,7 +553,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         type: 'line',
         showSymbol: false,
         hoverAnimation: false,
-        data: this.data,
+        data: this.data3,
         smooth: false,
         lineStyle: {
           width: 2,
@@ -559,8 +587,12 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     while(true)
     {
       this.preRandomData();
+      this.preRandomData2();
+      this.preRandomData3();
       await this.sleep(12000);
       this.randomData();
+      this.randomData2();
+      this.randomData3();
     }
   }
 
@@ -576,7 +608,55 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
     };
   }
 
+  randomData2() {
+    this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
+    this.value = Math.random() * 40 + 60;  //determines next value to come to the chart according to a certain interval
+    return {
+      name: this.now.toString(),
+      value: [
+        [this.now.getFullYear(), this.now.getMonth() + 1, this.now.getDate()].join('/'),  //X axis format
+        Math.round(this.value)
+      ]
+    };
+  }
+
+  randomData3() {
+    this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
+    this.value = Math.random() * 40 + 60;  //determines next value to come to the chart according to a certain interval
+    return {
+      name: this.now.toString(),
+      value: [
+        [this.now.getFullYear(), this.now.getMonth() + 1, this.now.getDate()].join('/'),  //X axis format
+        Math.round(this.value)
+      ]
+    };
+  }
+
   preRandomData() {
+    this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
+    this.value = Math.random() * 30;  //determines next value to come to the chart according to a certain interval
+    return {
+      name: this.now.toString(),
+      value: [
+        [this.now.getFullYear(), this.now.getMonth() + 1, this.now.getDate()].join('/'),  //X axis format
+        Math.round(this.value)
+      ]
+    };
+  }
+
+  preRandomData2() {
+    this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
+    this.value = Math.random() * 30;  //determines next value to come to the chart according to a certain interval
+    return {
+      name: this.now.toString(),
+      value: [
+        [this.now.getFullYear(), this.now.getMonth() + 1, this.now.getDate()].join('/'),  //X axis format
+        Math.round(this.value)
+      ]
+    };
+  }
+
+  preRandomData3() {
     this.now = new Date(this.now.getTime() + this.oneDay); //determines the intervals of time which display on the X axis
     this.value = Math.random() * 30;  //determines next value to come to the chart according to a certain interval
     return {
