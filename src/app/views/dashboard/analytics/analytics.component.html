@@ -11,7 +11,7 @@
       <div class="ngx-gauge-ppm">
         <span style="display: flex; margin-left: 30%;">
           <h1 class="text-white font-weight-bold">Passeggeri</h1>
-          <mat-icon style="position: absolute; left:17%; top: 18%;" class="mat-icon">people</mat-icon> 
+          <mat-icon style="position: inherit; margin-left:17%; padding-top: 15%;" class="mat-icon">people</mat-icon> 
         </span>
           <ngx-gauge [type]="gaugePasseggeriType" 
                  [value]="gaugePasseggeriValue" 
@@ -23,14 +23,15 @@
                  [foregroundColor]="gaugePasseggeriForegroundColor"
                  [backgroundColor]="gaugePasseggeriBackgroundColor"
                  [size]="gaugePasseggeriSize"
-                 [duration]="gaugeDuration" >
+                 [duration]="gaugeDuration" 
+                 style="margin-top: -12%;">
           </ngx-gauge>
         </div>
     
         <div class="ngx-gauge-temp">
-          <span style="display: flex; margin-left: 15%;">
-            <mat-icon style="position: absolute; left:34%; top: 18%;">thermostat</mat-icon>
-            <h2 class="text-white font-weight-bold">Temperatura interna</h2>
+          <span style="display: flex; margin-left: 16%;">
+            <h2 class="text-white font-weight-bold" style="white-space: nowrap;">Temperatura interna</h2>
+            <mat-icon style="position: inherit; margin-left:10%; padding-top: 15%;" class="mat-icon">thermostat</mat-icon> 
           </span>
           <ngx-gauge [type]="gaugeTempType" 
                  [value]="gaugeTempValue" 
@@ -42,14 +43,15 @@
                  [foregroundColor]="gaugeTempForegroundColor"
                  [backgroundColor]="gaugeTempBackgroundColor"
                  [size]="gaugeTempSize"
-                 [duration]="gaugeDuration" >
+                 [duration]="gaugeDuration"
+                 style="margin-top: -15%;">
           </ngx-gauge>
         </div>
     
         <div class="ngx-gauge-pmv">
           <span style="display: flex; margin-left: 25%;">
-            <mat-icon style="position: absolute; left:52%; top: 18%;">opacity</mat-icon>
             <h2 class="text-white font-weight-bold">Umidit&agrave; interna</h2>
+            <mat-icon style="position: inherit; margin-left:10%; padding-top: 15%;" class="mat-icon">opacity</mat-icon> 
           </span>
           <ngx-gauge [type]="gaugeUmiditaType" 
                  [value]="gaugeUmiditaValue" 
@@ -61,7 +63,8 @@
                  [foregroundColor]="gaugeUmiditaForegroundColor"
                  [backgroundColor]="gaugeUmiditaBackgroundColor"
                  [size]="gaugeUmiditaSize"
-                 [duration]="gaugeDuration" >
+                 [duration]="gaugeDuration"
+                 style="margin-top: -12.5%;">
           </ngx-gauge>
         </div>
     </div>
