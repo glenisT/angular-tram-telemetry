@@ -11,7 +11,7 @@
       <div class="ngx-gauge-ppm">
         <span style="display: flex; margin-left: 30%;">
           <h1 class="text-white font-weight-bold">Passeggeri</h1>
-          <mat-icon style="position: absolute; left:16%; top: 18%;" class="mat-icon">people</mat-icon> 
+          <mat-icon style="position: absolute; left:17%; top: 18%;" class="mat-icon">people</mat-icon> 
         </span>
           <ngx-gauge [type]="gaugePasseggeriType" 
                  [value]="gaugePasseggeriValue" 
@@ -29,7 +29,7 @@
     
         <div class="ngx-gauge-temp">
           <span style="display: flex; margin-left: 15%;">
-            <mat-icon style="position: absolute; left:33%; top: 18%;">thermostat</mat-icon>
+            <mat-icon style="position: absolute; left:34%; top: 18%;">thermostat</mat-icon>
             <h2 class="text-white font-weight-bold">Temperatura interna</h2>
           </span>
           <ngx-gauge [type]="gaugeTempType" 
@@ -67,7 +67,11 @@
     </div>
 
     <div class="row2">
-      <img src="../../../../assets/images/backgrounds/cuscinetti_schema.png" alt="schema" class="schema-train">
+      <div>
+        <h2 style="text-align: center; padding-bottom:10px">Cuscinetti</h2>
+        <div class="circles"></div>
+        <img src="../../../../assets/images/backgrounds/cuscinetti_schema.png" alt="schema" class="schema-train">
+      </div>
     </div>
 
   </div>
