@@ -42,7 +42,29 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
   gaugePasseggeriThickness = 10;
   gaugePasseggeriForegroundColor = "deepSkyBlue";
   gaugePasseggeriBackgroundColor = "rgb(55, 55, 153)";
-  gaugePasseggeriSize = 250;
+  gaugePasseggeriSize = 300;
+
+  gaugeTempType = "arch";
+  gaugeTempValue = 23.5;
+  gaugeTempMin = 23.5;
+  gaugeTempMax = 24.5;
+  gaugeTempLabel = "";
+  gaugeTempAppendText = "°C";
+  gaugeTempThickness = 20;
+  gaugeTempForegroundColor = "deepSkyBlue";
+  gaugeTempBackgroundColor = "rgb(55, 55, 153)";
+  gaugeTempSize = 300;
+
+  gaugeUmiditaType = "arch";
+  gaugeUmiditaValue = 44;
+  gaugeUmiditaMin = 43;
+  gaugeUmiditaMax = 47;
+  gaugeUmiditaLabel = "";
+  gaugeUmiditaAppendText = "%";
+  gaugeUmiditaThickness = 20;
+  gaugeUmiditaForegroundColor = "#ff0000";
+  gaugeUmiditaBackgroundColor = "rgb(55, 55, 153)";
+  gaugeUmiditaSize = 300;
 
   gaugeDuration = 500;
 

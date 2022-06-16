@@ -8,10 +8,10 @@
   <div class="extragrid">
 
     <div class="ngx-gauge-ppm">
-      <span style="display: flex; margin-left: 5%;">
-        <mat-icon style="position: absolute; left:15%; top: 15%;">people</mat-icon>
-        <h2 class="text-white font-weight-bold">Passeggeri</h2>
-      </span>
+    <span style="display: flex; margin-left: 30%;">
+      <h1 class="text-white font-weight-bold">Passeggeri</h1>
+    </span>
+    <mat-icon style="position: absolute; left:15%; top: 15%;" class="mat-icon">people</mat-icon> 
       <ngx-gauge [type]="gaugePasseggeriType" 
              [value]="gaugePasseggeriValue" 
              [min]="gaugePasseggeriMin"
@@ -22,6 +22,44 @@
              [foregroundColor]="gaugePasseggeriForegroundColor"
              [backgroundColor]="gaugePasseggeriBackgroundColor"
              [size]="gaugePasseggeriSize"
+             [duration]="gaugeDuration" >
+      </ngx-gauge>
+    </div>
+
+    <div class="ngx-gauge-temp">
+      <span style="display: flex; margin-left: 15%;">
+        <mat-icon style="position: absolute; left:35%; top: 22%;">thermostat</mat-icon>
+        <h2 class="text-white font-weight-bold">Temperatura interna</h2>
+      </span>
+      <ngx-gauge [type]="gaugeTempType" 
+             [value]="gaugeTempValue" 
+             [min]="gaugeTempMin"
+             [max]="gaugeTempMax"
+             [label]="gaugeTempLabel"  
+             [append]="gaugeTempAppendText"
+             [thick]="gaugeTempThickness"
+             [foregroundColor]="gaugeTempForegroundColor"
+             [backgroundColor]="gaugeTempBackgroundColor"
+             [size]="gaugeTempSize"
+             [duration]="gaugeDuration" >
+      </ngx-gauge>
+    </div>
+
+    <div class="ngx-gauge-pmv">
+      <span style="display: flex; margin-left: 25%;">
+        <mat-icon style="position: absolute; left:55%; top: 22%;">opacity</mat-icon>
+        <h2 class="text-white font-weight-bold">Umidit&agrave; interna</h2>
+      </span>
+      <ngx-gauge [type]="gaugeUmiditaType" 
+             [value]="gaugeUmiditaValue" 
+             [min]="gaugeUmiditaMin"
+             [max]="gaugeUmiditaMax"
+             [label]="gaugeUmiditaLabel"  
+             [append]="gaugeUmiditaAppendText"
+             [thick]="gaugeUmiditaThickness"
+             [foregroundColor]="gaugeUmiditaForegroundColor"
+             [backgroundColor]="gaugeUmiditaBackgroundColor"
+             [size]="gaugeUmiditaSize"
              [duration]="gaugeDuration" >
       </ngx-gauge>
     </div>
