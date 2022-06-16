@@ -34,18 +34,20 @@
 {
     display: grid;
     justify-content: center;
+    height: fit-content;
 }
 
-// .circles
-// {
-//     height: 3vh;
-//     width: 3vh;
-//     position: absolute;
-//     border-radius: 50%;
-//     background-color: #ff0000;
-//     margin-top: 6vh;
-//     margin-left: 4.5vh;
-// }
+.circles
+{
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: #ff0000;
+    margin-top: 65px;
+    margin-left: 43px;
+    box-shadow: 112px 0 0 0 #92d050, 162px 0 0 0 #92d050, 297px 0 0 0 #ffc001, 347px 0 0 0 #92d050, 482px 0 0 0 #ff0000 ;
+}
 
 .mat-icon
 {
