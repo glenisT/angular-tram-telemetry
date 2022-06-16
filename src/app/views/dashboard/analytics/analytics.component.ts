@@ -102,11 +102,89 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
     });
 
     this.data.ngOnInit();
+    this.changePax();
+    this.changeTemperature();
+    this.changeHumidity();
 
     //setTimeout(() => {
       this.transition();
     //}, 12000) //wait 12seconds in station
 
 
+  }
+
+  getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive, so (0,5) = [0, 1, 2, 3, 4]
+  }
+
+  passeggeriDeltas = [-5, -2, 2, 5];
+  temperatureDeltas = [-0.2, -0.1, 0, 0.1, 0.2];
+
+  async changePax() {
+    while (true) {
+      if(this.gaugePasseggeriValue <= this.gaugePasseggeriMin)
+      {
+        this.gaugePasseggeriValue = 50;
+      }
+      for(let i = 0; i < 1; i++)
+      {
+        await this.sleep(18000);
+        await this.sleep(2000);
+        this.gaugePasseggeriValue = this.gaugePasseggeriValue + this.passeggeriDeltas[this.getRandomInt(0, 2)];
+        await this.sleep(5000);
+        this.gaugePasseggeriValue = this.gaugePasseggeriValue + this.passeggeriDeltas[this.getRandomInt(2, 4)];
+
+        if(this.gaugePasseggeriValue >= 60)
+        {
+          this.gaugePasseggeriLabel = "Numero pass alto!";
+          this.gaugePasseggeriForegroundColor = "red";
+          if(this.gaugePasseggeriValue >= this.gaugePasseggeriMax)
+          {
+            this.gaugePasseggeriValue = 70;
+            this.gaugePasseggeriLabel = "Numero pass alto!";
+            this.gaugePasseggeriForegroundColor = "red";
+          }
+        }
+      }
+      await this.sleep(5000);
+    }
+  }
+
+  async changeTemperature() {
+    while (true) {
+      await this.sleep(5000);
+      if(this.gaugeTempValue >= 24.4)
+      {
+        this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(0, 4)];
+      }
+      else if(this.gaugeTempValue <= 23.6)
+      {
+        this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(2, 5)];
+      }
+      else
+      {
+        this.gaugeTempValue = this.gaugeTempValue + this.temperatureDeltas[this.getRandomInt(0, 5)];
+      }
+    }
+  }
+
+  async changeHumidity() {
+    while (true) {
+      await this.sleep(5000);
+      if(this.gaugeUmiditaValue == this.gaugeUmiditaMax)
+      {
+        this.gaugeUmiditaValue = this.gaugeUmiditaValue + this.temperatureDeltas[this.getRandomInt(1, 3)] * 10;
+      }
+      else if(this.gaugeUmiditaValue == this.gaugeUmiditaMin)
+      {
+        this.gaugeUmiditaValue = this.gaugeUmiditaValue + this.temperatureDeltas[this.getRandomInt(2, 4)] * 10;
+      }
+      else
+      {
+        this.gaugeUmiditaValue = this.gaugeUmiditaValue + this.temperatureDeltas[this.getRandomInt(1, 4)] * 10;
+      }
+    }
   }
 }
