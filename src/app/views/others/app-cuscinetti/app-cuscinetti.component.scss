@@ -28,7 +28,7 @@
 
 .schema-train
 {
-    margin-left: 33%;
+    margin-left: 25%;
     margin-top: -5vh;
 }
 
@@ -176,4 +176,9 @@
     display: grid !important;
     grid-template-columns: repeat(1, 107vh) !important;
     grid-template-rows: repeat(2, 42vh);
+}
+
+.mt--72
+{
+    margin: -9.5vh !important;
 }
