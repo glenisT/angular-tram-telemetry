@@ -7,6 +7,25 @@
     }
 }
 
+.legend
+{
+    display: grid;
+    grid-template-columns: repeat(3, 0.1fr);
+}
+
+.element
+{
+    display: flex;
+}
+
+.square
+{
+    height: 16px;
+    width: 16px;
+    margin-right: 5px;
+}
+
+
 .schema-train
 {
     margin-left: 33%;
