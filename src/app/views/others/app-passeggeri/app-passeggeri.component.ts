@@ -173,7 +173,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
       xAxis: {
         data: dataAxis,
         axisLabel: {
-          inside: true,
+          inside: false,
           color: '#fff',
         },
         axisTick: {
