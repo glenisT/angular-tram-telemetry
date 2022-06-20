@@ -8,6 +8,11 @@
     box-shadow: 0 0 0 10in #032d62;  
 }
 
+.chart-container
+{
+    width: 95%;
+}
+
 .ngx-gauge-ap-1
 {
     position: absolute;
@@ -53,6 +58,7 @@
 .graph-1
 {
     margin-top: -6%;
+    width: 56vw;
 }
 
 .redline
@@ -69,11 +75,13 @@
 .graph-2
 {
     margin-top: -19%;
+    width: 56vw;
 }
 
 .graph-3
 {
     margin-top: -34%;
+    width: 56vw;
 }
 
 .borders
