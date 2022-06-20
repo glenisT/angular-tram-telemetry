@@ -50,7 +50,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeChiusura1Label = "";
   gaugeChiusura1AppendText = "V";
   gaugeChiusura1Thickness = 20;
-  gaugeChiusura1ForegroundColor = "deepSkyBlue";
+  gaugeChiusura1ForegroundColor = "#ff0000";
   gaugeChiusura1BackgroundColor = "rgb(55, 55, 153)";
   gaugeChiusura1Size = 200;
 
