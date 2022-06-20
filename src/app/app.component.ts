@@ -54,7 +54,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     // this.layout.setAppLayout()
 
     //setTimeout(() => {
-      this.switchPages();
+      //this.switchPages();
     //}, 12000)
 
 
