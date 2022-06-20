@@ -61,7 +61,7 @@ export class AppCuscinettiComponent implements OnInit, AfterViewInit {
   gaugeStima3Value = 289;
   gaugeStima3ForegroundColor = "";
 
-  gaugeStima4Value = 99;
+  gaugeStima4Value = 56;
   gaugeStima4ForegroundColor = "";
 
   gaugeStima5Value = 125;
