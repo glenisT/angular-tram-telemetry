@@ -103,7 +103,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
           if(this.gaugePasseggeriValue >= this.gaugePasseggeriMax)
           {
             this.gaugePasseggeriValue = 70;
-            this.gaugePasseggeriLabel = "Numero pass alto!";
+            //this.gaugePasseggeriLabel = "Numero pass alto!";
             this.gaugePasseggeriForegroundColor = "red";
           }
         }
