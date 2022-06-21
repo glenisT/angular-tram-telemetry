@@ -29,8 +29,8 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   //used for creating and customizing the gauge chart
   gaugeTempType = "arch";
   gaugeTempValue = 23.5;
-  gaugeTempMin = 23.5;
-  gaugeTempMax = 24.5;
+  gaugeTempMin = 15;
+  gaugeTempMax = 30;
   gaugeTempLabel = "";
   gaugeTempAppendText = "°C";
   gaugeTempThickness = 20;
@@ -51,8 +51,8 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
 
   gaugeUmiditaType = "arch";
   gaugeUmiditaValue = 44;
-  gaugeUmiditaMin = 43;
-  gaugeUmiditaMax = 47;
+  gaugeUmiditaMin = 0;
+  gaugeUmiditaMax = 80;
   gaugeUmiditaLabel = "";
   gaugeUmiditaAppendText = "%";
   gaugeUmiditaThickness = 20;
@@ -127,11 +127,11 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
   async changeHumidity() {
     while (true) {
       await this.sleep(5000);
-      if(this.gaugeUmiditaValue == this.gaugeUmiditaMax)
+      if(this.gaugeUmiditaValue == 47)
       {
         this.gaugeUmiditaValue = this.gaugeUmiditaValue + this.temperatureDeltas[this.getRandomInt(1, 3)] * 10;
       }
-      else if(this.gaugeUmiditaValue == this.gaugeUmiditaMin)
+      else if(this.gaugeUmiditaValue == 43)
       {
         this.gaugeUmiditaValue = this.gaugeUmiditaValue + this.temperatureDeltas[this.getRandomInt(2, 4)] * 10;
       }
