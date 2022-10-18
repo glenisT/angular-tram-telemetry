@@ -104,29 +104,45 @@
   <div fxLayout="row wrap">
     <div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100">
       <div fxLayout="row wrap">
-        <div
-          *ngFor="let item of statCardList"
-          fxFlex="100"
-          fxFlex.sm="30"
-          fxFlex.gt-sm="30"
-        >
-          <mat-card
-            class="p-40"
-            fxFlex
-            fxLayout="row"
-            fxLayoutAlign="space-between center"
-          >
+
+        <div fxFlex="100" fxFlex.sm="90" fxFlex.gt-sm="90">
+          <mat-card class="p-40" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
             <div fxLayout="row" fxLayoutAlign="center center">
-              <mat-icon class="text-56 mat-color-{{item.color}}">{{
-                item.icon
+              <mat-icon class="text-56 mat-color-{{statCardList[0].color}}">{{
+                statCardList[0].icon
               }}</mat-icon>
               <div class="ml-12">
-                <p class="m-0 text-muted mb-4">{{ item.title }}</p>
-                <h5 class="m-0 mat-color-{{item.color}} text-40">{{ item.amount }}</h5>
+                <p class="m-0 text-muted mb-4">{{ statCardList[0].title }}</p>
+                <h5 class="m-0 mat-color-{{statCardList[0].color}} text-40">{{ statCardList[0].amount }}</h5>
+              </div>
+            </div>
+          </mat-card>
+
+          <mat-card class="p-40" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <mat-icon class="text-56 mat-color-{{statCardList[1].color}}">{{
+                statCardList[1].icon
+              }}</mat-icon>
+              <div class="ml-12">
+                <p class="m-0 text-muted mb-4">{{ statCardList[1].title }}</p>
+                <h5 class="m-0 mat-color-{{statCardList[1].color}} text-40">{{ statCardList[1].amount }}</h5>
+              </div>
+            </div>
+          </mat-card>
+
+          <mat-card class="p-40" fxFlex fxLayout="row" fxLayoutAlign="space-between center">
+            <div fxLayout="row" fxLayoutAlign="center center">
+              <mat-icon class="text-56 mat-color-{{statCardList[2].color}}">{{
+                statCardList[2].icon
+              }}</mat-icon>
+              <div class="ml-12">
+                <p class="m-0 text-muted mb-4">{{ statCardList[2].title }}</p>
+                <h5 class="m-0 mat-color-{{statCardList[2].color}} text-40">{{ statCardList[2].amount | numberFormat}}</h5>
               </div>
             </div>
           </mat-card>
         </div>
+        
       </div>
     </div>
   </div>
