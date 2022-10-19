@@ -1,3 +1,4 @@
+import { DatePipe } from "@angular/common";
 import {
   Component,
   OnInit,
@@ -102,7 +103,11 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ["name", "price", "available", "action"];
 
-  constructor(private themeService: ThemeService, private dataService: DataSaverService) {}
+  constructor(private themeService: ThemeService, private dataService: DataSaverService, public datepipe: DatePipe) {}
+  currentDateTime =this.datepipe.transform((new Date), 'h:mm:ss');
+  timeUpdate = setInterval(() => {
+    this.currentDateTime =this.datepipe.transform((new Date), 'h:mm:ss');
+  }, 1000);
 
   //waiting function
   sleep(ms) {

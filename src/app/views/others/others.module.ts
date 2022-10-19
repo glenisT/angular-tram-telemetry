@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule } from "@angular/router";
-import { CommonModule } from "@angular/common";
+import { CommonModule, DatePipe } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { MatButtonModule } from "@angular/material/button";
 import { MatCardModule } from "@angular/material/card";
@@ -49,6 +49,9 @@ import { NgxGaugeModule } from "ngx-gauge";
     AppPasseggeriComponent,
     AppCuscinettiComponent,
     AppPorteComponent
+  ],
+  providers: [
+    DatePipe
   ]
 })
 export class OthersModule {}
