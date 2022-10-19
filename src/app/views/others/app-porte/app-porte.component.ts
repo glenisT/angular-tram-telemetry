@@ -51,7 +51,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
   gaugeChiusura1Label = "";
   gaugeChiusura1AppendText = "V";
   gaugeChiusura1Thickness = 20;
-  gaugeChiusura1ForegroundColor = "#ff0000";
+  gaugeChiusura1ForegroundColor = "deepSkyBlue";
   gaugeChiusura1BackgroundColor = "rgb(55, 55, 153)";
   gaugeChiusura1Size = 200;
 
@@ -129,19 +129,59 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         await this.sleep(2000) //waitToOpenDoors
         this.data.push(this.randomData());  //open doors
         this.gaugeApertura1Value = Math.round(this.value);
+        if (this.gaugeApertura1Value >= 80) {
+          this.gaugeApertura1ForegroundColor = "#ff0000";
+        }
+        else {
+          this.gaugeApertura1ForegroundColor = "deepSkyBlue";
+        }
+
         this.data2.push(this.randomData2());  //open doors
         this.gaugeApertura2Value = Math.round(this.value);
+        if (this.gaugeApertura2Value >= 80) {
+          this.gaugeApertura2ForegroundColor = "#ff0000";
+        }
+        else {
+          this.gaugeApertura2ForegroundColor = "deepSkyBlue";
+        }
+
         this.data3.push(this.randomData3());  //open doors
         this.gaugeApertura3Value = Math.round(this.value);
+        if (this.gaugeApertura3Value >= 80) {
+          this.gaugeApertura3ForegroundColor = "#ff0000";
+        }
+        else {
+          this.gaugeApertura3ForegroundColor = "deepSkyBlue";
+        }
       //}
       await this.sleep(10000);  //waitToCloseDoors = totalTimeInStation - waitToOpenDoors
       //for (let i = 0; i < 4; i++) {
         this.data.push(this.randomData());  //close doors
         this.gaugeChiusura1Value = Math.round(this.value);
+        if (this.gaugeChiusura1Value >= 80) {
+          this.gaugeChiusura1ForegroundColor = "#ff0000";
+        }
+        else {
+          this.gaugeChiusura1ForegroundColor = "deepSkyBlue";
+        }
+
         this.data2.push(this.randomData2());  //close doors
         this.gaugeChiusura2Value = Math.round(this.value);
+        if (this.gaugeChiusura2Value >= 80) {
+          this.gaugeChiusura2ForegroundColor = "#ff0000";
+        }
+        else {
+          this.gaugeChiusura2ForegroundColor = "deepSkyBlue";
+        }
+        
         this.data3.push(this.randomData2());  //close doors
         this.gaugeChiusura3Value = Math.round(this.value);
+        if (this.gaugeChiusura3Value >= 80) {
+          this.gaugeChiusura3ForegroundColor = "#ff0000";
+        }
+        else {
+          this.gaugeChiusura3ForegroundColor = "deepSkyBlue";
+        }
       //}
     }
   }
