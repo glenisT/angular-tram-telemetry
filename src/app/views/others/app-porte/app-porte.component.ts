@@ -128,14 +128,20 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       //for (let i = 0; i < 4; i++) {
         await this.sleep(2000) //waitToOpenDoors
         this.data.push(this.randomData());  //open doors
+        this.gaugeApertura1Value = Math.round(this.value);
         this.data2.push(this.randomData2());  //open doors
+        this.gaugeApertura2Value = Math.round(this.value);
         this.data3.push(this.randomData3());  //open doors
+        this.gaugeApertura3Value = Math.round(this.value);
       //}
       await this.sleep(10000);  //waitToCloseDoors = totalTimeInStation - waitToOpenDoors
       //for (let i = 0; i < 4; i++) {
         this.data.push(this.randomData());  //close doors
+        this.gaugeChiusura1Value = Math.round(this.value);
         this.data2.push(this.randomData2());  //close doors
+        this.gaugeChiusura2Value = Math.round(this.value);
         this.data3.push(this.randomData2());  //close doors
+        this.gaugeChiusura3Value = Math.round(this.value);
       //}
     }
   }
