@@ -116,14 +116,14 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
 
   async changeRange()
   {
+    //display values on first screen
+    for (let i = 0; i < 25; i++) { //'i' sets how many values per single screen of the chart will be shown
+      this.data.push(this.preRandomData());
+      this.data2.push(this.preRandomData2());
+      this.data3.push(this.preRandomData3());
+    }
     for(let i = 0; i >= 0; i++)
     {
-      //display values on first screen
-      for (let i = 0; i < 25; i++) { //'i' sets how many values per single screen of the chart will be shown
-        this.data.push(this.preRandomData());
-        this.data2.push(this.preRandomData2());
-        this.data3.push(this.preRandomData3());
-      }
       await this.sleep(18000);  //waitForFullGiro 
       //for (let i = 0; i < 4; i++) {
         await this.sleep(2000) //waitToOpenDoors
@@ -248,7 +248,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
       };
     }, 1000);
 
-    this.clearData();
+    // this.clearData();
   }
 
   initPrimaPortaChartBar(theme) {
