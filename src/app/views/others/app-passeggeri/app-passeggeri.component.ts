@@ -312,7 +312,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
       },
       series: [
         {
-          data: [40, 45, 50, 52, 54, 56, 61, 59, 50],
+          data: [40, 45, 50, 52, 60, 58, 52, 50, 51],
           type: "line",
           areaStyle: {},
           smooth: false,
