@@ -239,6 +239,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         }
       },
       xAxis: {
+        show: false,
         type: 'time',        
         showGrid: false,
         boundaryGap: false,
@@ -365,6 +366,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         }
       },
       xAxis: {
+        show: false,
         type: 'time',        
         showGrid: false,
         boundaryGap: false,
@@ -491,6 +493,7 @@ export class AppPorteComponent implements OnInit, AfterViewInit {
         }
       },
       xAxis: {
+        show: false,
         type: 'time',        
         showGrid: false,
         boundaryGap: false,
