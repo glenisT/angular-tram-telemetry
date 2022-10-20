@@ -1,5 +1,5 @@
-$mat-primary: map-get($material-colors, blue);
-$mat-accent: map-get($material-colors, red);
+$mat-primary: map-get($material-colors, light-purple);
+$mat-accent: map-get($material-colors, orange);
 
 
 $matx-primary: mat-palette($mat-primary);
@@ -8,7 +8,7 @@ $matx-accent:  mat-palette($mat-accent);
 // custom theme palettes are passed into a theme function
 $matx-theme: mat-light-theme($matx-primary, $matx-accent);
 
-$primary-dark: darken( map-get($mat-primary, 900), 8% );
+$primary-dark: darken( map-get($mat-primary, 500), 8% );
 
 // Material theme is wrapped by a parent class
 .matx-light-purple {
@@ -30,7 +30,7 @@ $primary-dark: darken( map-get($mat-primary, 900), 8% );
     .sidenav-hold .sidenav li.open a .mat-icon:not(.menu-caret),
     .sidenav-hold .sidenav li.open > div > a > span:not(.menuitem-badge),
     .sidenav-hold .sidenav li.open > a > span {
-        color: map-get($mat-primary, 900) !important;
+        color: map-get($mat-primary, 500) !important;
     }
     .topnav ul.menu > li > div.open > a,
     .topnav ul.menu > li > div.open > div,
