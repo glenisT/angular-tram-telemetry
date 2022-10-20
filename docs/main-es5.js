@@ -3083,7 +3083,7 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
       selectors: [["app-sidebar-side"]],
       decls: 8,
       vars: 4,
-      consts: [[1, "sidebar-panel"], ["id", "scroll-area", "fxLayout", "column", 1, "navigation-hold", 3, "perfectScrollbar"], [1, "sidebar-hold"], ["id", "branding", 1, "branding", "px-20"], ["src", "../../../../assets/images/logos/TIM_noovle_logo_bn.png", "alt", "", 1, "app-logo"], ["src", "../../../../assets/images/logos/TIM_logo_BN.png", "alt", "", 1, "app-logo", 2, "margin-left", "15px"], ["style", "margin: auto", 4, "ngIf"], [3, "items", "hasIconMenu", "iconMenuTitle"], [2, "margin", "auto"]],
+      consts: [[1, "sidebar-panel"], ["id", "scroll-area", "fxLayout", "column", 1, "navigation-hold", 3, "perfectScrollbar"], [1, "sidebar-hold"], ["id", "branding", 1, "branding", "px-20"], ["src", "assets/images/logos/TIM_noovle_logo_bn.png", "alt", "", 1, "app-logo"], ["src", "assets/images/logos/TIM_logo_BN.png", "alt", "", 1, "app-logo", 2, "margin-left", "15px"], ["style", "margin: auto", 4, "ngIf"], [3, "items", "hasIconMenu", "iconMenuTitle"], [2, "margin", "auto"]],
       template: function SidebarSideComponent_Template(rf, ctx) {
         if (rf & 1) {
           _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
