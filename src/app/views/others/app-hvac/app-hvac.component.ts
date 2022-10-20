@@ -9,6 +9,7 @@ import tinyColor from "tinycolor2";
 import PerfectScrollbar from "perfect-scrollbar";
 import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
 import { DataSaverService } from "app/views/data-saver.service";
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: "app-blank",
@@ -80,7 +81,12 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
 
   displayedColumns: string[] = ["name", "price", "available", "action"];
 
-  constructor(private themeService: ThemeService, private data: DataSaverService) {}
+  constructor(private themeService: ThemeService, private data: DataSaverService, public datepipe: DatePipe) {}
+
+  currentDateTime =this.datepipe.transform((new Date), 'h:mm');
+  timeUpdate = setInterval(() => {
+    this.currentDateTime =this.datepipe.transform((new Date), 'h:mm');
+  }, 1000);
 
   message: number;
 
@@ -262,15 +268,15 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
         showGrid: false,
         boundaryGap: false,
         data: [
-          "14:19:30",
-          "14:20:00",
-          "14:20:30",
-          "14:21:00",
-          "14:21:30",
-          "14:22:00",
-          "14:22:30",
-          "14:23:00",
-          "14:23:30"
+          this.currentDateTime.replace (this.currentDateTime.charAt(this.currentDateTime.length - 1), (parseInt(this.currentDateTime.charAt(this.currentDateTime.length - 1)) - 4).toString()) + ':30',
+          this.currentDateTime.replace (this.currentDateTime.charAt(this.currentDateTime.length - 1), (parseInt(this.currentDateTime.charAt(this.currentDateTime.length - 1)) - 3).toString()) + ':00',
+          this.currentDateTime.replace (this.currentDateTime.charAt(this.currentDateTime.length - 1), (parseInt(this.currentDateTime.charAt(this.currentDateTime.length - 1)) - 3).toString()) + ':30',
+          this.currentDateTime.replace (this.currentDateTime.charAt(this.currentDateTime.length - 1), (parseInt(this.currentDateTime.charAt(this.currentDateTime.length - 1)) - 2).toString()) + ':00',
+          this.currentDateTime.replace (this.currentDateTime.charAt(this.currentDateTime.length - 1), (parseInt(this.currentDateTime.charAt(this.currentDateTime.length - 1)) - 2).toString()) + ':30',
+          this.currentDateTime.replace (this.currentDateTime.charAt(this.currentDateTime.length - 1), (parseInt(this.currentDateTime.charAt(this.currentDateTime.length - 1)) - 1).toString()) + ':00',
+          this.currentDateTime.replace (this.currentDateTime.charAt(this.currentDateTime.length - 1), (parseInt(this.currentDateTime.charAt(this.currentDateTime.length - 1)) - 1).toString()) + ':30',
+          this.currentDateTime + ':00',
+          this.currentDateTime + ':30'
         ],
         axisLabel: {
           color: "#ccc",
@@ -392,18 +398,17 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
         showGrid: false,
         boundaryGap: false,
         data: [
-          "14:23:19",
-          "14:23:20",
-          "14:23:21",
-          "14:23:22",
-          "14:23:23",
-          "14:23:24",
-          "14:23:25",
-          "14:23:26",
-          "14:23:27",
-          "14:23:28",
-          "14:23:29",
-          "14:23:30",
+          this.currentDateTime + ':20',
+          this.currentDateTime + ':21',
+          this.currentDateTime + ':22',
+          this.currentDateTime + ':23',
+          this.currentDateTime + ':24',
+          this.currentDateTime + ':25',
+          this.currentDateTime + ':26',
+          this.currentDateTime + ':27',
+          this.currentDateTime + ':28',
+          this.currentDateTime + ':29',
+          this.currentDateTime + ':30'
         ],
         axisLabel: {
           color: "#ccc",
