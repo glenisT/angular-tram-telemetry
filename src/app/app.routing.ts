@@ -61,6 +61,9 @@ export const rootRouterConfig: Routes = [
   },
   {
     path: "**",
-    redirectTo: "sessions/404",
+    // redirectTo: "sessions/404",
+
+    // for built app
+    redirectTo: "/tram/general",
   },
 ];
