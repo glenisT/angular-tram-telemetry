@@ -224,7 +224,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
     this.dioxideChartBar = {
       title: {
         show:true,
-        text:"Valore CO2",
+        text:"Temperatura",
         textStyle: {
           color: "white"
         }
@@ -252,7 +252,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       },
       series: [
         {
-          data: [500, 550, 560, 570, 590, 500, 520, 515, 540],
+          data: [18.4, 21.5, 21, 23.4, 24, 23.8, 24.2, 22, 25, 24.6],
           type: "line",
           areaStyle: {},
           smooth: false,
@@ -291,8 +291,8 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       },
       yAxis: {
         type: "value",
-        min: 300,
-        max: 800,
+        min: 0,
+        max: 30,
         axisLabel: {
           color: "#ccc",
           margin: 20,
@@ -354,7 +354,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
     this.pmvChartBar = {
       title: {
         show:true,
-        text:"Indice PMV",
+        text:"Umidita",
         textStyle: {
           color: "white"
         }
@@ -382,7 +382,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       },
       series: [
         {
-          data: [1, 1.1, 1.4, 1.3, 1.5, 1.3, 1.4, 1.5, 1, 1.2, 1.1, 1],
+          data: [40, 41, 42, 41, 44, 42, 44, 46, 45, 48, 44, 43],
           type: "line",
           areaStyle: {},
           smooth: false,
@@ -424,7 +424,7 @@ export class AppHvacComponent implements OnInit, AfterViewInit {
       yAxis: {
         type: "value",
         min: 0,
-        max: 3.0,
+        max: 100,
         axisLabel: {
           color: "#ccc",
           margin: 20,
