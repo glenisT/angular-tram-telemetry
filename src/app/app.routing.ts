@@ -45,12 +45,12 @@ export const rootRouterConfig: Routes = [
           import("./views/others/others.module").then((m) => m.OthersModule),
         data: { title: "", breadcrumb: "Passeggeri" },
       },
-      {
-        path: "cuscinetti",
-        loadChildren: () =>
-          import("./views/others/others.module").then((m) => m.OthersModule),
-        data: { title: "", breadcrumb: "Cuscinetti" },
-      },
+      // {
+      //   path: "cuscinetti",
+      //   loadChildren: () =>
+      //     import("./views/others/others.module").then((m) => m.OthersModule),
+      //   data: { title: "", breadcrumb: "Cuscinetti" },
+      // },
       {
         path: "porte",
         loadChildren: () =>

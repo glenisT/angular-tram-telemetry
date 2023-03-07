@@ -49,17 +49,17 @@ export class NavigationService {
       icon: "airline_seat_recline_normal",
       state: "passeggeri/telemetryPasseggeri"
     },
-    {
-      name: "Cuscinetti",
-      type: "link",
-      tooltip: "Cuscinetti",
-      icon: "noise_aware",
-      state: "cuscinetti/telemetryCuscinetti"
-    },
+    // {
+    //   name: "Cuscinetti",
+    //   type: "link",
+    //   tooltip: "Cuscinetti",
+    //   icon: "noise_aware",
+    //   state: "cuscinetti/telemetryCuscinetti"
+    // },
     {
       name: "Porte",
       type: "link",
-      tooltip: "Cuscinetti",
+      tooltip: "Porte",
       icon: "door_sliding",
       state: "porte/telemetryPorte"
     },

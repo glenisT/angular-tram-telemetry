@@ -47,7 +47,7 @@ import { NgxGaugeModule } from "ngx-gauge";
   declarations: [
     AppHvacComponent,
     AppPasseggeriComponent,
-    AppCuscinettiComponent,
+    // AppCuscinettiComponent,
     AppPorteComponent
   ],
   providers: [

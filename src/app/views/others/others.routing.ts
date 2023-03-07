@@ -22,11 +22,11 @@ export const OthersRoutes: Routes = [
         data: { title: 'Passeggeri', breadcrumb: '' }
       },
 
-      {
-        path: 'telemetryCuscinetti',
-        component: AppCuscinettiComponent,
-        data: { title: 'Cuscinetti', breadcrumb: '' }
-      },
+      // {
+      //   path: 'telemetryCuscinetti',
+      //   component: AppCuscinettiComponent,
+      //   data: { title: 'Cuscinetti', breadcrumb: '' }
+      // },
 
       {
         path: 'telemetryPorte',
