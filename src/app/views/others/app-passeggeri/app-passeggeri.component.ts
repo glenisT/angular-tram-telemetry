@@ -9,6 +9,7 @@ import tinyColor from "tinycolor2";
 import PerfectScrollbar from "perfect-scrollbar";
 import { WHITE_ON_BLACK_CSS_CLASS } from "@angular/cdk/a11y/high-contrast-mode/high-contrast-mode-detector";
 import { DataSaverService } from "app/views/data-saver.service";
+import { DatePipe } from "@angular/common";
 
 @Component({
   selector: "app-blank",
@@ -56,7 +57,27 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
 
   message: number;
 
-  constructor(private themeService: ThemeService, private data: DataSaverService) {}
+  constructor(private themeService: ThemeService, private data: DataSaverService, public datepipe: DatePipe) {}
+
+  // currentDateTime =this.datepipe.transform((new Date), 'h:mm');
+  // timeUpdate = setInterval(() => {
+  //   this.currentDateTime =this.datepipe.transform((new Date), 'h:mm');
+  // }, 1000);
+
+  // currentMinutes =  parseInt(this.currentDateTime.charAt(this.currentDateTime.length - 1)) + (parseInt(this.currentDateTime.charAt(this.currentDateTime.length - 2)) * 10);
+  // currentHour = parseInt(this.currentDateTime.charAt(this.currentDateTime.length - 4))
+
+  // morphDisplayedTime(){
+  //   if (this.currentMinutes - 10 < 0 && this.currentMinutes - 10 < 10) {
+  //     this.currentHour--;
+  //     this.currentMinutes = this.currentMinutes + 50;
+  //   }
+  //   else if(this.currentMinutes - 10 < 10 && this.currentMinutes - 10 > 0){
+  //     this.currentMinutes = parseInt('0' + this.currentMinutes);
+  //   }
+  // }
+
+  
 
   //waiting function
   sleep(ms) {
@@ -284,7 +305,7 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
     this.dbChartBar = {
       title: {
         show:true,
-        text:"Indice decibel",
+        text:"Passeggeri ultima ora",
         textStyle: {
           color: "white",
         }
@@ -328,15 +349,47 @@ export class AppPasseggeriComponent implements OnInit, AfterViewInit {
         showGrid: false,
         boundaryGap: false,
         data: [
-          "9:00-10:00",
-          "10:00-11:00",
-          "11:00-12:00",
-          "12:00-13:00",
-          "13:00-14:00",
-          "14:00-15:00",
-          "15:00-16:00",
-          "16:00-17:00",
-          "17:00-18:00",
+          "16:40",
+          "16:50",
+          "17:00",
+          "17:10",
+          "17:20",
+          "17:30",
+          "17:40",
+          "17:50",
+          "18:00",
+          // console.log(this.currentDateTime.toString()),
+          // console.log(this.currentDateTime.charAt(this.currentDateTime.length-1).toString()),
+          // console.log(this.currentDateTime.charAt(this.currentDateTime.length-2).toString()),
+          // console.log(this.currentDateTime.charAt(this.currentDateTime.length-3).toString()),
+          // console.log(this.currentDateTime.charAt(this.currentDateTime.length-4).toString()),
+          // console.log(this.currentDateTime.charAt(this.currentDateTime.length-5).toString()),
+          // console.log(this.currentMinutes),
+          // console.log(this.currentHour + ':' + this.currentMinutes),
+          // console.log(this.currentHour + ':' + (this.currentMinutes - 10)),
+          // console.log(this.currentHour + ':' + (this.currentMinutes - 20)),
+          // console.log(this.currentHour + ':' + (this.currentMinutes - 30)),
+          
+          
+          
+          
+          // this.currentHour + ':' + (this.currentMinutes - 80),
+          // this.morphDisplayedTime(),
+          // this.currentHour + ':' + (this.currentMinutes - 70),
+          // this.morphDisplayedTime(),
+          // this.currentHour + ':' + (this.currentMinutes - 60),
+          // this.morphDisplayedTime(),
+          // this.currentHour + ':' + (this.currentMinutes - 50),
+          // this.morphDisplayedTime(),
+          // this.currentHour + ':' + (this.currentMinutes - 40),
+          // this.morphDisplayedTime(),
+          // this.currentHour + ':' + (this.currentMinutes - 30),
+          // this.morphDisplayedTime(),
+          // this.currentHour + ':' + (this.currentMinutes - 20),
+          // this.morphDisplayedTime(),
+          // this.currentHour + ':' + (this.currentMinutes - 10),
+          // this.morphDisplayedTime(),
+          // this.currentHour + ':' + this.currentMinutes
         ],
         axisLabel: {
           color: "#ccc",
