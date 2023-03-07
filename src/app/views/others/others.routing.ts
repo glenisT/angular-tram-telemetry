@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { AppCuscinettiComponent } from './app-cuscinetti/app-cuscinetti.component';
 import { AppHvacComponent } from './app-hvac/app-hvac.component';
 import { AppPasseggeriComponent } from './app-passeggeri/app-passeggeri.component';
 import { AppPorteComponent } from './app-porte/app-porte.component';

@@ -66,6 +66,42 @@ export class AnalyticsComponent implements OnInit, AfterViewInit {
   gaugeUmiditaBackgroundColor = "rgb(55, 55, 153)";
   gaugeUmiditaSize = 300;
 
+  gaugeStimaType = "full";
+  gaugeStimaValue = 5;
+  gaugeStimaMin = 0;
+  gaugeStimaMax = 365;
+  gaugeStimaLabel = "gg";
+  gaugeStimaAppendText = "";
+  gaugeStimaThickness = 15;
+  gaugeStimaForegroundColor = "";
+  gaugeStimaBackgroundColor = "rgb(55, 55, 153)";
+  gaugeStimaMarkers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeStimaSize = 200;
+
+  gaugeStima2Type = "full";
+  gaugeStima2Value = 5;
+  gaugeStima2Min = 0;
+  gaugeStima2Max = 365;
+  gaugeStima2Label = "gg";
+  gaugeStima2AppendText = "";
+  gaugeStima2Thickness = 15;
+  gaugeStima2ForegroundColor = "";
+  gaugeStima2BackgroundColor = "rgb(55, 55, 153)";
+  gaugeStima2Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeStima2Size = 200;
+
+  gaugeStima3Type = "full";
+  gaugeStima3Value = 5;
+  gaugeStima3Min = 0;
+  gaugeStima3Max = 365;
+  gaugeStima3Label = "gg";
+  gaugeStima3AppendText = "";
+  gaugeStima3Thickness = 15;
+  gaugeStima3ForegroundColor = "";
+  gaugeStima3BackgroundColor = "rgb(55, 55, 153)";
+  gaugeStima3Markers = { "50": { color: "#555", type: "triangle", size: 8, label: "Goal", font: "12px arial" }};
+  gaugeStima3Size = 200;
+
   gaugeDuration = 500;
 
   statCardList = this.data.statCardList;

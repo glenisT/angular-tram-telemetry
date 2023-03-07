@@ -1,4 +1,7 @@
-<div class="mat-bg-primary mx--033 mt--033 px-24 pt-24 pb-96" id="graph-container">
+<!-- this div is used to create the borders in the grid -->
+<div class="borders"></div>
+
+<div class="mat-bg-primary mx--033 mt--033 px-24 pt-24 pb-92" id="graph-container">
 
   <!-- <h5 class="text-white font-weight-normal">20/05/2022 - 14:23:30</h5> -->
   <h1 class="text-white font-weight-normal">Informazioni generali</h1>
@@ -69,12 +72,60 @@
         </div>
     </div>
 
-    <div class="row2">
-      <div>
-        <h2 style="text-align: center; padding-bottom:10px">Cuscinetti</h2>
-        <!-- <div class="circles"></div>
-        <img src="../../../../assets/images/backgrounds/cuscinetti_schema.png" alt="schema" class="schema-train"> -->
-        <img src="assets/images/backgrounds/treno-colorato.png" alt="schema" class="schema-train">
+    <div class="row-2">
+      <div class="ngx-gauge-2">
+        <span style="display: flex; margin-left: 42%;">
+          <mat-icon style="position: absolute; left:85%; top: 15%;">thermostat</mat-icon>
+          <h3 class="text-white">Alert</h3>
+        </span>
+        <ngx-gauge [type]="gaugeStimaType" 
+               [value]="gaugeStimaValue" 
+               [min]="gaugeStimaMin"
+               [max]="gaugeStimaMax"
+               [label]="gaugeStimaLabel"  
+               [append]="gaugeStimaAppendText"
+               [thick]="gaugeStimaThickness"
+               [foregroundColor]="gaugeStimaForegroundColor"
+               [backgroundColor]="gaugeStimaBackgroundColor"
+               [size]="gaugeStimaSize" >
+        </ngx-gauge>
+      </div>
+    
+      <div class="ngx-gauge-2">
+        <span style="display: flex; margin-left: 42%;">
+          <mat-icon style="position: absolute; left:85%; top: 15%;">build</mat-icon>
+          <h3 class="text-white">Alert</h3>
+        </span>
+        <div class="circle" id="circle4"></div>
+        <ngx-gauge [type]="gaugeStima2Type" 
+               [value]="gaugeStima2Value" 
+               [min]="gaugeStimaMin"
+               [max]="gaugeStima2Max"
+               [label]="gaugeStima2Label"  
+               [append]="gaugeStima2AppendText"
+               [thick]="gaugeStima2Thickness"
+               [foregroundColor]="gaugeStima2ForegroundColor"
+               [backgroundColor]="gaugeStima2BackgroundColor"
+               [size]="gaugeStima2Size" >
+        </ngx-gauge>
+      </div>
+
+      <div class="ngx-gauge-2">
+        <span style="display: flex; margin-left: 42%;">
+          <mat-icon style="position: absolute; left:85%; top: 15%;">thermostat</mat-icon>
+          <h3 class="text-white">Alert</h3>
+        </span>
+        <ngx-gauge [type]="gaugeStima3Type" 
+               [value]="gaugeStima3Value" 
+               [min]="gaugeStima3Min"
+               [max]="gaugeStima3Max"
+               [label]="gaugeStima3Label"  
+               [append]="gaugeStima3AppendText"
+               [thick]="gaugeStima3Thickness"
+               [foregroundColor]="gaugeStima3ForegroundColor"
+               [backgroundColor]="gaugeStima3BackgroundColor"
+               [size]="gaugeStima3Size" >
+        </ngx-gauge>
       </div>
     </div>
 
