@@ -1,7 +1,7 @@
 <!-- this div is used to create the borders in the grid -->
 <div class="borders"></div>
 
-<div class="mat-bg-primary mx--033 mt--033 px-24 pt-24 pb-92" id="graph-container">
+<div class="mat-bg-primary mx--033 mt--033 px-24 pt-24 pb-95" id="graph-container">
 
   <!-- <h5 class="text-white font-weight-normal">20/05/2022 - 14:23:30</h5> -->
   <h1 class="text-white font-weight-normal">Informazioni generali</h1>
@@ -75,9 +75,11 @@
     <div class="row-2">
       <div class="ngx-gauge-2">
         <span style="display: flex; margin-left: 42%;">
-          <mat-icon style="position: absolute; left:85%; top: 15%;">thermostat</mat-icon>
           <h3 class="text-white">Alert</h3>
         </span>
+        <div class="circle" id="circle" style="display: flex; justify-content:center; align-items: center;">
+          <mat-icon style="position: absolute; left: 36%; top: 10%;">report_problem</mat-icon>
+        </div>
         <ngx-gauge [type]="gaugeStimaType" 
                [value]="gaugeStimaValue" 
                [min]="gaugeStimaMin"
@@ -89,14 +91,18 @@
                [backgroundColor]="gaugeStimaBackgroundColor"
                [size]="gaugeStimaSize" >
         </ngx-gauge>
+        <span style="display: flex; margin-left: 22%; margin-top: -10px;">
+          <h3 class="text-white">Alert time 10:11</h3>
+        </span>
       </div>
     
       <div class="ngx-gauge-2">
         <span style="display: flex; margin-left: 42%;">
-          <mat-icon style="position: absolute; left:85%; top: 15%;">build</mat-icon>
           <h3 class="text-white">Alert</h3>
         </span>
-        <div class="circle" id="circle4"></div>
+        <div class="circle" id="circle" style="display: flex; justify-content:center; align-items: center;">
+          <mat-icon style="position: absolute; left: 36%; top: 10%;">report_problem</mat-icon>
+        </div>
         <ngx-gauge [type]="gaugeStima2Type" 
                [value]="gaugeStima2Value" 
                [min]="gaugeStimaMin"
@@ -108,13 +114,18 @@
                [backgroundColor]="gaugeStima2BackgroundColor"
                [size]="gaugeStima2Size" >
         </ngx-gauge>
+        <span style="display: flex; margin-left: 22%; margin-top: -10px;">
+          <h3 class="text-white">Alert time 09:02</h3>
+        </span>
       </div>
 
       <div class="ngx-gauge-2">
         <span style="display: flex; margin-left: 42%;">
-          <mat-icon style="position: absolute; left:85%; top: 15%;">thermostat</mat-icon>
           <h3 class="text-white">Alert</h3>
         </span>
+        <div class="circle" id="circle" style="display: flex; justify-content:center; align-items: center;">
+          <mat-icon style="position: absolute; left: 36%; top: 10%;">report_problem</mat-icon>
+        </div>
         <ngx-gauge [type]="gaugeStima3Type" 
                [value]="gaugeStima3Value" 
                [min]="gaugeStima3Min"
@@ -126,6 +137,9 @@
                [backgroundColor]="gaugeStima3BackgroundColor"
                [size]="gaugeStima3Size" >
         </ngx-gauge>
+        <span style="display: flex; margin-left: 22%; margin-top: -10px;">
+          <h3 class="text-white">Alert time 12:27</h3>
+        </span>
       </div>
     </div>
 
