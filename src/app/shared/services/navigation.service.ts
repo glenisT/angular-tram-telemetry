@@ -56,13 +56,13 @@ export class NavigationService {
     //   icon: "noise_aware",
     //   state: "cuscinetti/telemetryCuscinetti"
     // },
-    {
-      name: "Porte",
-      type: "link",
-      tooltip: "Porte",
-      icon: "door_sliding",
-      state: "porte/telemetryPorte"
-    },
+    // {
+    //   name: "Porte",
+    //   type: "link",
+    //   tooltip: "Porte",
+    //   icon: "door_sliding",
+    //   state: "porte/telemetryPorte"
+    // },
   ];
 
 

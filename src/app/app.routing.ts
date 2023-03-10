@@ -51,12 +51,12 @@ export const rootRouterConfig: Routes = [
       //     import("./views/others/others.module").then((m) => m.OthersModule),
       //   data: { title: "", breadcrumb: "Cuscinetti" },
       // },
-      {
-        path: "porte",
-        loadChildren: () =>
-          import("./views/others/others.module").then((m) => m.OthersModule),
-        data: { title: "", breadcrumb: "Porte" },
-      },
+      // {
+      //   path: "porte",
+      //   loadChildren: () =>
+      //     import("./views/others/others.module").then((m) => m.OthersModule),
+      //   data: { title: "", breadcrumb: "Porte" },
+      // },
     ],
   },
   {

@@ -25,7 +25,7 @@ import { SharedMaterialModule } from "app/shared/shared-material.module";
 import { OthersRoutes } from "./others.routing";
 import { AppHvacComponent } from "./app-hvac/app-hvac.component";
 import { AppPasseggeriComponent } from "./app-passeggeri/app-passeggeri.component";
-import { AppPorteComponent } from "./app-porte/app-porte.component";
+//import { AppPorteComponent } from "./app-porte/app-porte.component";
 import { NgxEchartsModule } from "ngx-echarts";
 import { NgxGaugeModule } from "ngx-gauge";
 
@@ -47,7 +47,7 @@ import { NgxGaugeModule } from "ngx-gauge";
     AppHvacComponent,
     AppPasseggeriComponent,
     // AppCuscinettiComponent,
-    AppPorteComponent
+    //AppPorteComponent
   ],
   providers: [
     DatePipe

@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 import { AppHvacComponent } from './app-hvac/app-hvac.component';
 import { AppPasseggeriComponent } from './app-passeggeri/app-passeggeri.component';
-import { AppPorteComponent } from './app-porte/app-porte.component';
+//import { AppPorteComponent } from './app-porte/app-porte.component';
 
 
 export const OthersRoutes: Routes = [
@@ -27,11 +27,11 @@ export const OthersRoutes: Routes = [
       //   data: { title: 'Cuscinetti', breadcrumb: '' }
       // },
 
-      {
-        path: 'telemetryPorte',
-        component: AppPorteComponent,
-        data: { title: 'Porte', breadcrumb: '' }
-      }
+      // {
+      //   path: 'telemetryPorte',
+      //   component: AppPorteComponent,
+      //   data: { title: 'Porte', breadcrumb: '' }
+      // }
     ]
   }
 ];
